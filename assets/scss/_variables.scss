@@ -1,0 +1,203 @@
+// assets/scss/_variables.scss
+// Guía de estilo completa — colores, tipografía y grid
+
+// ─── Google Fonts import ──────────────────────────────────────────────────────
+// Agregar en functions.php con wp_enqueue_style()
+// URL: https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,800&display=swap
+
+// =============================================================================
+// 1. PALETA CROMÁTICA
+// =============================================================================
+ 
+// Primarios
+$primary-indigo:  #201547;
+$primary-blue:    #2E3E80;
+$primary-yellow:  #FBB413;
+$shade-white:     #DFE2EE;
+ 
+// Acentos
+$accent-magenta:  #C20054;
+$accent-cobalt:   #0E4FBF;
+$accent-yellow:   #FBE122;
+$accent-teal:     #9AC7EF;
+ 
+// Neutros
+$main-black:      #1C1B1F;
+$main-white:      #F0F0F0;
+ 
+ 
+// ─── Mapeo semántico Bootstrap ────────────────────────────────────────────────
+$primary:         $primary-blue;
+$secondary:       $primary-indigo;
+$success:         #198754;
+$danger:          $accent-magenta;
+$warning:         $primary-yellow;
+$info:            $accent-cobalt;
+$light:           $shade-white;
+$dark:            $primary-indigo;
+ 
+$body-bg:         $main-white;
+$body-color:      $main-black;
+ 
+$link-color:      $accent-cobalt;
+$link-hover-color: $primary-blue;
+ 
+// ─── Mapa extendido (genera clases .bg-* y .text-*) ──────────────────────────
+$custom-colors: (
+  'primary-indigo': $primary-indigo,
+  'primary-blue':   $primary-blue,
+  'primary-yellow': $primary-yellow,
+  'shade-white':    $shade-white,
+  'accent-magenta': $accent-magenta,
+  'accent-cobalt':  $accent-cobalt,
+  'accent-yellow':  $accent-yellow,
+  'accent-teal':    $accent-teal,
+  'main-black':     $main-black,
+  'main-white':     $main-white,
+);
+
+// =============================================================================
+// 2. TIPOGRAFÍA
+// =============================================================================
+ 
+// ─── Familias ─────────────────────────────────────────────────────────────────
+$font-family-sans-serif:  'Montserrat', system-ui, sans-serif;
+$headings-font-family:    'Montserrat', sans-serif;
+ 
+// ─── Pesos disponibles ────────────────────────────────────────────────────────
+// 400 Regular, 500 Medium, 600 Semibold, 700 Bold, 800 Extrabold
+ 
+// ─── Base (desktop) ───────────────────────────────────────────────────────────
+$font-size-base:      1.25rem;   // 20px — Body 1 desktop
+$font-weight-base:    400;       // Regular
+$line-height-base:    1.35;      // 135%
+ 
+// ─── Headings desktop ─────────────────────────────────────────────────────────
+// Bootstrap usa estos como tamaño base (se sobreescriben por breakpoint via mixin)
+$h1-font-size:        3.75rem;   // 60px
+$h2-font-size:        2.625rem;  // 42px
+$h3-font-size:        1.8125rem; // 29px
+$h4-font-size:        1.5rem;    // 24px
+$h5-font-size:        1.25rem;   // 20px
+$h6-font-size:        1rem;      // 16px
+ 
+$headings-font-weight:  700;     // Bold por defecto (H3/H4)
+$headings-line-height:  1.15;
+$headings-color:        $primary-indigo;
+ 
+// ─── Escala responsive completa por breakpoint ────────────────────────────────
+// Se aplican en _typography.scss con media-breakpoint-up()
+//
+// DESKTOP (xl: 1440px)
+//   H1: 60px / 120% / tracking -2%   — Extrabold (800)
+//   H2: 42px / 110% / tracking -2%   — Extrabold (800)
+//   H3: 29px / 115% / tracking -1%   — Bold (700)
+//   H4: 24px / 125% / tracking -1%   — Bold (700)
+//   Cita textual:           20px / 125% / -1% — Alternates Semibold Italic
+//   Cita textual destacada: 20px / 125% / -1% — Alternates Extrabold Italic
+//   Body 1:      20px / 135% / 0%    — Regular (400)
+//   Body 1 Bold: 20px / 135% / 0%    — Semibold (600)
+//   Body 2:      16px / 135% / 0%    — Semibold (600)
+//   Body 2 Bold: 16px / 135% / -2%   — Semibold (600)
+//   Cita normal: 16px / 135% / 0%    — Italic (400)
+//   Rótulos pequeños: 16px / 125% / 0% — Bold (700)
+//   Hipervínculo: 16px / 125% / 0%   — Bold Subrayado
+//   Notas:       13px / 135% / 0%    — Semibold (600)
+//
+// TABLET (md: 768px)
+//   H1: 48px / 125% / -2%   — Extrabold (800)
+//   H2: 24px / 125% / -2%   — Extrabold (800)
+//   H3: 20px / 125% / -2%   — Bold (700)
+//   H4: 20px / 125% / -2%   — Bold (700)
+//   Cita textual:           20px / 125% / -1% — Alternates Medium Italic
+//   Cita textual destacada: 20px / 125% / -1% — Alternates Semibold Italic
+//   Body 1:      18px / 135% / 0%    — Regular (400)
+//   Body 1 Bold: 18px / 135% / -1.5% — Semibold (600)
+//   Body 2:      14px / 135% / 0%    — Semibold (600)
+//   Body 2 Bold: 14px / 135% / -2%   — Semibold (600)
+//   Hipervínculo: 14px / 135% / 0%   — Bold Subrayado
+//   Botones:     14px / 135% / 0%    — Medium (500)
+//   Notas:       8px  / 135% / 0%    — Medium (500)
+//
+// MOBILE (sm: 375px)
+//   H1: 36px / 125% / -2%   — Extrabold (800)
+//   H2: 26px / 125% / -2%   — Extrabold (800)
+//   H3: 22px / 125% / -2%   — Bold (700)
+//   H4: 20px / 125% / -2%   — Bold (700)
+//   Cita textual:           18px / 125% / -1% — Alternates Semibold Italic
+//   Cita textual destacada: 18px / 125% / -1% — Alternates Extrabold Italic
+//   Body 1:      16px / 135% / 0%    — Regular (400)
+//   Body 1 Bold: 16px / 135% / -3%   — Semibold (600)
+//   Body 2:      12px / 135% / 0%    — Semibold (600)
+//   Body 2 Bold: 12px / 135% / -2%   — Semibold (600)
+//   Botones:     13px / 135% / 0%    — Medium (500)
+//   Notas:       9px  / 120% / 0%    — Medium (500)
+//   Labels:      7px  / 135% / 0%    — Semibold (600)
+//   Cita normal: 16px / 135% / 0%    — Italic (400)
+//   Rótulos pequeños: 16px / 125% / 0% — Bold (700)
+//   Hipervínculo: 12px / 135% / 0%   — Semibold Subrayado
+
+// =============================================================================
+// 3. GRID Y RETÍCULA
+// =============================================================================
+ 
+$grid-columns:      12;
+$grid-gutter-width: 16px; // medianil de 16px en todos los breakpoints
+ 
+// ─── Breakpoints ──────────────────────────────────────────────────────────────
+$grid-breakpoints: (
+  xs:   0,
+  sm:   375px,   // mobile
+  md:   768px,   // tablet
+  lg:   992px,   // intermedio (por si se necesita)
+  xl:   1440px,  // desktop
+);
+ 
+// ─── Anchos máximos del contenedor ───────────────────────────────────────────
+$container-max-widths: (
+  sm:   375px,
+  md:   768px,
+  lg:   960px,
+  xl:   1440px,
+);
+
+// =============================================================================
+// 4. COMPONENTES
+// =============================================================================
+ 
+// ─── Bordes y radios ─────────────────────────────────────────────────────────
+$border-radius:     .375rem;  // 6px
+$border-radius-lg:  .75rem;   // 12px
+$border-radius-xl:  1rem;     // 16px
+ 
+// ─── Sombras ─────────────────────────────────────────────────────────────────
+$box-shadow:        0 .25rem 1rem rgba($main-black, .08);
+$box-shadow-lg:     0 .5rem 2rem rgba($main-black, .12);
+ 
+// ─── Botones ─────────────────────────────────────────────────────────────────
+$btn-font-weight:   500;      // Medium
+$btn-border-radius: $border-radius;
+$btn-padding-x:     1.5rem;
+$btn-padding-y:     .6rem;
+ 
+// ─── Navbar ──────────────────────────────────────────────────────────────────
+$navbar-padding-y:            1rem;
+$navbar-brand-font-size:      1.4rem;
+$navbar-light-color:          $primary-indigo;
+$navbar-light-hover-color:    $accent-cobalt;
+$navbar-light-active-color:   $primary-blue;
+ 
+// ─── Espaciado extendido ─────────────────────────────────────────────────────
+$spacer: 1rem;
+ 
+$spacers: (
+  0:  0,
+  1:  $spacer * .25,   //  4px
+  2:  $spacer * .5,    //  8px
+  3:  $spacer,         // 16px
+  4:  $spacer * 1.5,   // 24px
+  5:  $spacer * 3,     // 48px
+  6:  $spacer * 4,     // 64px
+  7:  $spacer * 5,     // 80px
+  8:  $spacer * 6,     // 96px
+);

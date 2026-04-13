@@ -1,0 +1,23 @@
+# Node
+node_modules/
+#package.json
+#package-lock.json
+
+# SCSS (opcional: no subir fuentes si no quieres)
+#assets/scss/
+
+# Archivos de desarrollo
+.vscode/
+*.log
+*.map
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Entorno
+.env
+
+# Archivos temporales
+*.tmp
+*.cache

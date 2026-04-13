@@ -1,0 +1,267 @@
+// =============================================================================
+// base/_typography.scss
+// Escala tipográfica responsive — Desktop / Tablet / Mobile
+// Requiere que _variables.scss esté cargado antes via main.scss
+// =============================================================================
+
+
+// ─── Helpers internos ────────────────────────────────────────────────────────
+
+// Convierte tracking de % a em (ej: -2% → -0.02em)
+// Uso: letter-spacing: track(-2);
+@function track($percent) {
+  @return $percent * 0.01em;
+}
+
+
+// =============================================================================
+// HEADINGS — escala responsive
+// =============================================================================
+
+h1, .h1 {
+  font-weight: 800; // Extrabold
+  font-size:        2.25rem;    // mobile: 36px
+  line-height:      1.25;
+  letter-spacing:   track(-2);
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:      3rem;             // 48px
+    line-height:    1.25;
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:      3.75rem;          // 60px
+    line-height:    1.20;
+  }
+}
+
+h2, .h2 {
+  font-weight: 800; // Extrabold
+  font-size:        1.625rem;   // mobile: 26px
+  line-height:      1.25;
+  letter-spacing:   track(-2);
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:      1.5rem;           // 24px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:      2.625rem;         // 42px
+    line-height:    1.10;
+  }
+}
+
+h3, .h3 {
+  font-weight: 700; // Bold
+  font-size:        1.375rem;   // mobile: 22px
+  line-height:      1.25;
+  letter-spacing:   track(-2);
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:      1.25rem;          // 20px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:      1.8125rem;        // 29px
+    line-height:    1.15;
+    letter-spacing: track(-1);
+  }
+}
+
+h4, .h4 {
+  font-weight: 700; // Bold
+  font-size:        1.25rem;    // mobile: 20px
+  line-height:      1.25;
+  letter-spacing:   track(-2);
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:      1.25rem;          // 20px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:      1.5rem;           // 24px
+    line-height:    1.25;
+    letter-spacing: track(-1);
+  }
+}
+
+
+// =============================================================================
+// BODY — estilos base y variantes
+// =============================================================================
+
+body {
+  font-family:    $font-family-sans-serif;
+  font-weight:    400;
+  font-size:      1rem;         // mobile: 16px
+  line-height:    1.35;
+  letter-spacing: 0;
+  color:          $body-color;
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:    1.125rem;           // 18px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:    1.25rem;            // 20px
+  }
+}
+
+// Body 1 Bold
+.body-bold {
+  font-weight:    600; // Semibold
+
+  @include media-breakpoint-up(xl) {
+    letter-spacing: 0;
+  }
+}
+
+// Body 2 (secundario)
+.body-2 {
+  font-size:      0.75rem;      // mobile: 12px
+  font-weight:    600;          // Semibold
+  line-height:    1.35;
+  letter-spacing: 0;
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:    0.875rem;           // 14px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:    1rem;               // 16px
+  }
+}
+
+// Body 2 Bold
+.body-2-bold {
+  @extend .body-2;
+  font-weight:    600;
+
+  @include media-breakpoint-up(md) {
+    letter-spacing: track(-2);
+  }
+
+  @include media-breakpoint-up(xl) {
+    letter-spacing: track(-2);
+  }
+}
+
+
+// =============================================================================
+// CITAS
+// =============================================================================
+
+// Cita textual
+.cita,
+blockquote {
+  font-style:     italic;
+  font-weight:    600;          // Semibold Italic (desktop)
+  font-size:      1.125rem;     // mobile: 18px
+  line-height:    1.25;
+  letter-spacing: track(-1);
+
+  @include media-breakpoint-up(md) {  // tablet: Medium Italic
+    font-size:    1.25rem;            // 20px
+    font-weight:  500;
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop: Alternates Semibold Italic
+    font-size:    1.25rem;            // 20px
+    font-weight:  600;
+  }
+}
+
+// Cita textual destacada
+.cita-destacada {
+  @extend .cita;
+  font-weight:    800;          // Extrabold Italic en todos los breakpoints
+}
+
+// Cita normal (inline)
+.cita-normal {
+  font-style:     italic;
+  font-weight:    400;
+  font-size:      1rem;         // 16px en todos los breakpoints
+  line-height:    1.35;
+  letter-spacing: 0;
+}
+
+
+// =============================================================================
+// ELEMENTOS UI
+// =============================================================================
+
+// Rótulos pequeños
+.label-small,
+.rotulo-pequeno {
+  font-weight:    700;          // Bold
+  font-size:      1rem;         // 16px
+  line-height:    1.25;
+  letter-spacing: 0;
+}
+
+// Hipervínculos
+a,
+.hyperlink {
+  font-weight:    700;
+  text-decoration: underline;
+  color:          $link-color;
+  letter-spacing: 0;
+
+  font-size:      0.75rem;      // mobile: 12px
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:    0.875rem;           // 14px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:    1rem;               // 16px
+  }
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+// Botones (tipografía base)
+.btn,
+button {
+  font-weight:    500;          // Medium
+
+  font-size:      0.8125rem;    // mobile: 13px
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:    0.875rem;           // 14px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop — hereda font-size-base
+    font-size:    1rem;
+  }
+}
+
+// Notas / texto pequeño
+.nota,
+small,
+.small {
+  font-weight:    500;          // Medium
+
+  font-size:      0.5625rem;    // mobile: 9px
+  line-height:    1.20;
+
+  @include media-breakpoint-up(md) {  // tablet
+    font-size:    0.5rem;             // 8px
+  }
+
+  @include media-breakpoint-up(xl) {  // desktop
+    font-size:    0.8125rem;          // 13px
+    line-height:  1.35;
+  }
+}
+
+// Labels (solo mobile)
+.label {
+  font-weight:    600;          // Semibold
+  font-size:      0.4375rem;    // 7px
+  line-height:    1.35;
+  letter-spacing: 0;
+}
