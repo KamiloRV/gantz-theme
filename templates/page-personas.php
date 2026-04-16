@@ -1,7 +1,7 @@
 <?php get_template_part('template-parts/header'); ?>
 
 <main>
-    <h2 class="h1">Inicio</h2>
+    <h1>Personas</h1>
 </main>
 
 <?php get_template_part('template-parts/footer'); ?>

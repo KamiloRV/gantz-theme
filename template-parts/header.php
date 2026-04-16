@@ -56,7 +56,7 @@ $social_links = [
         <h2 id="social-menu" class="hidden">Menú de Redes Sociales</h2>
         <div class="container">
             <div class="menus">
-                <a class="navbar-link body-2" href="#" rel="noopener" aria-label="Transpariencia">Transpariencia</a>
+                <a class="navbar-link nota" href="#" rel="noopener" aria-label="Transpariencia">Transpariencia</a>
                 <ul class="social-menu">
                     <li class="social-item">
                         <a class="social-link" href="<?php echo esc_url($social_links['instagram']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['instagram']['label']); ?>">
@@ -105,7 +105,7 @@ $social_links = [
             <div class="navbar-content">
                 <?php if (is_front_page()) : ?>
                     <h1 class="m-0" aria-label="<?php echo esc_attr($site_name); ?>">
-                        <a class="navbar-logo" href="#">
+                        <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr($site_name); ?>">
                             <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
                             </svg>

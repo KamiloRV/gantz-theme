@@ -12561,15 +12561,8 @@ small,
   align-items: center;
   justify-content: flex-start;
   color: #2E3E80;
-  background-color: #DFE2EE;
+  background-color: none;
   border-bottom: 1px solid rgba(46, 62, 128, 0.3);
-}
-.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item:hover {
-  background-color: rgba(46, 62, 128, 0.4);
-  color: #1C1B1F;
-}
-.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item:hover > a {
-  font-weight: 600;
 }
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item > a {
   display: inline-flex;
@@ -12579,13 +12572,21 @@ small,
   padding: 0;
   padding: 11px 12px;
   color: #2E3E80;
+  background-color: #DFE2EE;
+}
+.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item > a:hover {
+  background-color: rgba(46, 62, 128, 0.4);
+  font-weight: 600;
 }
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item:last-child {
   border-bottom: none;
   border-radius: 0 0 12px 12px;
 }
+.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item:last-child > a {
+  border-radius: 0 0 12px 12px;
+}
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item-has-children > a::after {
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) scale(1.17);
 }
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item-has-children .sub-menu {
   left: 100%;
@@ -12593,14 +12594,35 @@ small,
 }
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item-has-children.open {
   border-radius: 0 0 0px 12px;
+}
+.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item-has-children.open > a {
   background-color: rgba(46, 62, 128, 0.4);
+  font-weight: 600;
+}
+.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu .menu-item-has-children.open > a::after {
+  transform: rotate(90deg) scale(1.17);
 }
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.open > a {
   color: #FBB413;
   font-weight: 600;
+  opacity: 1;
 }
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.open > a::after {
   transform: rotate(180deg) scale(1.17);
+}
+.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.current-menu-parent > a, .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.current-menu-ancestor > a {
+  color: #FBB413;
+  font-weight: 600;
+  opacity: 1;
+}
+.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.current-menu-parent .current-menu-item > a, .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.current-menu-parent .current-menu-ancestor > a, .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.current-menu-ancestor .current-menu-item > a, .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children.current-menu-ancestor .current-menu-ancestor > a {
+  background-color: rgba(46, 62, 128, 0.4);
+  font-weight: 600;
+}
+.gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.current-menu-item > a {
+  color: #FBB413;
+  font-weight: 600;
+  opacity: 1;
 }
 .gantz-header .gantz-navbar .navbar-content .navbar-controls {
   display: flex;

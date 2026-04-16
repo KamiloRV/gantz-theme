@@ -209,7 +209,7 @@ add_action( 'wp_head', 'gantz_meta_description' );
 
 
 /* =============================================================================
-   5. PLANTILLAS DE PÁGINA (carpeta /pages/)
+   5. PLANTILLAS DE PÁGINA (carpeta /templates/)
 ============================================================================= */
 
 /**
