@@ -1,50 +1,24 @@
 // assets/scss/main.scss
 
-// 1. Variables 
-@use 'variables' as *;
+// 1. Variables
+@import 'variables';
 
-// 2. Bootstrap
-@use '../../node_modules/bootstrap/scss/functions';
-@use '../../node_modules/bootstrap/scss/variables'   as bs-vars;
-@use '../../node_modules/bootstrap/scss/maps';
-@use '../../node_modules/bootstrap/scss/mixins';
-// Fusionar colores propios con el mapa de Bootstrap
-// Esto genera .bg-*, .text-*, .btn-* para todos tus colores
-$theme-colors: map-merge(bs-vars.$theme-colors, $custom-colors);
-@use '../../node_modules/bootstrap/scss/utilities';
-
-// Componentes de Bootstrap
-@use '../../node_modules/bootstrap/scss/root';
-@use '../../node_modules/bootstrap/scss/reboot';
-@use '../../node_modules/bootstrap/scss/type';
-@use '../../node_modules/bootstrap/scss/images';
-@use '../../node_modules/bootstrap/scss/containers';
-@use '../../node_modules/bootstrap/scss/grid';
-// @use '../../node_modules/bootstrap/scss/tables';
-// @use '../../node_modules/bootstrap/scss/forms';
-// @use '../../node_modules/bootstrap/scss/buttons';
-// @use '../../node_modules/bootstrap/scss/transitions';
-// @use '../../node_modules/bootstrap/scss/dropdown';
-// @use '../../node_modules/bootstrap/scss/nav';
-// @use '../../node_modules/bootstrap/scss/navbar';
-// @use '../../node_modules/bootstrap/scss/card';
-// @use '../../node_modules/bootstrap/scss/accordion';
-// @use '../../node_modules/bootstrap/scss/modal';
-// @use '../../node_modules/bootstrap/scss/utilities/api';
+// 2. Bootstrap completo
+@import '../../node_modules/bootstrap/scss/bootstrap';
 
 // 3. Base del tema
-@use 'base/reset';
-@use 'base/typography';
-@use 'base/global';
-@use 'base/animations';
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/global';
+//@import 'base/animations';
 
 // 4. Componentes propios
-@use 'components/navbar';
-@use 'components/hero';
-@use 'components/cards';
-@use 'components/footer';
-@use 'components/forms';
+@import 'components/navbar';
+//@import 'components/hero';
+//@import 'components/cards';
+@import 'components/footer';
+//@import 'components/forms';
 
 // 5. Utilidades propias
-@use 'utilities/mixins';
-@use 'utilities/helpers';
+//@import 'utilities/mixins';
+//@import 'utilities/helpers';

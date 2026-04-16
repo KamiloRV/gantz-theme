@@ -3,7 +3,7 @@
  * functions.php
  * 
  * Prefijo: gantz_
- * Texto del dominio: gantz
+ * Texto del dominio: 'gantz'
  */
 
 defined( 'ABSPATH' ) || exit; // Seguridad: evita acceso directo al archivo
@@ -66,7 +66,7 @@ function gantz_enqueue_assets() {
     // Google Fonts
     wp_enqueue_style(
         'google-fonts',
-        'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Slab:wght@100..900&display=swap',
+        'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,800&display=swap',
         [],
         null
     );
