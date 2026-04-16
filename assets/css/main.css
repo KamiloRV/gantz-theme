@@ -12540,7 +12540,7 @@ small,
 .gantz-header .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu {
   position: absolute;
   display: none;
-  width: 250px;
+  width: 252px;
   height: max-content;
   flex-direction: column;
   align-items: flex-start;
