@@ -49,7 +49,9 @@ $social_links = [
 ];
 ?>
 
-<header role="banner" id="gantz-header" class="gantz-header">
+<?php // Header Principal ?>
+<header role="banner" class="gantz-header">
+    <h1 class="hidden">Cabecera del Sitio</h1>
     <?php // Menú secundario del header // Todos los accesos deben ser editables ?> 
     <nav aria-labelledby="social-menu" class="top-menu">
         <?php // class hidden para el título del menú ?>
@@ -104,20 +106,21 @@ $social_links = [
         <div class="container">
             <div class="navbar-content">
                 <?php if (is_front_page()) : ?>
-                    <h1 class="m-0" aria-label="<?php echo esc_attr($site_name); ?>">
-                        <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr($site_name); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
-                            </svg>
-                        </a>
-                    </h1>
+                    <?php // Logo de la pagina Inicio ?>
+                    <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr($site_name); ?>">
+                        <svg aria-hidden="true" focusable="false">
+                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                        </svg>
+                    </a>
                 <?php else : ?>
+                    <?php // Logo de las otras paginas ?>
                     <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="Ir al inicio — <?php echo esc_attr($site_name); ?>">
                         <svg aria-hidden="true" focusable="false">
                             <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
                         </svg>
                     </a>
                 <?php endif; ?>
+                <?php // Acciones móviles (CTA Donar y Boton Hamburgesa) ?>
                 <div class="mobile-actions">
                     <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>">
                         <svg aria-hidden="true" focusable="false">
@@ -125,7 +128,15 @@ $social_links = [
                         </svg>
                         Dona
                     </a>
-                    <button class="navbar-toggle" aria-controls="mobile-nav" aria-expanded="false" aria-label="Abrir menú de navegación">
+                    <button 
+                        class="navbar-toggle" 
+                        aria-controls="mobile-nav" 
+                        aria-expanded="false" 
+                        aria-label="Abrir menú de navegación" 
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#navOffcanvas"
+                        aria-controls="navOffcanvas"
+                        aria-expanded="false" >
                         <span class="hamburger">
                             <svg aria-hidden="true" focusable="false">
                                 <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#menu" />
@@ -133,6 +144,7 @@ $social_links = [
                         </span>
                     </button>
                 </div>
+                <?php // Navbar principal (Escritorio) ?>
                 <div class="navbar-nav">
                     <?php
                     wp_nav_menu([
@@ -145,6 +157,7 @@ $social_links = [
                     ]);
                     ?>
                 </div>
+                <?php // Controles de la navbar Escritorio (CTA Donar y Buscar) ?>
                 <div class="navbar-controls">
                     <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>">
                         <svg aria-hidden="true" focusable="false">
@@ -162,3 +175,112 @@ $social_links = [
         </div>
     </nav>
 </header>
+
+<?php // Header Mobile (Offcanvas) ?>
+<div role="banner" class="gantz-mobile-header offcanvas offcanvas-end" tabindex="-1" id="navOffcanvas" aria-labelledby="navOffcanvasLabel">
+    <h2 id="navOffcanvasLabel" class="hidden">Cabecera del sitio</h2>
+    <div aria-labelledby="mobile-menu" class="gantz-navbar mobile header-offcanvas">
+        <h2 id="mobile-menu" class="hidden">Menú de navegación</h2>
+        <div class="container">
+            <div class="navbar-content">
+                <?php if (is_front_page()) : ?>
+                    <?php // Logo de la pagina Inicio ?>
+                    <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr($site_name); ?>">
+                        <svg aria-hidden="true" focusable="false">
+                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                        </svg>
+                    </a>
+                <?php else : ?>
+                    <?php // Logo de las otras paginas ?>
+                    <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="Ir al inicio — <?php echo esc_attr($site_name); ?>">
+                        <svg aria-hidden="true" focusable="false">
+                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                        </svg>
+                    </a>
+                <?php endif; ?>
+                <div class="mobile-actions">
+                    <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>">
+                        <svg aria-hidden="true" focusable="false">
+                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#heart" />
+                        </svg>
+                        Dona
+                    </a>
+                    <button 
+                        class="navbar-toggle" 
+                        aria-label="Cerrar menú de navegación" 
+                        data-bs-dismiss="offcanvas">
+                        <span class="hamburger">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#close" />
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-offcanvas">
+        <nav class="social-media">
+            <div class="container">
+                <ul class="social-list">
+                    <li class="social-item">
+                        <a class="social-link" href="<?php echo esc_url($social_links['instagram']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['instagram']['label']); ?>">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#instagram" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a class="social-link" href="<?php echo esc_url($social_links['youtube']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['youtube']['label']); ?>">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#youtube" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a class="social-link" href="<?php echo esc_url($social_links['linkedin']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['linkedin']['label']); ?>">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#linkedin" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a class="social-link" href="<?php echo esc_url($social_links['facebook']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['facebook']['label']); ?>">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#facebook" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a class="social-link" href="<?php echo esc_url($social_links['tiktok']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['tiktok']['label']); ?>">
+                            <svg aria-hidden="true" focusable="false">
+                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#tiktok" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <a href="#"
+            class="featured-link body-1">
+            <div class="container">
+                <span class="featured-text">Agendar hora</span>
+                <svg aria-hidden="true" focusable="false">
+                    <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#external-link" />
+                </svg>
+            </div>
+        </a>
+        <nav class="navbar-nav">
+            <?php
+            wp_nav_menu([
+                'theme_location' => 'header',
+                'container' => false,
+                'menu_class' => 'nav-ul',
+                'fallback_cb' => '__return_false',
+                'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'depth' => 3,
+            ]);
+            ?>
+        </nav>
+    </div>
+</div>

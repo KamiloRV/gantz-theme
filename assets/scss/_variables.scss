@@ -149,7 +149,6 @@ $grid-breakpoints: (
   xs:   0,
   sm:   375px,   // mobile
   md:   768px,   // tablet
-  lg:   992px,   // intermedio (por si se necesita)
   xl:   1440px,  // desktop
 );
  
@@ -157,7 +156,6 @@ $grid-breakpoints: (
 $container-max-widths: (
   sm:   344px,
   md:   704px,
-  lg:   960px,
   xl:   1278px,
 );
 

@@ -34,6 +34,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-
     });
+
+    /* Cerrar offcanvas al pasar a desktop (xl) */
+    (function ($) {
+        'use strict';
+
+        const XL_BREAKPOINT = 1440; // breakpoint xl
+        const offcanvasEl   = document.getElementById('navOffcanvas');
+        let   bsOffcanvas   = null;
+
+        // Inicializar instancia de Bootstrap Offcanvas
+        if (offcanvasEl) {
+            bsOffcanvas = new bootstrap.Offcanvas(offcanvasEl);
+        }
+
+        // ─── Cerrar offcanvas al pasar a desktop (xl) ───────────────
+        function handleResize() {
+            if (window.innerWidth >= XL_BREAKPOINT && bsOffcanvas) {
+                bsOffcanvas.hide();
+            }
+        }
+
+        window.addEventListener('resize', handleResize, { passive: true });
+
+    }(jQuery));
 });
