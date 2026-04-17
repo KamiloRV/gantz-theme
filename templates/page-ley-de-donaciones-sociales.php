@@ -1,6 +1,6 @@
 <?php get_template_part('template-parts/header'); ?>
 
-<main>
+<main class="container">
     <h1>Ley de Donaciones Sociales</h1>
 </main>
 

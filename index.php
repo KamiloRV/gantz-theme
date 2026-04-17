@@ -1,6 +1,6 @@
 <?php get_template_part('template-parts/header'); ?>
 
-<main>
+<main class="container">
     <h2 class="h1">Inicio</h2>
 </main>
 

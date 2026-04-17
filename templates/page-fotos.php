@@ -1,6 +1,6 @@
 <?php get_template_part('template-parts/header'); ?>
 
-<main>
+<main class="container">
     <h1>Fotos</h1>
 </main>
 
