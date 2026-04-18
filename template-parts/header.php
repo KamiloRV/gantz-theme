@@ -11,40 +11,41 @@
 <?php wp_body_open(); ?>
 
 <?php 
-// Variables reutilizables para el header
+// Variables reutilizables para el footer
 $site_name = get_bloginfo('name');
 $directory_uri = get_template_directory_uri();
 $home_url = esc_url(home_url('/'));
-$logo = the_field('logo'); // Ruta del logo, asegúrate de que el archivo exista
-$cta_text = get_field('cta_text'); // Texto del botón de llamada a la acción
-$cta_url = get_field('cta_url'); // URL del botón de llamada a la acción
-$cta_label = get_field('cta_label'); // Etiqueta aria para el botón de llamada a la acción
+$logo = the_field('logo', 'option'); // Ruta del logo, asegúrate de que el archivo exista
+$cta_text = the_field('cta_text', 'option'); // Texto del botón de llamada a la acción
+$cta_url = the_field('cta_url', 'option'); // URL del botón de llamada a la acción
+$cta_label = the_field('cta_label', 'option'); // Etiqueta aria para el botón de llamada a la acción
 
 $social_links = [
     'instagram' => [ 
-        'url' => get_field('instagram_url'),
-        'label' => 'Conoce nuestro Instagram',
-        'icon' => 'instagram-icon.svg'
+        'url' => the_field('instagram_url', 'option') ?: '#',
+        'label' => the_field('instagram_label', 'option') ?: 'Síguenos en Instagram',
+        'icon' => 'assets/images/icons.svg#instagram'
     ],
     'youtube' => [ 
-        'url' => get_field('youtube_url'),
-        'label' => 'Ver nuestro canal de Youtube',
-        'icon' => 'youtube-icon.svg'
+        'url' => the_field('youtube_url') ?: '#',
+        'label' => the_field('youtube_label', 'option') ?: 'Ver nuestro canal de Youtube',
+        'icon' => 'assets/images/icons.svg#youtube'
     ],
     'linkedin' => [ 
-        'url' => get_field('linkedin_url'),
-        'label' => 'Conoce nuestro perfil de LinkedIn',
-        'icon' => 'linkedin-icon.svg'
+        'url' => the_field('linkedin_url', 'option') ?: '#',
+        'label' => the_field('linkedin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
+        'icon' => 'assets/images/icons.svg#linkedin'
     ],
-    'facebook' => [ 
-        'url' => get_field('facebook_url'),
-        'label' => 'Visita nuestra página de Facebook',
-        'icon' => 'facebook-icon.svg'
+    'facebook' => [  
+        'url' => the_field('facebook_url') ?: '#',
+        'label' => the_field('facebook_label', 'option') ?: 'Visita nuestra página de Facebook',
+        'icon' => 'assets/images/icons.svg#facebook'
+
     ],
     'tiktok' => [ 
-        'url' => get_field('tiktok_url'),
-        'label' => 'Interactúa con nuestro Tik Tok',
-        'icon' => 'tiktok-icon.svg'
+        'url' => the_field('tiktok_url') ?: '#',
+        'label' => the_field('tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
+        'icon' => 'assets/images/icons.svg#tiktok'
     ],
 ];
 ?>
@@ -53,52 +54,30 @@ $social_links = [
 <header role="banner" class="gantz-header">
     <h1 class="hidden">Cabecera del Sitio</h1>
     <?php // Menú secundario del header // Todos los accesos deben ser editables ?> 
-    <nav aria-labelledby="social-menu" class="top-menu">
+    <div class="top-menu">
         <?php // class hidden para el título del menú ?>
-        <h2 id="social-menu" class="hidden">Menú de Redes Sociales</h2>
         <div class="container">
-            <div class="menus">
+            <nav aria-labelledby="social-menu" class="menus">
+                <h2 id="social-menu" class="hidden">Menú de Redes Sociales</h2>
                 <a class="navbar-link nota" href="#" rel="noopener" aria-label="Transpariencia">Transpariencia</a>
                 <ul class="social-menu">
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['instagram']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['instagram']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#instagram" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['youtube']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['youtube']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#youtube" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['linkedin']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['linkedin']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#linkedin" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['facebook']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['facebook']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#facebook" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['tiktok']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['tiktok']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#tiktok" />
-                            </svg>
-                        </a>
-                    </li>
+                    <?php foreach ($social_links as $data) : ?>
+                        <li class="social-item">
+                            <a href="<?php echo esc_url($data['url']); ?>"
+                                class="social-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="<?php echo esc_attr($data['label']); ?>">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/<?php echo esc_attr($data['icon']); ?>" />
+                                </svg>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>
-    </nav>
+    </div>
     <?php // Menú principal del header // Todos los accesos deben ser editables ?>
     <nav aria-labelledby="main-menu" class="gantz-navbar">
         <?php // class hidden para el título del menú?>
