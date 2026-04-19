@@ -242,6 +242,7 @@ $contactos = [
             </p>
         </div>
     </div>
+    <a class="hidden" href="<?php echo esc_url($home_url); ?>">Volver al principio de la página</a>
 </footer>
 
 <?php wp_footer(); ?>

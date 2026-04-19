@@ -11317,6 +11317,13 @@ small,
     height: 22px;
   }
 }
+.gantz-navbar .navbar-content .cta-button:hover, .gantz-navbar .navbar-content .cta-button :focus-visible {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%), #FBB413;
+}
+.gantz-navbar .navbar-content .cta-button:focus {
+  outline: 4px solid var(--accent_magenta, #C20054);
+  outline-offset: -4px;
+}
 .gantz-navbar .navbar-content .mobile-actions {
   display: flex;
   gap: 12px;
@@ -12132,6 +12139,9 @@ small,
     order: 3;
     width: auto;
     padding-left: 50px;
+    text-align: start;
+  }
+  .gantz-footer .footer-content .contacts .contacts-title {
     text-align: start;
   }
   .gantz-footer .footer-content .contacts .contact-list {
