@@ -11439,6 +11439,7 @@ small,
   top: 100%;
   left: 0;
   background-color: #F0F0F0;
+  border-radius: 0 0 12px 12px;
 }
 .gantz-navbar .navbar-content .navbar-nav .nav-ul .menu-item.menu-item-has-children .sub-menu.active {
   display: flex;
