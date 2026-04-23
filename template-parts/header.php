@@ -4,6 +4,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="shortcut icon" href="<?php echo get_template_directory_uri() . '/assets/images/favicon.svg' ; ?>" type="image/x-icon"> -->
     <?php wp_head(); ?>
 </head>
 
@@ -12,40 +13,40 @@
 
 <?php 
 // Variables reutilizables para el footer
-$site_name = get_bloginfo('name');
+$site_name = get_field('ajustes_name', 'option');
 $directory_uri = get_template_directory_uri();
 $home_url = esc_url(home_url('/'));
-$logo = the_field('logo', 'option'); // Ruta del logo, asegúrate de que el archivo exista
-$cta_text = the_field('cta_text', 'option'); // Texto del botón de llamada a la acción
-$cta_url = the_field('cta_url', 'option'); // URL del botón de llamada a la acción
-$cta_label = the_field('cta_label', 'option'); // Etiqueta aria para el botón de llamada a la acción
+$logo = get_field('ajustes_logo', 'option')['url'];
+$cta_text = get_field('cta_text', 'option'); // Texto del botón de llamada a la acción
+$cta_url = get_field('cta_url', 'option'); // URL del botón de llamada a la acción
+$cta_label = get_field('cta_label', 'option'); // Etiqueta aria para el botón de llamada a la acción
 
 $social_links = [
     'instagram' => [ 
-        'url' => the_field('instagram_url', 'option') ?: '#',
-        'label' => the_field('instagram_label', 'option') ?: 'Síguenos en Instagram',
-        'icon' => 'assets/images/icons.svg#instagram'
+        'url' => get_field('instagram_url', 'option') ?: '#',
+        'label' => get_field('instagram_label', 'option') ?: 'Síguenos en Instagram',
+        'icon' => $directory_uri . '/assets/images/icons.svg#instagram'
     ],
     'youtube' => [ 
-        'url' => the_field('youtube_url') ?: '#',
-        'label' => the_field('youtube_label', 'option') ?: 'Ver nuestro canal de Youtube',
-        'icon' => 'assets/images/icons.svg#youtube'
+        'url' => get_field('youtube_url', 'option') ?: '#',
+        'label' => get_field('youtube_label', 'option') ?: 'Ver nuestro canal de Youtube',
+        'icon' => $directory_uri . '/assets/images/icons.svg#youtube'
     ],
     'linkedin' => [ 
-        'url' => the_field('linkedin_url', 'option') ?: '#',
-        'label' => the_field('linkedin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
-        'icon' => 'assets/images/icons.svg#linkedin'
+        'url' => get_field('linkedin_url', 'option') ?: '#',
+        'label' => get_field('linkedin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
+        'icon' => $directory_uri . '/assets/images/icons.svg#linkedin'
     ],
     'facebook' => [  
-        'url' => the_field('facebook_url') ?: '#',
-        'label' => the_field('facebook_label', 'option') ?: 'Visita nuestra página de Facebook',
-        'icon' => 'assets/images/icons.svg#facebook'
+        'url' => get_field('facebook_url', 'option') ?: '#',
+        'label' => get_field('facebook_label', 'option') ?: 'Visita nuestra página de Facebook',
+        'icon' => $directory_uri . '/assets/images/icons.svg#facebook'
 
     ],
     'tiktok' => [ 
-        'url' => the_field('tiktok_url') ?: '#',
-        'label' => the_field('tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
-        'icon' => 'assets/images/icons.svg#tiktok'
+        'url' => get_field('tiktok_url', 'option') ?: '#',
+        'label' => get_field('tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
+        'icon' => $directory_uri . '/assets/images/icons.svg#tiktok'
     ],
 ];
 ?>
@@ -59,7 +60,7 @@ $social_links = [
         <div class="container">
             <nav aria-labelledby="social-menu" class="menus">
                 <h2 id="social-menu" class="hidden">Menú de Redes Sociales</h2>
-                <a class="navbar-link nota" href="#" rel="noopener" aria-label="Transpariencia">Transpariencia</a>
+                <a class="navbar-link nota" href="<?php echo esc_attr($home_url) . 'transparencia' ?>" rel="noopener" aria-label="transparencia">Transparencia</a>
                 <ul class="social-menu">
                     <?php foreach ($social_links as $data) : ?>
                         <li class="social-item">
@@ -69,7 +70,7 @@ $social_links = [
                                 rel="noopener noreferrer"
                                 aria-label="<?php echo esc_attr($data['label']); ?>">
                                 <svg aria-hidden="true" focusable="false">
-                                    <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/<?php echo esc_attr($data['icon']); ?>" />
+                                    <use href="<?php echo esc_attr($data['icon']); ?>" />
                                 </svg>
                             </a>
                         </li>
@@ -88,24 +89,24 @@ $social_links = [
                     <?php // Logo de la pagina Inicio ?>
                     <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr($site_name); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                            <use href="<?php echo esc_url( $logo ); ?>" />
                         </svg>
                     </a>
                 <?php else : ?>
                     <?php // Logo de las otras paginas ?>
                     <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="Ir al inicio — <?php echo esc_attr($site_name); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                            <use href="<?php echo esc_url( $logo ); ?>" />
                         </svg>
                     </a>
                 <?php endif; ?>
                 <?php // Acciones móviles (CTA Donar y Boton Hamburgesa) ?>
                 <div class="mobile-actions">
-                    <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>">
+                    <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>" target="_blank">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#heart" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#heart' ); ?>" />
                         </svg>
-                        Dona
+                        <?php echo esc_html($cta_text) ; ?>
                     </a>
                     <button 
                         class="navbar-toggle" 
@@ -118,7 +119,7 @@ $social_links = [
                         aria-expanded="false" >
                         <span class="hamburger">
                             <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#menu" />
+                                <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#menu' ); ?>" />
                             </svg>
                         </span>
                     </button>
@@ -138,15 +139,15 @@ $social_links = [
                 </div>
                 <?php // Controles de la navbar Escritorio (CTA Donar y Buscar) ?>
                 <div class="navbar-controls">
-                    <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>">
+                    <a href="<?php echo esc_url($cta_url) ; ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>" target="_blank">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#heart" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#heart' ); ?>" />
                         </svg>
-                        Dona
+                        <?php echo esc_html($cta_text) ; ?>
                     </a>
                     <button class="search-button">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#search" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#search' ); ?>" />
                         </svg>
                     </button>
                 </div>
@@ -166,23 +167,23 @@ $social_links = [
                     <?php // Logo de la pagina Inicio ?>
                     <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr($site_name); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                            <use href="<?php echo esc_url( $logo ); ?>" />
                         </svg>
                     </a>
                 <?php else : ?>
                     <?php // Logo de las otras paginas ?>
                     <a class="navbar-logo" href="<?php echo esc_url($home_url); ?>" aria-label="Ir al inicio — <?php echo esc_attr($site_name); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#logo-gantz' ); ?>" />
                         </svg>
                     </a>
                 <?php endif; ?>
                 <div class="mobile-actions">
-                    <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>">
+                    <a href="<?php echo esc_url($cta_url); ?>" class="cta-button" aria-label="<?php echo esc_attr($cta_label); ?>" target="_blank">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#heart" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#heart' ); ?>" />
                         </svg>
-                        Dona
+                        <?php echo esc_html($cta_text) ; ?>
                     </a>
                     <button 
                         class="navbar-toggle" 
@@ -190,7 +191,7 @@ $social_links = [
                         data-bs-dismiss="offcanvas">
                         <span class="hamburger">
                             <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#close" />
+                                <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#close' ); ?>" />
                             </svg>
                         </span>
                     </button>
@@ -202,41 +203,19 @@ $social_links = [
         <nav class="social-media">
             <div class="container">
                 <ul class="social-list">
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['instagram']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['instagram']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#instagram" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['youtube']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['youtube']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#youtube" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['linkedin']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['linkedin']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#linkedin" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['facebook']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['facebook']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#facebook" />
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link" href="<?php echo esc_url($social_links['tiktok']['url']); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_links['tiktok']['label']); ?>">
-                            <svg aria-hidden="true" focusable="false">
-                                <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#tiktok" />
-                            </svg>
-                        </a>
-                    </li>
+                    <?php foreach ($social_links as $data) : ?>
+                        <li class="social-item">
+                            <a href="<?php echo esc_url($data['url']); ?>"
+                                class="social-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="<?php echo esc_attr($data['label']); ?>">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="<?php echo esc_attr($data['icon']); ?>" />
+                                </svg>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </nav>
@@ -245,7 +224,7 @@ $social_links = [
             <div class="container">
                 <span class="featured-text">Agendar hora</span>
                 <svg aria-hidden="true" focusable="false">
-                    <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#external-link" />
+                    <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#external-link' ); ?>" />
                 </svg>
             </div>
         </a>

@@ -1,0 +1,107 @@
+.gantz-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 12px;
+    padding: 14px 32px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 12px;
+    color: $main_black;
+    background: $primary_yellow;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
+    text-decoration: none;
+
+    &:hover, &:focus {
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 100%), var(--primary_yellow, #FFB413);
+        color: currentColor;
+    }
+
+    &:focus-visible {
+        outline: 4px solid $accent_magenta;
+        outline-offset: -4px;
+    }
+
+    svg {
+        height: 18px;
+        width: 18px;
+        color: currentColor;
+    }
+
+    &.heart {
+        svg {
+            color: $accent_magenta;
+        }
+    }
+
+    &.red-icon {
+        color: $accent_magenta;
+    }
+
+    &.blue-btn {
+        color: $main-white;
+        background-color: $primary-blue;
+    }
+
+    &.white-btn {
+        color: $primary-indigo;
+        background-color: $main-white;
+
+        &.shade {
+            color: $primary-indigo;
+            background-color: $shade_white;
+        }
+
+        &.shade-blue {
+            color: $primary-blue;
+            background-color: $main-white;
+        }
+    }
+
+    &.secondary-btn {
+        background: none;
+        border: 2px solid currentColor;
+        color: currentColor;
+        box-shadow: none;
+
+        &:hover {
+            background: rgba(240, 240, 240, 0.15);
+        }
+
+        &.yellow {
+            color: $primary_yellow;
+        }
+
+        &.blue {
+            color: $primary_blue;
+
+            &:hover {
+                background: rgba(46, 62, 128, 0.15);
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        width: fit-content;
+        padding-inline: 62px;
+        font-size: 14px;
+
+        svg {
+            width: 17px;
+            height: 20px;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        width: fit-content;
+        padding-inline: 62px;
+        font-size: 20px;
+
+        svg {
+            width: 20px;
+            height: 24px;
+        }
+    }
+}

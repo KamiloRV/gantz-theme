@@ -1,0 +1,357 @@
+.home {
+    .quienes-somos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        background: $primary_blue;
+        padding-block: 56px;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+
+            .text-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+
+                h2 {
+                    margin: 0;
+                    color: $primary_yellow;
+                }
+
+                p {
+                    margin: 0;
+                    color: $main_white;
+                    text-wrap: pretty;
+                }
+            }
+
+            .datos {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                columns: 2;
+                flex-wrap: wrap;
+                column-gap: 16px;
+
+                li {
+                    display: flex;
+                    padding: 0;
+                    margin: 0;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 4px;
+                    width: 47%;
+                    text-align: center;
+
+                    font-size: 29px;
+                    font-weight: 700;
+                    letter-spacing: -0.29px;
+                    color: $primary_yellow;
+
+                    padding-block: 24px;
+                    border-bottom: 1px solid rgba(240, 240, 240, 0.33);
+
+                    &:first-child, &:nth-child(2) {
+                        padding-top: 0;
+                    }
+
+                    &:last-child, &:nth-child(5) {
+                        border: none;
+                        padding-bottom: 0;
+                    }
+
+                    p {
+                        color: $main_white;
+                        margin: 0;
+                        max-width: 130px;
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            .container {
+                .text-container {
+                    gap: 16px;
+                }
+
+                .datos {
+                    order: 3;
+                }
+            }
+        }
+        
+        @include media-breakpoint-up(xl) {
+            padding-block: 100px;
+
+            .container {
+                display: grid;
+                grid-template-columns: repeat(auto, auto);
+                grid-template-rows: repeat(auto, auto);
+                column-gap: 80px;
+                row-gap: 48px;
+
+                align-items: start;
+
+                .text-container {
+                    text-align: start;
+                    align-items: start;
+                }
+
+                .datos {
+                    grid-row: span 2 / span 2;
+                    grid-column-start: 2;
+                    grid-row-start: 1;
+
+                    li {
+                        font-size: 47px;
+
+                        p {
+                            font-size: 16px;
+                            font-weight: 700;
+                            max-width: 200px;
+                        }
+                    }
+                }
+
+                .gantz-btn {
+                    grid-column-start: 1;
+                    grid-row-start: 2;
+                }
+            }
+        }
+    }
+
+    .reconocimiento {
+        background: linear-gradient(0deg, rgba(46, 62, 128, 0.50) 0%, rgba(46, 62, 128, 0.50) 100%), $primary-indigo;
+        padding-block: 56px;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+            justify-content: center;
+
+            .reconocimientos {
+                display: flex;
+                gap: 12px;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 98px;
+
+                img {
+                    height: 100%;
+                    width: auto;
+
+                    &:first-child {
+                        padding-block: 24px;
+                    }
+                }
+            }
+
+            p {
+                color: $main-white;
+                
+                &:last-child {
+                    margin: 0;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(md) {
+            .container {
+                flex-direction: row;
+                gap: 32px;
+
+                .reconocimientos {
+                    flex-wrap: wrap;
+                    height: 100%;
+                    gap: 0;
+
+                    img {
+                        width: 50%;
+
+                        &:first-child {
+                            width: 197px;
+                            height: auto;
+                            padding-block: 0;
+                            padding-bottom: 18px;
+                        }
+
+                        &:nth-child(2) {
+                            padding-right: 8px;
+                        }
+
+                        &:last-child {
+                            padding-left: 8px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            padding-block: 100px;
+
+            .container {
+                gap: 50px;
+
+                .reconocimientos {
+                    flex-wrap: nowrap;
+                    height: 100%;
+                    gap: 40px;
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                        padding: 0!important;
+                    }
+                }
+
+                .text-container {
+                    p {
+                        width: 558px;
+                    }
+                }
+            }
+        }
+    }
+
+    .atencion-exelencia {
+        padding-block: 56px;
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+
+            .top-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 24px;
+
+                .text-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+
+                    h2 {
+                        text-align: center;
+                        margin: 0;
+
+                        u {
+                            position: relative;
+                            text-decoration: none;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 95%;
+                                right: -15px;
+                                display: flex;
+                                width: 158px;
+                                height: 7px;
+                                background-color: $primary_yellow;
+                                
+                                -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 232 10'%3E%3Cpath stroke='black' stroke-linecap='round' stroke-width='6' d='M229 4.636c-4.924-1.39-10.864.827-15.105 1.444-5.017.729-9.364-1.039-12.911-1.68-6.14-1.112-9.828.303-14.75 1.08-6.831 1.078-10.256-1.601-15.332-2.288-5.863-.794-9.722 1.268-13.491 2.035-4.937 1.004-8.783-.415-12.685-1.09-5.869-1.014-11.386.097-15.525 1.225-1.606.437-4.414 1.425-7.294 1.098-2.845-.324-4.18-1.581-5.617-2.213-3.938-1.732-7.827-1.497-13.104-.287-4.779 1.097-7.903 1.679-13.169.524-6.172-1.354-9.214-.77-15.686.27-5.384.865-8.591.897-13.395-.169-4.583-1.017-6.65-.63-11.167.27-2.487.496-5.28 1.198-8.747.912-3.378-.279-5.583-1.206-8.844-1.57-7.142-.8-13.042 1.103-17.397 2.263-3.965 1.055-5.577.412-8.037-.625C6.287 5.642 3.718 4.376 3 4.94'/%3E%3C/svg%3E");
+                                -webkit-mask-repeat: no-repeat;
+                                -webkit-mask-size: contain;
+
+                                mask-repeat: no-repeat;
+                                mask-size: contain;
+
+                                @include media-breakpoint-up(md) {
+                                    right: 20px;
+                                    width: 186px;
+                                    height: 8px;
+                                }
+
+                                @include media-breakpoint-up(xl) {
+                                    right: 0;
+                                    width: 232px;
+                                    height: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .parrafos {
+                        p {
+                            color: $primary_blue;
+
+                            &:last-child {
+                                margin: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .image {
+                width: 100%;
+                height: 292px;
+                border-radius: 12px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            padding-block: 100px;
+
+            .container {
+                flex-direction: row;
+
+                .top-content {
+                    align-items: start;
+                    gap: 48px;
+
+                    .text-container {
+                        align-items: start;
+                        gap: 24px;
+
+                        h2 {
+                            text-align: start;
+                        }
+
+                        .parrafos {
+                            p {
+                                width: 630px;
+                            }
+                        }
+                    }
+                }
+
+                .image {
+                    height: 301px;
+                }
+            }
+        }
+    }
+}

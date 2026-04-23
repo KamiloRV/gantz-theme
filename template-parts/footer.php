@@ -1,36 +1,36 @@
 <?php 
 // Variables reutilizables para el footer
-$site_name = get_bloginfo('name');
+$site_name = get_field('ajustes_name', 'option');
 $directory_uri = get_template_directory_uri();
 $home_url = esc_url(home_url('/'));
-$logo = get_field('logo', 'option'); // Ruta del logo, asegúrate de que el archivo exista
+$logo = get_field('ajustes_logo', 'option')['url'];
 
 $social_links = [
     'instagram' => [ 
         'url' => get_field('instagram_url', 'option') ?: '#',
         'label' => get_field('instagram_label', 'option') ?: 'Síguenos en Instagram',
-        'icon' => 'assets/images/icons.svg#instagram'
+        'icon' => $directory_uri . '/assets/images/icons.svg#instagram'
     ],
     'youtube' => [ 
-        'url' => get_field('youtube_url') ?: '#',
+        'url' => get_field('youtube_url', 'option') ?: '#',
         'label' => get_field('youtube_label', 'option') ?: 'Ver nuestro canal de Youtube',
-        'icon' => 'assets/images/icons.svg#youtube'
+        'icon' => $directory_uri . '/assets/images/icons.svg#youtube'
     ],
     'linkedin' => [ 
         'url' => get_field('linkedin_url', 'option') ?: '#',
         'label' => get_field('linkedin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
-        'icon' => 'assets/images/icons.svg#linkedin'
+        'icon' => $directory_uri . '/assets/images/icons.svg#linkedin'
     ],
     'facebook' => [  
-        'url' => get_field('facebook_url') ?: '#',
+        'url' => get_field('facebook_url', 'option') ?: '#',
         'label' => get_field('facebook_label', 'option') ?: 'Visita nuestra página de Facebook',
-        'icon' => 'assets/images/icons.svg#facebook'
+        'icon' => $directory_uri . '/assets/images/icons.svg#facebook'
 
     ],
     'tiktok' => [ 
-        'url' => get_field('tiktok_url') ?: '#',
+        'url' => get_field('tiktok_url', 'option') ?: '#',
         'label' => get_field('tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
-        'icon' => 'assets/images/icons.svg#tiktok'
+        'icon' => $directory_uri . '/assets/images/icons.svg#tiktok'
     ],
 ];
 
@@ -105,14 +105,14 @@ $contactos = [
                     <?php // Logo de la pagina Inicio ?>
                     <a class="logo" href="<?php echo esc_url($home_url); ?>" aria-label="<?php echo esc_attr($site_name); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                            <use href="<?php echo esc_url( $logo ); ?>" />
                         </svg>
                     </a>
                 <?php else : ?>
                     <?php // Logo de las otras paginas ?>
                     <a class="logo" href="<?php echo esc_url($home_url); ?>" aria-label="Ir al inicio — <?php echo esc_attr($site_name); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#logo-gantz" />
+                            <use href="<?php echo esc_url( $logo ); ?>" />
                         </svg>
                     </a>
                 <?php endif; ?>
@@ -130,7 +130,7 @@ $contactos = [
                                 rel="noopener noreferrer"
                                 aria-label="<?php echo esc_attr($data['label']); ?>">
                                 <svg aria-hidden="true" focusable="false">
-                                    <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/<?php echo esc_attr($data['icon']); ?>" />
+                                    <use href="<?php echo esc_attr($data['icon']); ?>" />
                                 </svg>
                             </a>
                         </li>
@@ -168,9 +168,9 @@ $contactos = [
                             <ul class="group-list">
                                 <?php foreach ($contacto['items'] as $item) :
                                     $icon = match($item['tipo']) {
-                                        'email'    => 'assets/images/icons.svg#mail',
-                                        'phone'    => 'assets/images/icons.svg#tel',
-                                        'whatsapp' => 'assets/images/icons.svg#wsp',
+                                        'email'    =>  $directory_uri . '/assets/images/icons.svg#mail',
+                                        'phone'    => $directory_uri . '/assets/images/icons.svg#tel',
+                                        'whatsapp' => $directory_uri . '/assets/images/icons.svg#wsp',
                                         default    => '',
                                     };
 
@@ -184,7 +184,7 @@ $contactos = [
                                 <li class="group-item">
                                     <?php if ($icon) : ?>
                                         <svg aria-hidden="true" focusable="false">
-                                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/<?php echo esc_attr($icon); ?>" />
+                                            <use href="<?php echo esc_attr($icon); ?>" />
                                         </svg>
                                     <?php endif; ?>
 
@@ -210,20 +210,20 @@ $contactos = [
                 <div class="contacts">
                     <a href="mailto:<?php echo antispambot(get_field('contactos_recepcion_email', 'option') ?: 'recepcion@gantz.cl'); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#mail" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#mail' ); ?>" />
                         </svg>
                         <?php echo get_field('contactos_recepcion_email', 'option') ?: 'recepcion@gantz.cl' ?>
                     </a>
                     <a href="tel:+56<?php echo antispambot(get_field('contactos_recepcion_phone', 'option') ?: '9 6878 1989'); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#tel" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#tel' ); ?>" />
                         </svg>
                         <?php echo get_field('contactos_recepcion_phone', 'option') ?: '9 6878 1989' ?>
                     </a>
 
                     <a href="tel:+56<?php echo antispambot(get_field('contactos_recepcion_phone2', 'option') ?: '22 338 64 00'); ?>">
                         <svg aria-hidden="true" focusable="false">
-                            <use xlink:href="<?php echo esc_url( $directory_uri ); ?>/assets/images/icons.svg#tel" />
+                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#tel' ); ?>" />
                         </svg>
                         <?php echo get_field('contactos_recepcion_phone2', 'option') ?: '22 338 64 00' ?>
                     </a>

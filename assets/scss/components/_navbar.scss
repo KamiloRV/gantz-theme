@@ -1,6 +1,7 @@
 /* Main Header */
 .gantz-header {
     background-color: $primary-indigo;
+    z-index: 100;
     /* Top Header */
     .top-menu {
         display: flex;
@@ -161,7 +162,7 @@
             }
 
             &:focus {
-                outline: 4px solid var(--accent_magenta, #C20054);
+                outline: 4px solid $accent_magenta;
                 outline-offset: -4px;
             }
         }

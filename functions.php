@@ -108,6 +108,17 @@ function gantz_enqueue_assets() {
         true
     );
 
+    // Solo cargar el slider en la página de inicio
+    if (is_front_page()) {
+        wp_enqueue_script(
+            'hero-slider',
+            get_template_directory_uri() . '/assets/js/hero-slider.js',
+            [ 'jquery', 'bootstrap' ],
+            $ver,
+            true
+        );
+    }
+
     // Pasar datos de PHP a JS (disponibles como window.gantz.xxx)
     wp_localize_script( 'gantz-main', 'gantz', [
         'url'     => get_template_directory_uri(),
@@ -172,40 +183,218 @@ add_action( 'init', 'gantz_security' );
 
 
 /* =============================================================================
-   4. SEO — META DESCRIPTION
+   SEO / SETTINGS SYNC (ACF <-> WORDPRESS)
 ============================================================================= */
+
+/**
+ * 🔄 Sync ACF → WordPress
+ */
+function gantz_sync_all_options($post_id) {
+
+    if ($post_id !== 'options') return;
+
+    /* ========================
+       SITE NAME
+    ======================== */
+
+    $name = get_field('ajustes_name', 'option');
+    if ($name && get_option('blogname') !== $name) {
+        update_option('blogname', $name);
+    }
+
+    /* ========================
+       DESCRIPTION
+    ======================== */
+
+    $description = get_field('ajustes_descripcion', 'option');
+    if ($description && get_option('blogdescription') !== $description) {
+        update_option('blogdescription', $description);
+    }
+
+    /* ========================
+       FAVICON
+    ======================== */
+
+    $icon = get_field('ajustes_icono', 'option');
+    if (!empty($icon['ID']) && get_option('site_icon') != $icon['ID']) {
+        update_option('site_icon', $icon['ID']);
+    }
+
+    /* ========================
+       LOGO
+    ======================== */
+
+    $logo = get_field('ajustes_logo', 'option');
+    if (!empty($logo['ID']) && get_theme_mod('custom_logo') != $logo['ID']) {
+        set_theme_mod('custom_logo', $logo['ID']);
+    }
+
+    /* ========================
+       ADMIN EMAIL
+    ======================== */
+
+    $email = get_field('ajustes_correo_admin', 'option');
+
+    if ($email && is_email($email)) {
+        // WordPress manejará confirmación automáticamente
+        if (get_option('admin_email') !== $email) {
+            update_option('admin_email', $email);
+        }
+    }
+
+}
+
+// Si el favicon es un SVG imprimimos el link de favicon con url deL SVG
+add_action('acf/save_post', 'gantz_sync_all_options', 20);
+
+function gantz_svg_favicon() {
+    $icon = get_field('ajustes_icono', 'option');
+
+    if ($icon && $icon['mime_type'] === 'image/svg+xml') {
+        echo '<link rel="icon" href="' . esc_url($icon['url']) . '" type="image/svg+xml">';
+    }
+}
+add_action('wp_head', 'gantz_svg_favicon');
+
+
+
+// Title and Desc SYNC
+/* function gantz_sync_site_settings($post_id) {
+
+    if ($post_id !== 'options') return;
+
+    // Nombre del sitio
+    $name = get_field('ajustes_name', 'option');
+    if ($name) {
+        update_option('blogname', $name);
+    }
+
+    // Descripción
+    $description = get_field('ajustes_descripcion', 'option');
+    if ($description) {
+        update_option('blogdescription', $description);
+    }
+
+}
+
+add_action('acf/save_post', 'gantz_sync_site_settings', 20);
+
+// Favicon SYNC
+function gantz_sync_favicon($post_id) {
+
+    if ($post_id !== 'options') return;
+
+    $icon = get_field('ajustes_icono', 'option');
+
+    if ($icon) {
+        update_option('site_icon', $icon['ID']);
+    }
+
+}
+
+add_action('acf/save_post', 'gantz_sync_favicon', 20);
+
+
+// Logo SYNC
+function gantz_sync_logo($post_id) {
+
+    if ($post_id !== 'options') return;
+
+    $logo = get_field('ajustes_logo', 'option');
+
+    if ($logo) {
+        set_theme_mod('custom_logo', $logo['ID']);
+    }
+
+}
+
+add_action('acf/save_post', 'gantz_sync_logo', 20);
+
+// Admin Email SYNC
+function gantz_sync_admin_email($post_id) {
+
+    // Solo cuando se guarda la página de opciones
+    if ($post_id !== 'options') {
+        return;
+    }
+
+    // Obtener el campo ACF
+    $email = get_field('ajustes_correo_admin', 'option');
+
+    // Validar email
+    if ($email && is_email($email)) {
+        update_option('admin_email', $email);
+    }
+
+}
+
+add_action('acf/save_post', 'gantz_sync_admin_email', 20); */
+
+/* function gantz_custom_title($title) {
+
+    $site_name = get_field('ajustes_name', 'option') ?: get_bloginfo('name');
+
+    if ( is_front_page() || is_home() ) {
+        $title['title'] = $site_name;
+        unset($title['tagline']);
+    }
+
+    elseif ( is_singular() ) {
+        $title['title'] = single_post_title('', false);
+        $title['site'] = $site_name;
+    }
+
+    elseif ( is_category() || is_tag() || is_tax() ) {
+        $title['title'] = single_term_title('', false);
+        $title['site'] = $site_name;
+    }
+
+    else {
+        $title['site'] = $site_name;
+    }
+
+    return $title;
+}
+add_filter('document_title_parts', 'gantz_custom_title'); */
 
 function gantz_meta_description() {
 
+    // Evitar conflictos con plugins SEO
+    if (function_exists('wpseo_init')) return;
+
     if ( is_front_page() || is_home() ) {
-        $description = get_bloginfo( 'description' );
+
+        $description = get_bloginfo('description');
 
     } elseif ( is_singular() ) {
-        // Usa el excerpt si existe, si no recorta el contenido
+
         $description = has_excerpt()
             ? wp_strip_all_tags( get_the_excerpt() )
             : wp_trim_words( wp_strip_all_tags( get_the_content() ), 25, '…' );
 
     } elseif ( is_category() || is_tag() || is_tax() ) {
+
         $description = wp_strip_all_tags( term_description() )
-            ?: sprintf( __( 'Explora los artículos de %s en %s.', 'gantz' ), single_term_title( '', false ), get_bloginfo( 'name' ) );
+            ?: sprintf(
+                'Explora los artículos de %s en %s.',
+                single_term_title('', false),
+                get_bloginfo('name')
+            );
 
     } else {
+
         $description = sprintf(
-            __( 'Explora %s, un sitio dedicado a contenidos relevantes.', 'gantz' ),
-            get_bloginfo( 'name' )
+            'Explora %s, un sitio dedicado a contenidos relevantes.',
+            get_bloginfo('name')
         );
     }
 
-    if ( $description ) {
-        printf(
-            '<meta name="description" content="%s">' . "\n",
-            esc_attr( wp_strip_all_tags( $description ) )
-        );
+    if ($description) {
+        echo '<meta name="description" content="' . esc_attr($description) . '">' . "\n";
     }
-
 }
-add_action( 'wp_head', 'gantz_meta_description' );
+
+add_action('wp_head', 'gantz_meta_description', 1);
 
 
 /* =============================================================================
