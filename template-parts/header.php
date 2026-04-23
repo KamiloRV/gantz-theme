@@ -23,29 +23,29 @@ $cta_label = get_field('cta_label', 'option'); // Etiqueta aria para el botón d
 
 $social_links = [
     'instagram' => [ 
-        'url' => get_field('instagram_url', 'option'),
-        'label' => get_field('instagram_label', 'option') ?: 'Síguenos en Instagram',
+        'url' => get_field('socials_ig_url', 'option'),
+        'label' => get_field('socials_ig_label', 'option') ?: 'Síguenos en Instagram',
         'icon' => $directory_uri . '/assets/images/icons.svg#instagram'
     ],
     'youtube' => [ 
-        'url' => get_field('youtube_url', 'option'),
-        'label' => get_field('youtube_label', 'option') ?: 'Ver nuestro canal de Youtube',
+        'url' => get_field('socials_yt_url', 'option'),
+        'label' => get_field('socials_yt_label', 'option') ?: 'Ver nuestro canal de Youtube',
         'icon' => $directory_uri . '/assets/images/icons.svg#youtube'
     ],
     'linkedin' => [ 
-        'url' => get_field('linkedin_url', 'option'),
-        'label' => get_field('linkedin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
+        'url' => get_field('socials_lin_url', 'option'),
+        'label' => get_field('socials_lin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
         'icon' => $directory_uri . '/assets/images/icons.svg#linkedin'
     ],
     'facebook' => [  
-        'url' => get_field('facebook_url', 'option'),
-        'label' => get_field('facebook_label', 'option') ?: 'Visita nuestra página de Facebook',
+        'url' => get_field('socials_fb_url', 'option'),
+        'label' => get_field('socials_fb_label', 'option') ?: 'Visita nuestra página de Facebook',
         'icon' => $directory_uri . '/assets/images/icons.svg#facebook'
 
     ],
     'tiktok' => [ 
-        'url' => get_field('tiktok_url', 'option'),
-        'label' => get_field('tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
+        'url' => get_field('socials_tiktok_url', 'option'),
+        'label' => get_field('socials_tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
         'icon' => $directory_uri . '/assets/images/icons.svg#tiktok'
     ],
 ];
