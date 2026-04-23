@@ -7,29 +7,29 @@ $logo = get_field('ajustes_logo', 'option')['url'];
 
 $social_links = [
     'instagram' => [ 
-        'url' => get_field('instagram_url', 'option') ?: '#',
-        'label' => get_field('instagram_label', 'option') ?: 'Síguenos en Instagram',
+        'url' => get_field('socials_ig_url', 'option'),
+        'label' => get_field('socials_ig_label', 'option') ?: 'Síguenos en Instagram',
         'icon' => $directory_uri . '/assets/images/icons.svg#instagram'
     ],
     'youtube' => [ 
-        'url' => get_field('youtube_url', 'option') ?: '#',
-        'label' => get_field('youtube_label', 'option') ?: 'Ver nuestro canal de Youtube',
+        'url' => get_field('socials_yt_url', 'option'),
+        'label' => get_field('socials_yt_label', 'option') ?: 'Ver nuestro canal de Youtube',
         'icon' => $directory_uri . '/assets/images/icons.svg#youtube'
     ],
     'linkedin' => [ 
-        'url' => get_field('linkedin_url', 'option') ?: '#',
-        'label' => get_field('linkedin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
+        'url' => get_field('socials_lin_url', 'option'),
+        'label' => get_field('socials_lin_label', 'option') ?: 'Conoce nuestro perfil de LinkedIn',
         'icon' => $directory_uri . '/assets/images/icons.svg#linkedin'
     ],
     'facebook' => [  
-        'url' => get_field('facebook_url', 'option') ?: '#',
-        'label' => get_field('facebook_label', 'option') ?: 'Visita nuestra página de Facebook',
+        'url' => get_field('socials_fb_url', 'option'),
+        'label' => get_field('socials_fb_label', 'option') ?: 'Visita nuestra página de Facebook',
         'icon' => $directory_uri . '/assets/images/icons.svg#facebook'
 
     ],
     'tiktok' => [ 
-        'url' => get_field('tiktok_url', 'option') ?: '#',
-        'label' => get_field('tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
+        'url' => get_field('socials_tiktok_url', 'option'),
+        'label' => get_field('socials_tiktok_label', 'option') ?: 'Interactúa con nuestro Tik Tok',
         'icon' => $directory_uri . '/assets/images/icons.svg#tiktok'
     ],
 ];
@@ -122,19 +122,29 @@ $contactos = [
                 </address>
                 <nav class="social" aria-label="Redes sociales">
                     <ul class="social-list">
-                        <?php foreach ($social_links as $data) : ?>
-                        <li class="social-item">
-                            <a href="<?php echo esc_url($data['url']); ?>"
+                        <?php foreach ($social_links as $data) : 
+
+                            $is_valid = !empty($data['url']) 
+                                && !empty($data['label']) 
+                                && !empty($data['icon']);
+
+                            if (!$is_valid) continue;
+
+                        ?>
+                            <li class="social-item">
+                                <a href="<?php echo esc_url($data['url']); ?>"
                                 class="social-link"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="<?php echo esc_attr($data['label']); ?>">
-                                <svg aria-hidden="true" focusable="false">
-                                    <use href="<?php echo esc_attr($data['icon']); ?>" />
-                                </svg>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
+                                
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="<?php echo esc_attr($data['icon']); ?>" />
+                                    </svg>
+
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
                     </ul>
                 </nav>
                 <div class="comments">
