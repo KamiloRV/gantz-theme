@@ -17,9 +17,9 @@ $site_name = get_field('ajustes_name', 'option');
 $directory_uri = get_template_directory_uri();
 $home_url = esc_url(home_url('/'));
 $logo = get_field('ajustes_logo', 'option')['url'];
-$cta_text = get_field('cta_text', 'option'); // Texto del botón de llamada a la acción
-$cta_url = get_field('cta_url', 'option'); // URL del botón de llamada a la acción
-$cta_label = get_field('cta_label', 'option'); // Etiqueta aria para el botón de llamada a la acción
+$cta_text = get_field('cta_text', 'option');
+$cta_url = get_field('cta_url', 'option');
+$cta_label = get_field('cta_label', 'option'); 
 
 $social_links = [
     'instagram' => [ 
@@ -41,7 +41,6 @@ $social_links = [
         'url' => get_field('socials_fb_url', 'option'),
         'label' => get_field('socials_fb_label', 'option') ?: 'Visita nuestra página de Facebook',
         'icon' => $directory_uri . '/assets/images/icons.svg#facebook'
-
     ],
     'tiktok' => [ 
         'url' => get_field('socials_tiktok_url', 'option'),

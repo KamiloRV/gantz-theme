@@ -112,7 +112,7 @@ function gantz_enqueue_assets() {
     if (is_front_page()) {
         wp_enqueue_script(
             'hero-slider',
-            get_template_directory_uri() . '/assets/js/hero-slider.js',
+            get_template_directory_uri() . '/assets/js/hero-sliders.js',
             [ 'jquery', 'bootstrap' ],
             $ver,
             true
