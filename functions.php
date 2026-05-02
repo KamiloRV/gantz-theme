@@ -111,8 +111,8 @@ function gantz_enqueue_assets() {
     // Solo cargar el slider en la página de inicio
     if (is_front_page()) {
         wp_enqueue_script(
-            'hero-slider',
-            get_template_directory_uri() . '/assets/js/hero-sliders.js',
+            'sliders',
+            get_template_directory_uri() . '/assets/js/sliders.js',
             [ 'jquery', 'bootstrap' ],
             $ver,
             true

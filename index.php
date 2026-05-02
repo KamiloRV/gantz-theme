@@ -158,7 +158,6 @@ $social_links = [
                 </svg>
             </button>
         </div>
-    
         <?php /* — Dots */ ?>
         <div class="dots" role="tablist"
             aria-label="Navegación de slides">
@@ -172,7 +171,6 @@ $social_links = [
                 </button>
             <?php endforeach; ?>
         </div>
-
     </section>
     <section class="quienes-somos" aria-labelledby="titulo-quienes-somos">
         <div class="container">
@@ -369,17 +367,39 @@ $social_links = [
                     </svg>
                 </div>
                 <div class="redes">
-                    <a href="<?php echo esc_url($social_links['instagram']['url']); ?>" target="_blank" class="social-link instagram" aria-label="<?php echo esc_attr($social_links['instagram']['label']); ?>">
+                    <?php
+                    $url = $social_links['instagram']['url'];
+                    $path = rtrim(parse_url($url, PHP_URL_PATH), '/');
+                    $username = basename($path);
+                    ?>
+
+                    <a href="<?php echo esc_url($url); ?>"
+                    target="_blank"
+                    class="social-link instagram"
+                    aria-label="<?php echo esc_attr($social_links['instagram']['label']); ?>">
+
                         <svg aria-hidden="true" focusable="false">
                             <use href="<?php echo esc_attr($social_links['instagram']['icon']); ?>" />
                         </svg>
-                        fundacion.gantz
+
+                        <?php echo esc_html($username); ?>
                     </a>
-                    <a href="<?php echo esc_url($social_links['facebook']['url']); ?>" target="_blank" class="social-link facebook" aria-label="<?php echo esc_attr($social_links['facebook']['label']); ?>">
+                    <?php
+                    $url = $social_links['facebook']['url'];
+                    $path = rtrim(parse_url($url, PHP_URL_PATH), '/');
+                    $username = basename($path);
+                    ?>
+
+                    <a href="<?php echo esc_url($url); ?>"
+                    target="_blank"
+                    class="social-link facebook"
+                    aria-label="<?php echo esc_attr($social_links['facebook']['label']); ?>">
+
                         <svg aria-hidden="true" focusable="false">
                             <use href="<?php echo esc_attr($social_links['facebook']['icon']); ?>" />
                         </svg>
-                        fundacion.gantz
+
+                        <?php echo esc_html($username); ?>
                     </a>
                 </div>
             </div>
@@ -422,71 +442,74 @@ $social_links = [
         </div>
 
     </section>
-    <section class="banners img-slider" id="imgBanners" aria-label="Eventos y campañas">
-        <?php foreach ($images_banners as $index => $banner) :
-        
-            $sm_imagen = $banner['imagen_mobile'] ?? '';
-            $md_imagen = $banner['imagen_tablet'] ?? '';
-            $xl_imagen = $banner['imagen_escritorio'] ?? '';
+    <section class="banners" aria-label="Eventos y campañas">
+        <div class="slider" id="imgBanners" data-autoplay="5000" aria-live="polite">
+            <?php foreach ($images_banners as $index => $banner) :
             
-            $enlace = $banner['enlace'] ?? [];
+                $sm_imagen = $banner['imagen_mobile'] ?? '';
+                $md_imagen = $banner['imagen_tablet'] ?? '';
+                $xl_imagen = $banner['imagen_escritorio'] ?? '';
+                
+                $enlace = $banner['enlace'] ?? [];
 
-            $type = $enlace['tipo'] ?? '';
-            $url  = $enlace['url'] ?? '';
-            $link = $enlace['link'] ?? '';
+                $type = $enlace['tipo'] ?? '';
+                $url  = $enlace['url'] ?? '';
+                $link = $enlace['link'] ?? '';
 
-            $href = '';
-            $target = '';
+                $href = '';
+                $target = '';
 
-            if ($type === 'interno' && !empty($link)) {
-                $href = $link;
-            } elseif ($type === 'externo' && !empty($url)) {
-                $href = $url;
-                $target = 'target="_blank" rel="noopener noreferrer"';
-            }
+                if ($type === 'interno' && !empty($link)) {
+                    $href = $link;
+                } elseif ($type === 'externo' && !empty($url)) {
+                    $href = $url;
+                    $target = 'target="_blank" rel="noopener noreferrer"';
+                }
 
-            $is_first = $index === 0;
-        ?>
-            <div class="slide<?php echo $is_first ? ' is-active' : ''; ?>"
-                role="group"
-                aria-roledescription="slide"
-                aria-label="<?php printf($index + 1, count($images_banners)); ?>"
-                aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>">
+                $is_first = $index === 0;
+            ?>
+                <div class="slide<?php echo $is_first ? ' is-active' : ''; ?>"
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label="<?php printf($index + 1, count($images_banners)); ?>"
+                    aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>">
 
-                <?php if ($href) : ?>
-                    <a href="<?php echo esc_url($href); ?>"
-                    class="img-slide-link"
-                    <?php echo $target; ?>
-                    tabindex="<?php echo $is_first ? '0' : '-1'; ?>">
-                <?php endif; ?>
+                    <?php if ($href) : ?>
+                        <a href="<?php echo esc_url($href); ?>"
+                        class="img-slide-link"
+                        <?php echo $target; ?>
+                        tabindex="<?php echo $is_first ? '0' : '-1'; ?>">
+                    <?php endif; ?>
 
-                    <picture>
-                        <?php if (!empty($sm_imagen)) : ?>
-                            <source media="(max-width: 767px)"
-                                    srcset="<?php echo esc_url($sm_imagen['url']); ?>">
-                        <?php endif; ?>
+                        <picture>
+                            <?php if (!empty($sm_imagen)) : ?>
+                                <source media="(max-width: 767px)"
+                                        srcset="<?php echo esc_url($sm_imagen['url']); ?>">
+                            <?php endif; ?>
 
-                        <?php if (!empty($md_imagen)) : ?>
-                            <source media="(max-width: 1439px)"
-                                    srcset="<?php echo esc_url($md_imagen['url']); ?>">
-                        <?php endif; ?>
+                            <?php if (!empty($md_imagen)) : ?>
+                                <source media="(max-width: 1439px)"
+                                        srcset="<?php echo esc_url($md_imagen['url']); ?>">
+                            <?php endif; ?>
 
-                        <img src="<?php echo esc_url($xl_imagen['url']); ?>"
-                            alt="<?php echo esc_attr($xl_imagen['alt']); ?>"
-                            class="img-slide-img"
-                            <?php echo $is_first ? 'loading="eager"' : 'loading="lazy"'; ?>>
-                    </picture>
+                            <img src="<?php echo esc_url($xl_imagen['url']); ?>"
+                                alt="<?php echo esc_attr($xl_imagen['alt']); ?>"
+                                class="img-slide-img"
+                                <?php echo $is_first ? 'loading="eager"' : 'loading="lazy"'; ?>>
+                        </picture>
 
-                <?php if ($href) : ?>
-                    </a>
-                <?php endif; ?>
-            </div>
-        <?php endforeach; ?>
+                    <?php if ($href) : ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <?php /* — Flechas de navegación */ ?>
         <div class="controls">
-            <?php /* — Flechas */ ?>
             <button class="prev-control"
                     type="button"
-                    aria-label="<?php esc_attr_e('Slide anterior', 'mi-tema'); ?>">
+                    aria-label="Slide anterior">
                 <svg aria-hidden="true" focusable="false">
                     <use href="<?php echo esc_attr($directory_uri) . '/assets/images/icons.svg#left'; ?>" />
                 </svg>
@@ -494,17 +517,16 @@ $social_links = [
         
             <button class="next-control"
                     type="button"
-                    aria-label="<?php esc_attr_e('Slide siguiente', 'mi-tema'); ?>">
+                    aria-label="Slide siguiente">
                 <svg aria-hidden="true" focusable="false">
                     <use href="<?php echo esc_attr($directory_uri) . '/assets/images/icons.svg#right'; ?>" />
                 </svg>
             </button>
         </div>
-        
         <?php /* — Dots */ ?>
         <div class="dots" role="tablist"
-            aria-label="<?php esc_attr_e('Navegación de slides', 'mi-tema'); ?>">
-            <?php foreach ($images_banners as $index => $banner) : ?>
+            aria-label="Navegación de slides">
+            <?php foreach ($images_banners as $index => $slide) : ?>
                 <button class="dot<?php echo $index === 0 ? ' is-active' : ''; ?>"
                         type="button"
                         role="tab"
@@ -515,14 +537,46 @@ $social_links = [
             <?php endforeach; ?>
         </div>
     </section>
-    <section class="noticias-recientes" aria-labelledby="titulo-noticias">
-        <div class="container">
+    <section class="noticias" aria-labelledby="titulo-noticias">
+        <div class="container contenido">
             <div class="title-container">
                 <h2 id="titulo-noticias">Noticias recientes</h2>
-                <p>Jueves, 06 de Noviembre de 2025</p>
+                <p class="fecha-actual body-bold"><?php echo ucfirst(wp_date('l, d \d\e F \d\e Y')); ?></p>
             </div>
-            <div class="noticias">
+            <div class="lista-noticias">
+                <?php
+                $args = [
+                    'post_type'      => 'noticia',
+                    'posts_per_page' => 3,
+                    'post_status'    => 'publish',
+                    'orderby'        => 'date',
+                    'order'          => 'DESC',
+                ];
 
+                $noticias = new WP_Query($args);
+                ?>
+
+                <?php if ($noticias->have_posts()) : $count = 0; ?>
+                    
+                    <?php while ($noticias->have_posts()) : 
+                        $noticias->the_post(); 
+                        $terms = get_the_terms(get_the_ID(), 'categoria'); 
+                        $category = (!empty($terms) && !is_wp_error($terms)) ? $terms[0]->name : 'Sin categoría';?>
+                    
+                        <article class="noticia<?php echo $count === 0 ? ' destacada' : ''; ?>">
+                            <a href="<?php the_permalink(); ?>" class="noticia-link">
+                                <img class="imagen" src="<?php echo esc_url(get_field('imagen')['url']); ?>" alt="<?php echo esc_attr(get_field('imagen')['alt']); ?>">
+                                <div class="text-container">
+                                    <h3><?php the_title(); ?></h3>
+                                    <?php the_excerpt(); ?>
+                                </div>
+                                <span class="categoria"><?php echo esc_html($category); ?></span>
+                            </a>
+                        </article>
+                        <?php $count++; ?>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                <?php endif; ?>
             </div>
             <a class="gantz-btn secondary-btn blue" href="">Explorar todas las noticias →</a>
         </div>
