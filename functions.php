@@ -3,7 +3,7 @@
  * functions.php
  * 
  * Prefijo: gantz_
- * Texto del dominio: 'gantz'
+ * Texto del dominio: 'gantz-theme'
  */
 
 defined( 'ABSPATH' ) || exit; // Seguridad: evita acceso directo al archivo
@@ -12,6 +12,8 @@ defined( 'ABSPATH' ) || exit; // Seguridad: evita acceso directo al archivo
 /* =============================================================================
    1. SETUP DEL TEMA
 ============================================================================= */
+
+require_once get_template_directory() . '/inc/scf.php';
 
 function gantz_setup() {
 
@@ -998,5 +1000,3 @@ add_filter('preview_post_link', function ($preview_link, $post) {
     return $preview_link;
 
 }, 10, 2);
-
-/* require_once get_template_directory() . '/inc/scf.php'; */
