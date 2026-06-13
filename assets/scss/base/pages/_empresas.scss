@@ -1,0 +1,382 @@
+/* Hero */
+.page-empresas {
+    .hero {
+        &__imagen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 64/57;
+            width: 100%;
+            height: auto;
+
+            .imagen {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &__container {
+            padding-block: 24px 56px;
+        }
+
+        &__container-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 12px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .hero {
+            &__imagen {
+                aspect-ratio: 371/214;
+            }
+
+            &__container {
+                padding-block: 32px 56px;
+            }
+
+            &__container-inner {
+                gap: 16px;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .hero {
+            position: relative;
+
+            &__contenido {
+                background: none;
+            }
+
+            &__container {
+                padding-block: 130px;
+            }
+
+            &__container-inner {
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 50%;
+                min-height: 225px;
+            }
+
+            &__titulo {
+                text-align: start;
+                color: $primary-indigo!important;
+                text-wrap: balance;
+            }
+
+            &__texto {
+                color: $primary-blue!important;
+                text-wrap: balance;
+            }
+
+            &__imagen {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40%;
+                height: 100%;
+                aspect-ratio: 355/261;
+            }
+        }
+    }
+}
+
+/* Involucra */
+.page-empresas {
+    .involucra-tu-empresa {
+        padding-block: 56px;
+        border-block: 1px solid rgba(46, 62, 128, 0.3);
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+    }
+
+    .accesos {
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        &__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        &__item {
+            margin: 0;
+
+            @include media-breakpoint-down(md) {
+                width: max-content;
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .involucra-tu-empresa {
+            padding-block: 32px 56px;
+
+            &__header {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            &__subtitulo {
+                width: 336px;
+            }
+
+            &__texto {
+                width: 338px;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .involucra-tu-empresa {
+            padding-block: 80px 100px;
+
+            &__header {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                row-gap: 24px;
+            }
+
+            &__subtitulo {
+                width: 662px;
+            }
+
+            &__texto {
+                display: flex;
+                justify-content: flex-end;
+                width: 600px;
+            }
+        }
+    }
+}
+
+/* Formas */
+.page-empresas {
+    .forma {
+        padding-block: 56px;
+
+        &:nth-child(even) {
+            background-color: $shade-white;
+        }
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__imagen {
+            width: 100%;
+            aspect-ratio: 156/151;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+
+        &__descripcion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        &__subtitulo {
+            text-align: center;
+        }
+
+        &__marcas {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-wrap: wrap;
+            row-gap: 16px;
+            column-gap: 12px;
+        }
+
+        &__marca {
+            height: 56px;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .forma {
+            &__container {
+                gap: 32px;
+            }
+
+            &__header {
+                flex-direction: row;
+            }
+
+            &__imagen {
+                width: 336px;
+                aspect-ratio: 84/83;
+            }
+
+            &__descripcion {
+                align-items: flex-start;
+            }
+
+            &__titulo {
+                width: 100%;
+                text-align: start;
+            }
+
+            &__contenido {
+                gap: 32px;
+            }
+
+            &__marcas {
+                display: grid;
+                align-items: flex-start;
+                justify-content: center;
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                align-self: stretch;
+                row-gap: 24px;
+                column-gap: 16px;
+            }
+
+            &__marca {
+                justify-self: center;
+
+                &:last-child:nth-child(odd) {
+                    grid-column: 1 / span 2;
+                }
+            }
+
+            &.proyectos-personalizados-para-tu-empresa {
+                .forma {
+                    &__marca {
+                        height: 70px;
+                    }
+                }
+            }
+
+            &.auspicio-o-colaboracion-para-eventos-beneficos {
+                .forma {
+                    &__marca {
+                        height: 80px;
+                    }
+                }
+            }
+
+            &.embajador-de-campanas-solidarias, &.voluntariados-corporativos, &.productos-con-sentido {
+                .forma {
+                    &__marca {
+                        height: 100px;
+                    }
+                }
+            }
+
+            &.productos-con-sentido {
+                .forma {
+                    &__marca {
+                        &:nth-child(1), &:nth-child(2) {
+                            grid-column: 1 / span 2;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .forma {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 64px;
+            }
+
+            &__header {
+                width: 1125px;
+                gap: 63px;
+            }
+
+            &__descripcion {
+                max-width: 709px;
+                gap: 24px;
+            }
+
+            &__imagen {
+                width: 477px;
+                aspect-ratio: 53/35;
+            }
+
+            &__marcas {
+                display: flex;
+                gap: 32px;
+            }
+
+            &__marca {
+                height: 80px!important;
+            }
+        }
+    }
+}

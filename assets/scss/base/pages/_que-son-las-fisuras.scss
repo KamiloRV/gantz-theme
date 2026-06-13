@@ -1,0 +1,877 @@
+/* Hero */
+.page-que-son-las-fisuras {
+    .hero {
+        &__imagen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 64/57;
+            width: 100%;
+            height: auto;
+
+            .imagen {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &__container {
+            padding-block: 24px 56px;
+        }
+
+        &__container-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 12px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .hero {
+            &__imagen {
+                aspect-ratio: 371/214;
+            }
+
+            &__contenido {
+                background: $primary-blue;
+            }
+
+            &__container {
+                padding-block: 32px 56px;
+            }
+
+            &__container-inner {
+                gap: 16px;
+            }
+
+            &__titulo {
+                color: $primary-yellow;
+            }
+
+            &__texto {
+                color: $main-white!important;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .hero {
+            position: relative;
+
+            &__contenido {
+                background: none;
+            }
+
+            &__container {
+                padding-block: 130px;
+            }
+
+            &__container-inner {
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 50%;
+                min-height: 225px;
+            }
+
+            &__titulo {
+                text-align: start;
+                color: $primary-indigo!important;
+                text-wrap: balance;
+            }
+
+            &__texto {
+                color: $primary-blue!important;
+                text-wrap: balance;
+            }
+
+            &__imagen {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40%;
+                height: 100%;
+                aspect-ratio: 355/261;
+            }
+        }
+    }
+}
+
+/* Tipo de fisuras */
+.page-que-son-las-fisuras {
+    .fisuras {
+        padding-block: 56px;
+        background: $shade-white;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__lista {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__item {
+
+            .fisura-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+
+                &__imagen {
+                    width: 207px;
+                    height: 180px;
+                }
+
+                &__contenido {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                }
+
+                &__titulo, &__texto {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .fisuras {
+            &__lista {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                grid-template-rows: auto;
+                grid-column-gap: 32px;
+                grid-row-gap: 32px;
+            }
+
+            &__item {
+                .fisura-card {
+                    gap: 16px;
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .fisuras {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__lista {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                grid-auto-rows: auto;
+                grid-row-gap: 64px;
+                width: 1063px;
+                justify-content: space-between;
+            }
+
+            &__item {
+                width: 414px;
+
+                .fisura-card {
+                    gap: 24px;
+
+                    &__imagen {
+                        width: 369.21px;
+                        height: 320px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* La Fisura */
+.page-que-son-las-fisuras {
+    .la-fisura {
+        padding-block: 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        &__texto {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+
+        &-testimonio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+
+            &__imagen {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 74/63;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 12px;
+                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            }
+
+            &__contenido {
+                padding-left: 20px;
+                border-left: 4px solid $accent-cobalt;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 16px;
+            }
+
+            &__info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+            }
+
+            &__nombre {
+                margin: 0;
+            }
+        }
+    }
+
+    /* Tablet */
+    @include  media-breakpoint-up(md) {
+        .la-fisura {
+            gap: 16px;
+
+            &__container {
+                gap: 32px;
+            }
+            
+            &__contenido {
+                gap: 32px;
+            }
+
+            &__texto {
+                gap: 16px;
+            }
+
+            &__titulo {
+                text-wrap: balance;
+            }
+
+            &-testimonio {
+                width: 100%;
+
+                &__imagen {
+                    aspect-ratio: 176/73;
+                }
+
+                &__contenido {
+                    width: 654px;
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include  media-breakpoint-up(xl) {
+        .la-fisura {
+            padding-block: 80px 100px;
+            gap: 48px;
+
+            &__container {
+                flex-direction: row-reverse;
+                align-items: flex-start;
+                gap: 90px;
+            }
+            
+            &__contenido {
+                gap: 48px;
+            }
+
+            &-testimonio {
+                width: 558px;
+                gap: 24px;
+                flex-shrink: 0;
+                
+                &__imagen {
+                    width: 558px;
+                    aspect-ratio: 279/170;
+                }
+
+                &__contenido {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+/* Sindromes */
+.page-que-son-las-fisuras {
+    .sindromes-asociados {
+        padding-block: 56px;
+        background: $shade-white;
+
+        
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        &__sindromes {
+            background: $main-white;
+            border: 1px solid rgba(46, 62, 128, 0.3);
+            padding: 12px;
+            border-radius: 12px;
+
+            .sindromes {
+                /* Lista Mobile/Tablet (Select) */
+                &__mobile {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: center;
+                    gap: 12px;
+                    padding-bottom: 11px;
+                    border-bottom: 1px solid rgba(46, 62, 128, 0.3);
+
+                    @include media-breakpoint-up(xl) {
+                        display: none;
+                        visibility: hidden;
+                    }
+
+                    .mobile {
+                        
+                        &__titulo {
+                            text-transform: uppercase;
+                        }
+
+                        /* &__list {
+                            position: relative;
+                            width: 100%;
+                            min-height: 44px;
+                            height: fit-content;
+                            
+                            color: $main-white;
+                            background: $accent-cobalt;
+                            border-radius: 8px;
+                            border: 1px solid rgba(46, 62, 128, 0.3);
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                right: 16px;
+                                transform: translateY(-50%);
+
+                                width: 12px;
+                                height: 7.4px;
+                                color: $main-white;
+
+                                background-color: currentColor;
+                                pointer-events: none;
+
+                                -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='black' d='m6 7.4-6-6L1.4 0 6 4.575 10.6 0 12 1.4z'/%3E%3C/svg%3E");
+                                -webkit-mask-repeat: no-repeat;
+                                -webkit-mask-position: center;
+                                -webkit-mask-size: contain;
+
+                                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='black' d='m6 7.4-6-6L1.4 0 6 4.575 10.6 0 12 1.4z'/%3E%3C/svg%3E");
+                                mask-repeat: no-repeat;
+                                mask-position: center;
+                                mask-size: contain;
+                            }
+                        }
+
+                        &__select {
+                            appearance: none;
+                            -webkit-appearance: none;
+                            -moz-appearance: none;
+
+                            width: 100%;
+                            min-height: 44px;
+
+                            border-radius: 8px;
+                            padding-inline: 16px;
+                            border: 1px solid rgba(46, 62, 128, 0.3);
+
+                            background: none;
+                            color: $main-white;
+
+                            cursor: pointer;
+
+                            &::picker(select) {
+                                appearance: base-select;
+                                display: flex;
+                                width: 100%;
+                                background: $shade-white;
+                                color: $primary-blue;
+                                height: 44px;
+                                padding: 16px 8px;
+                            }
+
+                            &:focus-visible {
+                                border-radius: 8px 8px 0 0;
+                                outline: none;
+                            }
+                        } */
+                    }
+
+                    .mobile-select {
+                            position: relative;
+                            width: 100%;
+
+                            &__trigger {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+
+                                width: 100%;
+                                min-height: 44px;
+
+                                padding-inline: 16px;
+
+                                border: 1px solid rgba(46, 62, 128, 0.3);
+                                border-radius: 8px;
+
+                                background: $accent-cobalt;
+                                color: $main-white;
+
+                                cursor: pointer;
+                            }
+
+                            &__value {
+                                font: inherit;
+                                font-weight: 700;
+                            }
+
+                            &__icon {
+                                display: inline-flex;
+                                flex-shrink: 0;
+
+                                width: 12px;
+                                height: 8px;
+
+                                background-color: currentColor;
+
+                                transition: transform .2s ease;
+
+                                -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='black' d='m6 7.4-6-6L1.4 0 6 4.575 10.6 0 12 1.4z'/%3E%3C/svg%3E");
+                                -webkit-mask-repeat: no-repeat;
+                                -webkit-mask-position: center;
+                                -webkit-mask-size: contain;
+
+                                mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 12 8'%3E%3Cpath fill='black' d='m6 7.4-6-6L1.4 0 6 4.575 10.6 0 12 1.4z'/%3E%3C/svg%3E");
+                                mask-repeat: no-repeat;
+                                mask-position: center;
+                                mask-size: contain;
+                            }
+
+                            &__dropdown {
+                                display: none;
+                                flex-direction: column;
+
+                                width: 100%;
+
+                                overflow: hidden;
+
+                                border: 1px solid rgba(46, 62, 128, 0.3);
+                                border-top: 0;
+                                border-radius: 0 0 8px 8px;
+
+                                background: $shade-white;
+                            }
+
+                            &__option {
+                                display: flex;
+                                align-items: center;
+                                justify-content: flex-start;
+
+                                width: 100%;
+                                min-height: 44px;
+
+                                padding-inline: 16px;
+
+                                border: 0;
+                                border-bottom: 1px solid rgba(46, 62, 128, 0.3);
+
+                                background: transparent;
+
+                                color: $primary-blue;
+                                text-align: start;
+
+                                cursor: pointer;
+
+                                transition:
+                                    background-color .2s ease,
+                                    color .2s ease;
+
+                                &:last-child {
+                                    border-bottom: 0;
+                                }
+
+                                &.is-active {
+                                    background: rgba(29, 77, 179, 0.08);
+                                    font-weight: 700;
+                                    display: none;
+                                }
+
+                                &.is-last-visible {
+                                    border-bottom: none;
+                                }
+                            }
+
+                            &.is-open {
+
+                                .mobile-select__dropdown {
+                                    display: flex;
+                                }
+
+                                .mobile-select__trigger {
+                                    border-radius: 8px 8px 0 0;
+                                }
+
+                                .mobile-select__icon {
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+                }
+
+                /* Tabs Desktop */
+                &__desktop {
+                    display: none;
+                }
+
+                /* Contenido */
+                &__contenido {
+                    padding-top: 12px;
+                    width: 100%;
+                    /* height: fit-content!important; */
+
+                    .sindrome-panel {
+                        display: none;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        height: 100%;
+                        gap: 8px;
+                        visibility: hidden;
+
+
+                        &.is-active {
+                            display: flex;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .sindromes-asociados {
+            &__sindromes {
+                padding: 24px;
+
+                .sindromes {
+                    &__mobile {
+                        padding-bottom: 15px;
+                    }
+
+                    &__contenido {
+                        padding-top: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Dektop */
+    @include media-breakpoint-up(xl) {
+        .sindromes-asociados {
+            padding-block: 80px 100px;
+
+            /* &__texto {
+                width: 100%;
+                height: 130px;
+                column-count: 2;
+                column-gap: auto;
+                column-fill: auto;
+            } */
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__contenido {
+                gap: 24px;
+            }
+
+            &__sindromes {
+                padding-inline: 32px;
+                display: flex;
+                gap: 24px;
+
+                .sindromes {
+                    /* Tabs Desktop */
+                    &__desktop {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        justify-content: flex-start;
+                        flex-shrink: 0;
+                        gap: 10px;
+                        width: fit-content;
+                        height: fit-content;
+                        padding-inline-end: 23px;
+                        border-inline-end: 1px solid rgba(46, 62, 128, 0.3);
+
+                        .desktop {
+                            &__titulo {
+                                text-transform: uppercase;
+                                padding-block: 4px;
+                            }
+
+                            &__tabs {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: flex-end;
+                                justify-content: center;
+                                width: 100%;
+                                gap: 10px;
+                            }
+
+                            &__tab {
+                                &.is-active {
+                                    background: $accent-cobalt;
+                                    color: $main-white!important;
+                                }
+                            }
+                        }
+                    }
+
+                    &__contenido {
+                        padding: 0;
+
+                        .sindrome-panel {
+                            &__description {
+                                width: 100%;
+                                height: calc(100% - 35px);
+                                column-count: 2;
+                                column-gap: 24px;
+                                column-fill: auto;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Preguntas Frecuentes */
+.page-que-son-las-fisuras {
+    .preguntas {
+        padding-block: 56px;
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__lista {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: fit-content;
+            /* gap: 32px; */
+
+            .pregunta {
+                width: 100%;
+                padding-top: 32px;
+                margin: 0;
+
+                &__card {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: fit-content;
+                    gap: 12px;
+                    border: 1px solid rgba(46, 62, 128, 0.3);
+                    border-radius: 12px;
+                    padding: 12px;
+                }
+
+                &__trigger {
+                    text-decoration: none;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 100%;
+                    min-height: 33px;
+                    border: none;
+                    outline: none;
+                    padding: 0;
+                    scroll-margin-top: calc(32px * 2); 
+                }
+
+                &__pregunta {
+                    text-align: start;
+                }
+
+                &__icon {
+                    display: flex;
+                    flex-shrink: 0;
+                    width: 24px;
+                    height: 24px;
+                    color: $primary-indigo;
+                    background-color: currentColor;
+
+                    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M10.8 18h2.4v-4.8H18v-2.4h-4.8V6h-2.4v4.8H6v2.4h4.8zm1.2 6q-2.49 0-4.68-.945a12.1 12.1 0 0 1-3.81-2.565 12.1 12.1 0 0 1-2.565-3.81Q0 14.49 0 12t.945-4.68T3.51 3.51A12.1 12.1 0 0 1 7.32.945Q9.51 0 12 0t4.68.945 3.81 2.565a12.1 12.1 0 0 1 2.565 3.81Q24 9.51 24 12t-.945 4.68a12.1 12.1 0 0 1-2.565 3.81 12.1 12.1 0 0 1-3.81 2.565Q14.49 24 12 24m0-2.4q4.02 0 6.81-2.79T21.6 12t-2.79-6.81T12 2.4 5.19 5.19 2.4 12t2.79 6.81T12 21.6'/%3E%3C/svg%3E");
+
+                    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M10.8 18h2.4v-4.8H18v-2.4h-4.8V6h-2.4v4.8H6v2.4h4.8zm1.2 6q-2.49 0-4.68-.945a12.1 12.1 0 0 1-3.81-2.565 12.1 12.1 0 0 1-2.565-3.81Q0 14.49 0 12t.945-4.68T3.51 3.51A12.1 12.1 0 0 1 7.32.945Q9.51 0 12 0t4.68.945 3.81 2.565a12.1 12.1 0 0 1 2.565 3.81Q24 9.51 24 12t-.945 4.68a12.1 12.1 0 0 1-2.565 3.81 12.1 12.1 0 0 1-3.81 2.565Q14.49 24 12 24m0-2.4q4.02 0 6.81-2.79T21.6 12t-2.79-6.81T12 2.4 5.19 5.19 2.4 12t2.79 6.81T12 21.6'/%3E%3C/svg%3E");
+
+                    -webkit-mask-repeat: no-repeat;
+                    -webkit-mask-position: center;
+                    -webkit-mask-size: contain;
+
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    mask-size: contain;
+                }
+
+                &__trigger[aria-expanded='true'] {
+                    .pregunta__icon {
+                        -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill='black' d='M18 10.8L6.00001 10.8L6.00001 13.2L18 13.2L18 10.8ZM12 1.71655e-06C13.66 2.00679e-06 15.22 0.315003 16.68 0.945002C18.14 1.575 19.41 2.43 20.49 3.51C21.57 4.59 22.425 5.86 23.055 7.32C23.685 8.78 24 10.34 24 12C24 13.66 23.685 15.22 23.055 16.68C22.425 18.14 21.57 19.41 20.49 20.49C19.41 21.57 18.14 22.425 16.68 23.055C15.22 23.685 13.66 24 12 24C10.34 24 8.78 23.685 7.32 23.055C5.86 22.425 4.59 21.57 3.51 20.49C2.43 19.41 1.57501 18.14 0.945005 16.68C0.315006 15.22 5.6226e-06 13.66 5.91284e-06 12C6.20309e-06 10.34 0.315007 8.78 0.945006 7.32C1.57501 5.86 2.43001 4.59 3.51001 3.51C4.59001 2.43 5.86001 1.575 7.32001 0.945001C8.78001 0.315002 10.34 1.42631e-06 12 1.71655e-06ZM12 2.4C9.32001 2.4 7.05001 3.33 5.19001 5.19C3.33001 7.05 2.40001 9.32 2.40001 12C2.40001 14.68 3.33 16.95 5.19 18.81C7.05 20.67 9.32 21.6 12 21.6C14.68 21.6 16.95 20.67 18.81 18.81C20.67 16.95 21.6 14.68 21.6 12C21.6 9.32 20.67 7.05 18.81 5.19C16.95 3.33 14.68 2.4 12 2.4Z'/%3E%3C/svg%3E");
+
+                        mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill='black' d='M18 10.8L6.00001 10.8L6.00001 13.2L18 13.2L18 10.8ZM12 1.71655e-06C13.66 2.00679e-06 15.22 0.315003 16.68 0.945002C18.14 1.575 19.41 2.43 20.49 3.51C21.57 4.59 22.425 5.86 23.055 7.32C23.685 8.78 24 10.34 24 12C24 13.66 23.685 15.22 23.055 16.68C22.425 18.14 21.57 19.41 20.49 20.49C19.41 21.57 18.14 22.425 16.68 23.055C15.22 23.685 13.66 24 12 24C10.34 24 8.78 23.685 7.32 23.055C5.86 22.425 4.59 21.57 3.51 20.49C2.43 19.41 1.57501 18.14 0.945005 16.68C0.315006 15.22 5.6226e-06 13.66 5.91284e-06 12C6.20309e-06 10.34 0.315007 8.78 0.945006 7.32C1.57501 5.86 2.43001 4.59 3.51001 3.51C4.59001 2.43 5.86001 1.575 7.32001 0.945001C8.78001 0.315002 10.34 1.42631e-06 12 1.71655e-06ZM12 2.4C9.32001 2.4 7.05001 3.33 5.19001 5.19C3.33001 7.05 2.40001 9.32 2.40001 12C2.40001 14.68 3.33 16.95 5.19 18.81C7.05 20.67 9.32 21.6 12 21.6C14.68 21.6 16.95 20.67 18.81 18.81C20.67 16.95 21.6 14.68 21.6 12C21.6 9.32 20.67 7.05 18.81 5.19C16.95 3.33 14.68 2.4 12 2.4Z'/%3E%3C/svg%3E");
+
+                    }
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .preguntas {
+            &__lista {
+                .pregunta {
+                    &__card {
+                        gap: 16px;
+                        padding: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(md) {
+        .preguntas {
+            padding-block: 80px 100px;
+
+            &__container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            &__contenido {
+                width: 1062px;
+                gap: 48px;
+            }
+
+            &__lista {
+                /* gap: 36px; */
+
+                .pregunta {
+                    padding-top: 36px;
+
+                    &__card {
+                        gap: 24px;
+                        padding: 32px;
+                    }
+                }
+            }
+        }
+    }
+}

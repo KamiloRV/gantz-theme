@@ -1,0 +1,116 @@
+.gantz-search {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    /* border: 1px solid rgba(46, 62, 128, 0.3); */
+    overflow: hidden;
+
+    &__input {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 48px;
+        padding: 0;
+        padding-inline: 16px calc(16px * 4);
+        border: none;
+        font-weight: 600;
+
+        border-radius: 12px;
+        border: 1px solid rgba(46, 62, 128, 0.3);
+
+        &::placeholder {
+            font-weight: 400;
+        }
+
+        &:focus-visible {
+            outline: 4px solid $accent-magenta;
+            outline-offset: -4px;
+        }
+    }
+
+    &__submit {
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 48px;
+        height: 48px;
+
+        /* border-radius: 12px; */
+
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+
+        color: $primary-blue;
+
+        &:hover {
+            color: $accent-cobalt;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 70%;
+            background: rgba(46, 62, 128, 0.3);
+        }
+
+        &:focus-visible {
+            outline: 4px solid $accent-magenta;
+            outline-offset: -2px;
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        &__input {
+            height: 50px;
+            padding-inline: 16px calc(16px * 3 + 18px);
+        }
+
+        &__submit {
+            width: 50px;
+            height: 50px;
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        &__input {
+            height: 70px;
+            padding-inline: 24px;
+            padding-inline: 24px calc(24px * 3 + 18px);
+        }
+
+        &__submit {
+            width: 66px;
+            height: 66px;
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}

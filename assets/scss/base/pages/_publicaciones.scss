@@ -1,0 +1,231 @@
+/* Hero */
+.page-publicaciones {
+    .hero {
+        &__imagen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 64/57;
+            width: 100%;
+            height: auto;
+
+            .imagen {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &__container {
+            padding-block: 24px 56px;
+        }
+
+        &__container-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 12px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .hero {
+            &__imagen {
+                aspect-ratio: 371/214;
+            }
+
+            &__container {
+                padding-block: 32px 56px;
+            }
+
+            &__container-inner {
+                gap: 16px;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .hero {
+            position: relative;
+
+            &__contenido {
+                background: none;
+            }
+
+            &__container {
+                padding-block: 130px;
+            }
+
+            &__container-inner {
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 50%;
+                min-height: 225px;
+            }
+
+            &__titulo {
+                text-align: start;
+                color: $primary-indigo!important;
+                text-wrap: balance;
+            }
+
+            &__texto {
+                color: $primary-blue!important;
+                text-wrap: balance;
+            }
+
+            &__imagen {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40%;
+                height: 100%;
+                aspect-ratio: 355/261;
+            }
+        }
+    }
+}
+
+/* Archivo de publicaciones */
+.page-publicaciones {
+    .archivo-publicaciones {
+        padding-block: 56px;
+        background: $shade-white;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            width: 100%;
+        }
+
+        &__lista {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+
+            .lista {
+                &__item {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: space-between;
+                    gap: 16px;
+                    padding: 16px;
+                    background: white;
+                    border-radius: 12px;
+                    border: 1px solid rgba(46, 62, 128, 0.3);
+
+                    
+                    .item {
+                        &__info {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: center;
+                            gap: 12px;
+                        }
+
+                        &__autores {
+                            margin: 0;
+                            padding-bottom: 12px;
+                            border-bottom: 1px solid rgba(46, 62, 128, 0.3);
+                        }
+
+                        &__enlace {
+                            margin-top: 32px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .archivo-publicaciones {
+            &__lista {
+                display: grid;
+                grid-template-columns: repeat(2, auto);
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 16px;
+
+                .lista {
+                    &__item {
+                        width: 344px;
+                        height: 100%;
+                        gap: 8px;
+
+                        .item {
+                            &__info {
+                                gap: 8px;
+                            }
+                            &__autores {
+                                padding-bottom: 8px;
+                            }
+
+                            &__enlace {
+                                /* margin-top: auto; */
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .archivo-publicaciones {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__header {
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: space-between;
+
+                .gantz-search {
+                    width: 414px;
+                }
+            }
+
+            &__lista {
+                gap: 18px;
+
+                .lista {
+                    &__item {
+                        width: 100%;
+                        padding: 24px 24px 24px 28px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.gantz-paginador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    &__number {
+        width: 44px;
+        height: 44px;
+        border-radius: 4px;
+        border: 1px solid rgba(46, 62, 128, 0.3);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            color: $main-white!important;
+            background: $accent-cobalt;
+        }
+
+        &.is-active {
+            color: $main-white!important;
+            background: $accent-cobalt;
+        }
+    }
+
+    &__prev, &__next {
+        padding-inline: 6px;
+
+        &.is-disabled {
+            opacity: .5;
+            pointer-events: none;
+        }
+    }
+}

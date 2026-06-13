@@ -1,0 +1,581 @@
+/* Hero */
+.page-ley-de-donaciones-sociales {
+    .hero {
+        padding-block: 26px 56px;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+
+        &__beneficios {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        &__tabla-comparativa {
+            .tabla-comparativa {
+                &__tabla {
+                    width: 100%;
+                    border-collapse: collapse;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    border-style: hidden;
+                    box-shadow: 0 0 0 1px rgba(46, 62, 128, 0.3);
+
+                    th, td {
+                        padding-block: 12px;
+                        padding-inline: 8px;
+                        vertical-align: middle;
+                        text-align: center;
+                        width: fit-content;
+                        border-block: 1px solid rgba(46, 62, 128, 0.3);
+
+                        &:first-child {
+                            padding-inline-start: 12px;
+                        }
+
+                        &:last-child {
+                            padding-inline-end: 12px;
+                        }
+                    }
+
+                    thead th {
+                        padding-inline: 0;
+                    }
+
+                    tbody th {
+                        text-align: start;
+                        text-wrap: balance;
+                        padding-inline: 0!important;
+                        padding-inline-start: 12px!important;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .hero {
+            padding-block-start: 32px;
+
+            &__tabla-comparativa {
+                .tabla-comparativa {
+                    &__tabla {
+                        th, td {
+                            padding-block: 24px;
+                            padding-inline: calc(24px / 2);
+                            vertical-align: middle;
+                            text-align: center;
+                            width: fit-content;
+
+                            &:first-child {
+                                padding-inline-start: 24px;
+                            }
+
+                            &:last-child {
+                                padding-inline-end: 24px;
+                            }
+                        }
+
+                        thead th {
+                            padding-inline: calc(24px / 2);
+                        }
+
+                        tbody th {
+                            text-align: start;
+                            text-wrap: balance;
+                            padding-inline: 24px 21px!important;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .hero {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__header {
+                gap: 48px;
+            }
+
+            &__beneficios {
+                gap: 24px;
+                text-align: center;
+                width: 846px;
+            }
+
+            &__tabla-comparativa {
+                .tabla-comparativa {
+                    &__tabla {
+                        th, td {
+                            padding-block: 32px;
+                            padding-inline: calc(32px / 2);
+                            vertical-align: middle;
+                            text-align: center;
+                            width: fit-content;
+
+                            &:first-child {
+                                padding-inline-start: 32px;
+                            }
+
+                            &:last-child {
+                                padding-inline-end: 32px;
+                            }
+                        }
+
+                        thead th {
+                            padding-inline: calc(32px / 2);
+                        }
+
+                        tbody {
+                            th {
+                                text-align: start;
+                                text-wrap: balance;
+                                padding-inline: 32px 50px!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Beneficios Tributarios */
+.page-ley-de-donaciones-sociales {
+    .beneficios-tributarios {
+        padding-block: 56px;
+        background: $shade-white;
+        
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            text-align: center;
+        }
+
+        &__beneficios {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+        }
+        
+        &__card {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: start;
+            gap: 18px;
+            padding: 24px;
+            background: $main-white;
+            border-radius: 12px;
+            border: 1px solid rgba(46, 62, 128, 0.3);
+
+            .beneficios-tributarios__card {
+                &-icon {
+                    width: 48px;
+                    height: 48px;
+                    color: $primary_blue;
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+        &__nota {
+            text-wrap: balance;
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .beneficios-tributarios {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__beneficios {
+                flex-direction: row;
+                gap: 80px;
+            }
+
+            &__nota {
+                width: 846px;
+            }
+        }
+    }
+}
+
+/* Pasos a donar */
+.page-ley-de-donaciones-sociales {
+    .pasos-donar {
+        padding-block: 56px;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            text-align: center;
+        }
+
+        &__pasos {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            width: 100%;
+        }
+
+        &__item {
+            margin: 0;
+            width: 100%;
+        }
+
+        &__card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+            padding: 24px 12px;
+            border-radius: 12px;
+            background: $primary_blue;
+            text-align: center;
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
+
+            .pasos-donar__card {
+                &-icon {
+                    color: $primary_yellow;
+                    height: 64px;
+                }
+
+                &-contenido {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+                }
+            }
+        }
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .pasos-donar {
+            &__pasos {
+                flex-direction: row;
+            }
+
+            &__card {
+                padding: 32px 16px;
+
+                .pasos-donar__card {
+                    &-icon {
+                        height: 72px;
+                    }
+
+                    &-contenido {
+                        gap: 12px;
+                    }
+                }
+            }
+
+            &__contenido {
+                text-align: center;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(md) {
+        .pasos-donar {
+            padding: 80px 100px;
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__header {
+                gap: 24px;
+            }
+
+            &__card {
+                padding: 48px 24px;
+
+                .pasos-donar__card {
+                    &-icon {
+                        height: 80px;
+                    }
+
+                    &-contenido {
+                        gap: 16px;
+                    }
+                }
+            }
+
+            &__contenido {
+                width: 700px;
+                text-align: center;
+                gap: 24px;
+            }
+        }
+    }
+}
+
+/* Certificado */
+.page-ley-de-donaciones-sociales {
+    .certificado {
+        padding-block: 56px;
+        background: $shade-white;
+
+        &__container-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__imagen {
+            width: 128px;
+            flex-shrink: 0;
+        }
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        &__informacion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 32px;
+            width: 254px;
+
+            .certificado__informacion {
+                &-contenido {
+                    width: 100%;
+                }
+                &-titulo {
+                    margin-bottom: 0.5em;
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .certificado {
+            &__header {
+                flex-direction: row;
+            }
+
+            &__informacion {
+                flex-direction: row;
+                width: 618px;
+                gap: 0;
+
+                .certificado__informacion {
+                    &-contenido {
+                        &:first-child {
+                            padding-inline-end: 32px;
+                            border-inline-end: 1px solid rgba(46, 62, 128, 0.3);
+                        }
+                        &:last-child {
+                            padding-inline-start: 32px;
+                        }
+                    }
+
+                    &-titulo {
+                        margin-bottom: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .certificado {
+            padding: 80px 100px;
+
+            &__container-inner {
+                gap: 48px;
+            }
+
+            &__header {
+                width: 1062px;
+                gap: calc(54px + 18px);
+                text-align: start;
+            }
+
+            &__contenido {
+                text-align: start;
+                align-items: flex-start;
+            }
+
+            &__imagen {
+                width: 196.28px;
+            }
+
+            &__informacion {
+                width: 731px;
+
+                .certificado__informacion {
+                    &-contenido {
+                        &:first-child {
+                            padding-inline-end: 48px;
+                            border-inline-end: 1px solid rgba(46, 62, 128, 0.3);
+                        }
+                        &:last-child {
+                            padding-inline-start: 48px;
+                        }
+                    }
+
+                    &-titulo {
+                        margin-bottom: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Aviso */
+.page-ley-de-donaciones-sociales {
+    .aviso {
+        padding-block: 56px;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__titulo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        &__svg {
+            width: 56px;
+            height: 49px;
+            color: $primary_indigo;
+            flex-shrink: 0;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .aviso {
+            &__container {
+                text-align: center;
+                text-wrap: balance;
+            }
+
+            &__svg {
+                width: 48px;
+                height: 42px;
+            }
+
+            &__titulo {
+                width: 440px;
+                text-align: start;
+            }
+            
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .aviso {
+            padding-block: 80px 100px;
+
+            &__titulo {
+                width: 540px;
+            }
+
+            &__texto {
+                width: 840px;
+            }
+
+            &__descripcion {
+                width: 845px;
+            }
+        }
+    }
+}

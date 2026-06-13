@@ -1,0 +1,223 @@
+/* Hero */
+.page-transparencia {
+    .hero {
+        padding-block: 26px 56px;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+
+        &__que-es {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        &__ultima-fecu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid rgba(46, 62, 128, 0.3);
+            padding: 24px;
+
+            .ultima-fecu {
+                &__svg {
+                    width: 144px;
+                    color: $primary-blue;
+                    flex-shrink: 0;
+                }
+
+                &__info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 24px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .hero {
+            padding-block-start: 32px;
+
+            &__ultima-fecu {
+                flex-direction: row-reverse;
+                gap: 32px;
+                padding: 32px;
+
+                .ultima-fecu {
+                    &__info {
+                        align-items: flex-start;
+                        text-align: start;
+                    }
+                }
+            }
+        }
+    }
+    
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .hero {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__header {
+                gap: 48px;
+            }
+
+            &__que-es {
+                gap: 48px;
+            }
+
+            &__texto {
+                display: flex;
+                gap: 48px;
+
+                p {
+                    width: 615px;
+                }
+            }
+
+            &__ultima-fecu {
+                justify-content: space-between;
+                gap: 48px;
+                padding: 48px;
+                width: 966px;
+            }
+        }
+    }
+}
+
+/* Archivo FECU */
+.page-transparencia {
+    .archivo-fecu {
+        padding-block: 56px;
+        background: $shade-white;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+
+        &__lista {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+
+            .lista {
+                &__item {
+                    margin: 0;
+                    width: 100%;
+
+                    .item {
+                        &__enlace {
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            height: 70px;
+                            background: white;
+                            padding: 24px 16px;
+                            border-radius: 12px;
+                            border: 1px solid rgba(46, 62, 128, 0.3);
+                            font-size: 14px;
+                            text-decoration: none;
+
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .archivo-fecu {
+            &__lista {
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                justify-content: flex-start;
+
+                .lista {
+                    &__item {
+                        width: 344px;
+                    }
+                }
+            }
+
+            .gantz-btn {
+                display: none;
+                visibility: hidden;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .archivo-fecu {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 48px;
+            }
+
+            &__lista {
+                gap: 24px;
+                width: 966px;
+
+                .lista {
+                    &__item {
+                        width: 306px;
+                    }
+                }
+            }
+        }
+    }
+}

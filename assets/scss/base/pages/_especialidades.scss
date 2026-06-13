@@ -1,0 +1,377 @@
+/* Hero */
+.page-especialidades {
+    .hero {
+        &__imagen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 64/57;
+            width: 100%;
+            height: auto;
+
+            .imagen {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &__container {
+            padding-block: 24px 56px;
+        }
+
+        &__container-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 12px;
+        }
+
+        &__titulo {
+            text-align: center;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .hero {
+            &__imagen {
+                aspect-ratio: 371/214;
+            }
+
+            &__container {
+                padding-block: 32px 56px;
+            }
+
+            &__container-inner {
+                gap: 16px;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .hero {
+            position: relative;
+
+            &__contenido {
+                background: none;
+            }
+
+            &__container {
+                padding-block: 130px;
+            }
+
+            &__container-inner {
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 50%;
+                min-height: 225px;
+            }
+
+            &__titulo {
+                text-align: start;
+                color: $primary-indigo!important;
+                text-wrap: balance;
+            }
+
+            &__texto {
+                color: $primary-blue!important;
+                text-wrap: balance;
+            }
+
+            &__imagen {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40%;
+                height: 100%;
+                aspect-ratio: 355/261;
+            }
+        }
+    }
+}
+
+/* Accesos Rapidos */
+.page-especialidades {
+    .accesos {
+        padding-block: 56px;
+        border-block: 1px solid rgba(46, 62, 128, 0.3);
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        &__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        &__item {
+            margin: 0;
+        }
+
+        &__especialidades {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 32px;
+
+            .acceso-especialidad {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 8px;
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .accesos {
+            padding-block: 32px;
+
+            &__container {
+                gap: 16px;
+            }
+
+            &__titulo {
+                font-size: 1.125rem;  
+                font-weight: 400;
+            }
+
+            &__especialidades {
+                gap: 16px;
+
+                .acceso-especialidad {
+                    gap: 8px;
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .accesos {
+            &__container {
+                gap: 24px;
+            }
+
+            &__titulo {
+                font-size: 1.25rem;
+                font-weight: 400;
+            }
+
+            &__especialidades {
+                gap: 24px;
+
+                .acceso-especialidad {
+                    gap: 12px;
+                }
+            }
+        }
+    }
+}
+
+/* Especialidades */
+.page-especialidades {
+    .especialidades {
+        padding-block: 56px;
+        background: $shade_white;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .tipo-especialidad {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* gap: 40px; */
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(46, 62, 128, 0.3);
+
+            &:last-of-type {
+                border-bottom: none;
+                padding: 0;
+            }
+
+            &__titulo {
+                text-align: center;
+            }
+
+            &__lista-especialidades {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                /* gap: 40px; */
+
+                .lista-especialidades {
+                    &__especialidad {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 24px;
+                        padding-block: 40px;
+
+                        &:last-of-type {
+                            padding-bottom: 0;
+                        }
+
+                        .especialidad {
+                            &__imagen {
+                                width: 100%;
+                                height: auto;
+                                aspect-ratio: 62/47;
+                                object-fit: cover;
+                                object-position: center;
+                                border-radius: 12px;
+                                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+                            }
+
+                            &__contenido {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 12px;
+                            }
+
+                            &__titulo {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 12px;
+                                text-align: center;
+
+                                svg {
+                                    width: 32px;
+                                    height: 32px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(md) {
+        .especialidades {
+            &__container {
+                gap: 56px;
+            }
+
+            .tipo-especialidad {
+                padding-bottom: 56px;
+
+                &__lista-especialidades {
+                    .lista-especialidades {
+                        &__especialidad {
+                            padding-block: 32px;
+                            flex-direction: row;
+
+                            .especialidad {
+                                &__imagen {
+                                    width: 260px;
+                                    aspect-ratio: 65/56;
+                                }
+
+                                &__contenido {
+                                    align-items: flex-start;
+                                    gap: 16px;
+                                }
+
+                                &__titulo {
+                                    text-align: start;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    gap: 16px;
+
+                                    svg {
+                                        width: 40px;
+                                        height: 40px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .especialidades {
+            padding-block: 80px 100px;
+
+            &__container {
+                gap: 80px;
+            }
+
+            .tipo-especialidad {
+                padding-bottom: 80px;
+                width: 100%;
+
+                &__lista-especialidades {
+                    .lista-especialidades {
+                        &__especialidad {
+                            padding-block: 64px;
+                            flex-direction: row;
+                            gap: 64px;
+                            align-items: flex-start;
+                            /* width: 1125px; */
+                            padding-inline: 45px 108px;
+
+                            .especialidad {
+                                &__imagen {
+                                    width: 477px;
+                                    aspect-ratio: 53/35;
+                                }
+
+                                &__contenido {
+                                    align-items: flex-start;
+                                    gap: 24px;
+                                }
+
+                                &__titulo {
+                                    text-align: start;
+
+                                    svg {
+                                        width: 48px;
+                                        height: 48px;
+                                    }
+                                }
+
+                                &__texto {
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

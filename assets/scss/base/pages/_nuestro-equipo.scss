@@ -1,0 +1,328 @@
+/* Hero */
+.page-nuestro-equipo {
+    /* Escritorio */
+    .hero {
+        aspect-ratio: 64/57;
+        width: 100%;
+        height: auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(32, 21, 71, 0.9);
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-align: center;
+        }
+        
+        &__texto {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.50);
+            margin: 0;
+        }
+
+        &__imagen {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .hero {
+            aspect-ratio: 371/214;
+
+            &__contenido {
+                gap: 16px;
+            }
+        }
+    }
+    /* Dektop */
+    @include media-breakpoint-up(xl) {
+        .hero {
+            aspect-ratio: 197/71;
+
+            &__contenido {
+                gap: 36px;
+                padding-bottom: 67px;
+                width: 736px;
+            }
+        }
+    }
+}
+
+/* Accesos Rapidos */
+.page-nuestro-equipo {
+    .accesos {
+        padding-block: 24px;
+        border-bottom: 1px solid rgba(46, 62, 128, 0.3);
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        &__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        &__item {
+            margin: 0;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .accesos {
+            padding-block: 32px;
+
+            &__container {
+                gap: 16px;
+            }
+
+            &__titulo {
+                font-size: 1.125rem;  
+                font-weight: 400;
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .accesos {
+            &__container {
+                gap: 24px;
+            }
+
+            &__titulo {
+                font-size: 1.25rem;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+/* Secciones Expertos */
+.page-nuestro-equipo {
+    .expertos {
+        padding-block: 56px;
+
+        &:nth-child(even) {
+            background: $shade_white;
+        }
+
+        &:last-child {
+            .expertos__grid {
+                justify-content: flex-start;
+            }
+        }
+
+        &__contenido {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* gap: 32px; */
+        }
+
+        &__header, .expertos-subarea__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        &__descripcion {
+            text-align: center;
+        }
+
+        &__grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 12px;
+            padding-block: 32px;
+
+            .experto-card {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 16px;
+                width: 100%;
+
+                &__imagen {
+                    width: 101px;
+                    height: 101px;
+                    object-fit: cover;
+                    object-position: center;
+                    border-radius: 9999px;
+                    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
+                }
+            }
+        }
+
+        /* &__contenido .expertos__grid:nth-child(2) {
+            padding-bottom: 0;
+        } */
+
+        .expertos-subarea {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            /* gap: 12px; */
+            padding-block: 32px;
+            border-top: 1px solid rgba(46, 62, 128, 0.3);
+
+            >.expertos-subarea--nested {
+                border: none;
+                border-bottom: 1px solid rgba(46, 62, 128, 0.3);
+                padding: 0;
+                padding-block: 24px;
+
+                &:last-child {
+                    padding-bottom: 0;
+                    border: none;
+                }
+
+                >.expertos__grid {
+                    padding: 0;
+                    padding-top: 24px;
+                }
+            }
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .expertos {
+            &__grid {
+                display: grid;
+                grid-template-columns: repeat(2, 320px);
+                gap: 16px;
+                justify-content: flex-start;
+                width: 656px;
+
+                & > .experto-card:only-child {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                    width: fit-content;
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(xl) {
+        .expertos {
+            padding-block: 80px 100px;
+
+            &__header {
+                width: 1134px;
+            }
+
+            &__descripcion-parrafo {
+                text-wrap: balance;
+            }
+
+            &__grid {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                justify-content: center;
+                align-items: flex-start;
+
+                gap: 36px;
+
+                width: fit-content;
+                max-width: 1134px;
+
+                margin-inline: auto;
+
+                padding-block: 48px;
+
+                &--7 {
+                    max-width: 900px;
+                }
+
+                &--6 {
+                    max-width: 666px;
+                }
+
+                .experto-card {
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 18px;
+                    text-align: center;
+                    width: 198px;
+
+                    &__imagen {
+                        width: 198px;
+                        height: 198px;
+                    }
+
+                    &__nombre, &__cargo {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            /* &__contenido >.expertos__grid {
+                padding-block: 48px;
+            } */
+
+            .expertos-subarea {
+                padding-block: 48px;
+                >.expertos-subarea--nested {
+                    padding-block: 36px;
+                }
+            }
+
+            &#directorio {
+                
+                .expertos {
+                    &__header {
+                        width: 900px;
+                    }
+
+                    &__grid {
+                        width: 900px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Breadcrumb hidden desktop */
+@include media-breakpoint-up(xl) {
+    .page-nuestro-equipo {
+        .gantz-breadcrumb {
+            display: none;
+            visibility: hidden;
+        }
+    }
+}

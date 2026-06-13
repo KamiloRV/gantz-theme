@@ -1,0 +1,51 @@
+// assets/scss/main.scss
+
+// 1. Variables
+@import 'variables';
+
+// 2. Bootstrap completo
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// 3. Base del tema
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/global';
+@import 'base/pages/home';
+@import 'base/pages/nuestra-causa';
+@import 'base/pages/nuestro-equipo';
+@import 'base/pages/que-son-las-fisuras';
+@import 'base/pages/tratamiento';
+@import 'base/pages/especialidades';
+@import 'base/pages/noticias';
+@import 'base/pages/ley-de-donaciones';
+@import 'base/pages/personas';
+@import 'base/pages/galerias';
+@import 'base/pages/newsletters';
+@import 'base/pages/publicaciones';
+@import 'base/pages/transparencia';
+@import 'base/pages/testimonios';
+@import 'base/pages/contacto';
+@import 'base/pages/empresas';
+@import 'base/singles/single-noticia';
+@import 'base/singles/single-galerias';
+//@import 'base/animations';
+
+// 4. Componentes propios
+@import 'components/navbar';
+//@import 'components/hero';
+//@import 'components/cards';
+@import 'components/footer';
+@import 'components/buttons';
+@import 'components/sliders';
+@import 'components/breadcrumb';
+@import 'components/pre-footers';
+@import 'components/chips';
+@import 'components/noticias';
+@import 'components/inputs';
+@import 'components/paginador';
+@import 'components/vista';
+//@import 'components/forms';
+
+// 5. Utilidades propias
+//@import 'utilities/mixins';
+//@import 'utilities/helpers';

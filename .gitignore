@@ -1,0 +1,22 @@
+# Node
+node_modules/
+
+# IDE
+.vscode/
+
+# Logs
+*.log
+
+# Source maps
+*.map
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+*.cache
+*.tmp

@@ -1,0 +1,79 @@
+.gantz-vista {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    padding: 16px;
+
+    background: white;
+    border: 1px solid rgba(46, 62, 128, 0.3);
+    border-radius: 12px;
+
+    &__label {
+        margin: 0;
+    }
+
+    &__opciones {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    &__opcion {
+        border: none;
+        background: none;
+        padding-inline: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: $primary-blue;
+
+        &.is-active {
+            color: $accent-cobalt;
+            font-weight: 600;
+
+            .gantz-vista {
+                &__icon {
+                    display: none;
+                    visibility: hidden;
+
+                    &-active {
+                        display: block;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+
+    &__icon {
+        width: 18px;
+        height: 18px;
+
+        &-active {
+            width: 18px;
+            height: 18px;
+            display: none;
+            visibility: hidden;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(xl) {
+        width: fit-content;
+        height: 70px;
+        gap: 24px;
+        padding-inline: 24px;
+
+        &__opciones {
+            gap: 24px;
+        }
+
+        &__opcion {
+            padding: 0;
+        }
+    }
+}
