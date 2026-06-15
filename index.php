@@ -74,7 +74,7 @@ $social_links = [
                             <?php endif; ?>
                         </div>
                         <div class="container content <?php echo ($bg_color === 'white-bg') ? esc_attr($bg_color) : ''; ?>">
-                            <div class="col-12 col-xl-6">
+                            <div class="col-12 col-lgg-6">
                                 <div class="title-container">
                                     <?php if ($titulo) : ?>
                                         <h2 class="title h1"><?php echo wp_kses_post($titulo); ?></h2>

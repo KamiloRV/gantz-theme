@@ -505,10 +505,10 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .hero {
             position: relative;
-            padding-block: 130px 80px;
+            padding-block: 80px 80px;
             height: 546px;
 
             &__contenido {
@@ -535,6 +535,11 @@
                 aspect-ratio: 371/214;
                 width: 40%;
                 height: 100%;
+
+                .imagen {
+                    object-fit: contain;
+                    object-position: 50% 100%;
+                }
             }
         }
 
@@ -585,8 +590,8 @@
             &__imagen {
                 display: flex;
                 flex-shrink: 0;
-                width: 568px;
-                height: 390px;
+                width: 500px;
+                aspect-ratio: 217/149;
 
                 .imagen {
                     width: 100%;
@@ -613,7 +618,7 @@
             gap: 48px;
 
             &__header {
-                width: 1062px;
+                width: 100%;
                 gap: 24px;
 
                 /* >p {
@@ -622,7 +627,7 @@
             }
 
             &__contenido {
-                width: 1062px;
+                width: 100%;
                 flex-direction: row;
                 gap: 64px;
 
@@ -635,9 +640,9 @@
 
             &__imagenes {
                 flex-shrink: 0;
-                width: 476px;
-                height: 254px;
-                gap: 45px;
+                /* width: 476px;
+                height: 254px; */
+                gap: 40px;
 
                 .imagen {
                     width: 223px;
@@ -679,6 +684,7 @@
         .equipo {
             padding-block: 80px 100px;
             flex-direction: row;
+            gap: 80px;
 
             &__contenido {
                 align-items: flex-start;
@@ -706,7 +712,7 @@
             }
 
             &__imagen {
-                width: 568px;
+                width: 500px;
                 height: 308px;
                 flex-shrink: 0;
             }
@@ -747,6 +753,40 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .hero {
+            position: relative;
+            padding-block: 130px 80px;
+            height: 546px;
+
+            &__contenido {
+                align-items: flex-start;
+                justify-content: center;
+                padding: 0;
+                gap: 24px;
+            }
+
+            &__titulo {
+                text-align: start;
+                width: 60%;
+            }
+
+            &__texto {
+                text-align: start;
+                width: 60%;
+            }
+
+            &__imagen {
+                position: absolute;
+                top: 0%;
+                right: 0;
+                aspect-ratio: 371/214;
+                width: 40%;
+                height: 100%;
             }
         }
     }

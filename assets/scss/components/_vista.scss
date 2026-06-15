@@ -62,7 +62,7 @@
     }
 
     /* Tablet */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         width: fit-content;
         height: 70px;
         gap: 24px;

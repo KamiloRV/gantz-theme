@@ -93,7 +93,7 @@
             }
         }
         
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lgg) {
             padding-block: 100px;
 
             .container {
@@ -181,7 +181,7 @@
             }
         }
 
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lgg) {
             padding-block: 100px;
 
             .container {
@@ -283,9 +283,14 @@
 
             .image {
                 width: 100%;
-                height: 292px;
+                /* height: 292px; */
+                aspect-ratio: 74/63;
                 border-radius: 12px;
                 overflow: hidden;
+
+                @include media-breakpoint-up(md) {
+                    aspect-ratio: 176/73;
+                }
 
                 img {
                     width: 100%;
@@ -296,7 +301,7 @@
             }
         }
 
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lgg) {
             padding-block: 100px;
 
             .container {
@@ -391,9 +396,14 @@
 
             .imagen {
                 width: 100%;
-                height: 292px;
+                /* height: 292px; */
+                aspect-ratio: 74/63;
                 border-radius: 12px;
                 overflow: hidden;
+
+                @include media-breakpoint-up(md) {
+                    aspect-ratio: 176/73;
+                }
 
                 img {
                     width: 100%;
@@ -420,7 +430,7 @@
             }
         }
 
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lgg) {
             .galeria {
                 .galeria-item {
                     height: 220px;
@@ -448,7 +458,7 @@
                 }
 
                 .imagen {
-                    width: 568px;
+                    width: 500px;
                     height: 381.94px;
                     flex-shrink: 0;
                 }
@@ -910,6 +920,10 @@
             }
         }
 
+        @include media-breakpoint-up(lgg) {
+            padding-block: 80px 100px;
+        }
+
         @include media-breakpoint-up(xl) {
             padding-top: 80px;
             padding-bottom: 100px;
@@ -982,7 +996,7 @@
         padding-block: 56px;
         background: $shade_white;
 
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lgg) {
             padding-block: 80px 100px;
         }
 

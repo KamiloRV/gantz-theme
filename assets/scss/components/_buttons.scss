@@ -103,7 +103,7 @@
         }
     }
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         width: fit-content;
         padding-inline: 32px;
         font-size: 20px;

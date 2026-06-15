@@ -164,7 +164,7 @@
         visibility: visible;
     }
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         align-items: flex-end;
         background: none;
         border: none;

@@ -30,7 +30,7 @@
     }
 
     /* Tablet */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .noticias-recientes {
             padding-block: 90px 0;
             border: none;
@@ -180,7 +180,7 @@
                         height: 50px;
                     }
 
-                    @include media-breakpoint-up(xl) {
+                    @include media-breakpoint-up(lgg) {
                         height: 60px;
                         padding-inline: 24px;
                     }
@@ -324,7 +324,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .archivo-noticias {
             padding-block: 80px 100px;
 
@@ -355,9 +355,18 @@
             }
 
             &__grid {
-                grid-template-columns: repeat(3, 414px);
+                grid-template-columns: repeat(3, 1fr);
                 grid-column-gap: 18px;
                 row-gap: 32px;
+            }
+
+            &__noticia {
+                .noticia {
+                    &__imagen {
+                        width: 100%;
+                        aspect-ratio: 23/13;
+                    }
+                }
             }
         }
     }

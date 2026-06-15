@@ -53,7 +53,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .hero {
             position: relative;
 
@@ -62,7 +62,11 @@
             }
 
             &__container {
-                padding-block: 130px;
+                padding-block: 80px;
+
+                @include media-breakpoint-up(xl) {
+                    padding-block: 130px;
+                }
             }
 
             &__container-inner {
@@ -520,7 +524,7 @@
         }
     }
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .guia {
             padding-block: 80px 100px;
             

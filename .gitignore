@@ -20,3 +20,6 @@ Thumbs.db
 # Cache
 *.cache
 *.tmp
+
+# Otros
+functionsOG.php

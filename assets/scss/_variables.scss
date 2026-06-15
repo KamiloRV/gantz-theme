@@ -157,16 +157,22 @@ $grid-gutter-width: 16px; // medianil de 16px en todos los breakpoints
 // ─── Breakpoints ──────────────────────────────────────────────────────────────
 $grid-breakpoints: (
   xs:   0,
-  sm:   374px,   // mobile
-  md:   765px,   // tablet
-  xl:   1340px,  // desktop
+  sm:   374px,   // Desde telefonos chicos medianos
+  smd:  411px,  // Desde telefonos grandes tablets chicas
+  md:   767px,   // Desde tablets chicas laptops pequeñas
+  lg:   799px,  // Desde Tablets grandes laptos pequeñas
+  lgg:  1023px,
+  xl:  1439px,  // Desde laptops grandes y pantallas grandes
 );
  
 // ─── Anchos máximos del contenedor ───────────────────────────────────────────
 $container-max-widths: (
   sm:   344px,
+  smd:  80vw,
   md:   704px,
-  xl:   1278px,
+  lg:   90vw,
+  lgg:  95vw,
+  xl:  1278px,
 );
 
 // =============================================================================

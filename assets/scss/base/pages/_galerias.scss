@@ -162,7 +162,7 @@
     }
 
     /* Desktop */ 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .archivo-galeria {
             padding-block: 90px 100px;
 
@@ -186,7 +186,11 @@
 
                 .lista {
                     &__item {
-                        width: 307.5px;
+                        width: 32.39%;
+
+                        @include media-breakpoint-up(xl) {
+                            width: 307.5px;
+                        }
 
                         .item {
                             &__card {
@@ -278,7 +282,7 @@
         }
     }
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .archivo-galeria {
             &__lista {
                 .lista {

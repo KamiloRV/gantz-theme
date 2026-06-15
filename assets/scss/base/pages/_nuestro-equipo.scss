@@ -47,7 +47,7 @@
         }
     }
     /* Dektop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .hero {
             aspect-ratio: 197/71;
 
@@ -105,7 +105,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .accesos {
             &__container {
                 gap: 24px;
@@ -234,7 +234,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .expertos {
             padding-block: 80px 100px;
 
@@ -318,7 +318,7 @@
 }
 
 /* Breadcrumb hidden desktop */
-@include media-breakpoint-up(xl) {
+@include media-breakpoint-up(lgg) {
     .page-nuestro-equipo {
         .gantz-breadcrumb {
             display: none;

@@ -93,7 +93,7 @@
     height: 64px;
     background-color: $primary-blue;
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         height: 82px;
     }
 
@@ -564,8 +564,17 @@
                         border-bottom: 1px solid rgba(46, 62, 128, 0.3);
                         transition: color 0.3s ease;
 
+                        @include media-breakpoint-up(smd) {
+                            padding-inline: calc((100% - 80vw + 16px) / 2);
+                        }
                         @include media-breakpoint-up(md) {
                             padding-inline: calc((100% - 704px + 16px) / 2);
+                        }
+                        @include media-breakpoint-up(lg) {
+                            padding-inline: calc((100% - 90vw + 16px) / 2);
+                        }
+                        @include media-breakpoint-up(llg) {
+                            padding-inline: calc((100% - 95vw + 16px) / 2);
                         }
                     }
 
@@ -630,13 +639,25 @@
                                     height: 44px;
                                     align-items: center;
                                     justify-content: space-between;
-                                    padding-inline: calc((100% - 344px + 16px) / 2);
+                                    padding-inline: calc((100% - 344px + 32px) / 2);
                                     color: $primary-blue;
                                     background-color: $shade_white;
                                     border-bottom: 1px solid rgba(46, 62, 128, 0.3);
 
                                     @include media-breakpoint-up(md) {
-                                        padding-inline: calc((100% - 704px + 16px) / 2);
+                                        padding-inline: calc((100% - 704px + 32px) / 2);
+                                    }
+                                    @include media-breakpoint-up(smd) {
+                                        padding-inline: calc((100% - 80vw + 32px) / 2);
+                                    }
+                                    @include media-breakpoint-up(md) {
+                                        padding-inline: calc((100% - 704px + 32px) / 2);
+                                    }
+                                    @include media-breakpoint-up(lg) {
+                                        padding-inline: calc((100% - 90vw + 32px) / 2);
+                                    }
+                                    @include media-breakpoint-up(llg) {
+                                        padding-inline: calc((100% - 95vw + 32px) / 2);
                                     }
 
                                     &:hover, &:focus-visible {

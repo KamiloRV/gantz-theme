@@ -96,7 +96,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         &__input {
             height: 70px;
             padding-inline: 24px;

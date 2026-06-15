@@ -65,7 +65,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .hero {
             position: relative;
 
@@ -74,13 +74,17 @@
             }
 
             &__container {
-                padding-block: 130px;
+                padding-block: 80px;
+
+                @include media-breakpoint-up(xl) {
+                    padding-block: 130px;
+                }
             }
 
             &__container-inner {
                 align-items: flex-start;
                 justify-content: flex-start;
-                width: 50%;
+                width: 60%;
                 min-height: 225px;
             }
 
@@ -102,6 +106,11 @@
                 width: 40%;
                 height: 100%;
                 aspect-ratio: 355/261;
+
+                .imagen {
+                    object-fit: contain;
+                    object-position: 50% 100%;
+                }
             }
         }
     }
@@ -328,7 +337,7 @@
     }
 
     /* Desktop */
-    @include  media-breakpoint-up(xl) {
+    @include  media-breakpoint-up(lgg) {
         .la-fisura {
             padding-block: 80px 100px;
             gap: 48px;
@@ -845,7 +854,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lgg) {
         .preguntas {
             padding-block: 80px 100px;
 

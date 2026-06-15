@@ -53,7 +53,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .hero {
             position: relative;
 
@@ -62,7 +62,11 @@
             }
 
             &__container {
-                padding-block: 130px;
+                padding-block: 80px;
+
+                @include media-breakpoint-up(xl) {
+                    padding-block: 130px;
+                }
             }
 
             &__container-inner {
@@ -262,7 +266,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .ultimos-newsletters {
             padding-block: 80px 100px;
             &__container {
@@ -429,7 +433,7 @@
     }
 
     /* Tablet */
-    @include media-breakpoint-between(md, xl) {
+    @include media-breakpoint-between(md, lgg) {
         .archivo-newsletters {
             &__lista-anual {
                 display: grid;
@@ -508,7 +512,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .archivo-newsletters {
             padding-block: 80px 100px;
 
