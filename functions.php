@@ -15,10 +15,10 @@ require_once get_template_directory() . '/inc/helpers.php';
 /**
  * SCF
  */
-/* require_once get_template_directory() . '/inc/scf/ctp.php';
+require_once get_template_directory() . '/inc/scf/ctp.php';
 require_once get_template_directory() . '/inc/scf/options.php';
 require_once get_template_directory() . '/inc/scf/tax.php';
-require_once get_template_directory() . '/inc/scf/gdc.php'; */
+require_once get_template_directory() . '/inc/scf/gdc.php';
 
 /**
  * Admin
