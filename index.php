@@ -380,101 +380,103 @@ $social_links = [
         </div>
 
     </section>
-    <section class="banners" aria-label="Eventos y campañas">
-        <div class="slider" id="imgBanners" data-autoplay="5000" aria-live="polite">
-            <?php foreach ($images_banners as $index => $banner) :
-            
-                $sm_imagen = $banner['imagen_mobile'] ?? '';
-                $md_imagen = $banner['imagen_tablet'] ?? '';
-                $xl_imagen = $banner['imagen_escritorio'] ?? '';
+    <?php if ($images_banners) : ?>
+        <section class="banners" aria-label="Eventos y campañas">
+            <div class="slider" id="imgBanners" data-autoplay="5000" aria-live="polite">
+                <?php foreach ($images_banners as $index => $banner) :
                 
-                $enlace = $banner['enlace'] ?? [];
+                    $sm_imagen = $banner['imagen_mobile'] ?? '';
+                    $md_imagen = $banner['imagen_tablet'] ?? '';
+                    $xl_imagen = $banner['imagen_escritorio'] ?? '';
+                    
+                    $enlace = $banner['enlace'] ?? [];
 
-                $type = $enlace['tipo'] ?? '';
-                $url  = $enlace['url'] ?? '';
-                $link = $enlace['link'] ?? '';
+                    $type = $enlace['tipo'] ?? '';
+                    $url  = $enlace['url'] ?? '';
+                    $link = $enlace['link'] ?? '';
 
-                $href = '';
-                $target = '';
+                    $href = '';
+                    $target = '';
 
-                if ($type === 'interno' && !empty($link)) {
-                    $href = $link;
-                } elseif ($type === 'externo' && !empty($url)) {
-                    $href = $url;
-                    $target = 'target="_blank" rel="noopener noreferrer"';
-                }
+                    if ($type === 'interno' && !empty($link)) {
+                        $href = $link;
+                    } elseif ($type === 'externo' && !empty($url)) {
+                        $href = $url;
+                        $target = 'target="_blank" rel="noopener noreferrer"';
+                    }
 
-                $is_first = $index === 0;
-            ?>
-                <div class="slide<?php echo $is_first ? ' is-active' : ''; ?>"
-                    role="group"
-                    aria-roledescription="slide"
-                    aria-label="<?php printf($index + 1, count($images_banners)); ?>"
-                    aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>">
+                    $is_first = $index === 0;
+                ?>
+                    <div class="slide<?php echo $is_first ? ' is-active' : ''; ?>"
+                        role="group"
+                        aria-roledescription="slide"
+                        aria-label="<?php printf($index + 1, count($images_banners)); ?>"
+                        aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>">
 
-                    <?php if ($href) : ?>
-                        <a href="<?php echo esc_url($href); ?>"
-                        class="img-slide-link"
-                        <?php echo $target; ?>
-                        tabindex="<?php echo $is_first ? '0' : '-1'; ?>">
-                    <?php endif; ?>
+                        <?php if ($href) : ?>
+                            <a href="<?php echo esc_url($href); ?>"
+                            class="img-slide-link"
+                            <?php echo $target; ?>
+                            tabindex="<?php echo $is_first ? '0' : '-1'; ?>">
+                        <?php endif; ?>
 
-                        <picture>
-                            <?php if (!empty($sm_imagen)) : ?>
-                                <source media="(max-width: 767px)"
-                                        srcset="<?php echo esc_url($sm_imagen['url']); ?>">
-                            <?php endif; ?>
+                            <picture>
+                                <?php if (!empty($sm_imagen)) : ?>
+                                    <source media="(max-width: 767px)"
+                                            srcset="<?php echo esc_url($sm_imagen['url']); ?>">
+                                <?php endif; ?>
 
-                            <?php if (!empty($md_imagen)) : ?>
-                                <source media="(max-width: 1439px)"
-                                        srcset="<?php echo esc_url($md_imagen['url']); ?>">
-                            <?php endif; ?>
+                                <?php if (!empty($md_imagen)) : ?>
+                                    <source media="(max-width: 1439px)"
+                                            srcset="<?php echo esc_url($md_imagen['url']); ?>">
+                                <?php endif; ?>
 
-                            <img src="<?php echo esc_url($xl_imagen['url']); ?>"
-                                alt="<?php echo esc_attr($xl_imagen['alt']); ?>"
-                                class="img-slide-img"
-                                <?php echo $is_first ? 'loading="eager"' : 'loading="lazy"'; ?>>
-                        </picture>
+                                <img src="<?php echo esc_url($xl_imagen['url']); ?>"
+                                    alt="<?php echo esc_attr($xl_imagen['alt']); ?>"
+                                    class="img-slide-img"
+                                    <?php echo $is_first ? 'loading="eager"' : 'loading="lazy"'; ?>>
+                            </picture>
 
-                    <?php if ($href) : ?>
-                        </a>
-                    <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
-        </div>
+                        <?php if ($href) : ?>
+                            </a>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
-        <?php /* — Flechas de navegación */ ?>
-        <div class="controls">
-            <button class="prev-control"
-                    type="button"
-                    aria-label="Slide anterior">
-                <svg aria-hidden="true" focusable="false">
-                    <use href="<?php echo esc_attr($directory_uri) . '/assets/images/icons.svg#left'; ?>" />
-                </svg>
-            </button>
-        
-            <button class="next-control"
-                    type="button"
-                    aria-label="Slide siguiente">
-                <svg aria-hidden="true" focusable="false">
-                    <use href="<?php echo esc_attr($directory_uri) . '/assets/images/icons.svg#right'; ?>" />
-                </svg>
-            </button>
-        </div>
-        <?php /* — Dots */ ?>
-        <div class="dots" role="tablist"
-            aria-label="Navegación de slides">
-            <?php foreach ($images_banners as $index => $slide) : ?>
-                <button class="dot<?php echo $index === 0 ? ' is-active' : ''; ?>"
+            <?php /* — Flechas de navegación */ ?>
+            <div class="controls">
+                <button class="prev-control"
                         type="button"
-                        role="tab"
-                        aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"
-                        aria-label="<?php printf(esc_attr__('Ir al slide %d', 'mi-tema'), $index + 1); ?>"
-                        data-index="<?php echo esc_attr($index); ?>">
+                        aria-label="Slide anterior">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="<?php echo esc_attr($directory_uri) . '/assets/images/icons.svg#left'; ?>" />
+                    </svg>
                 </button>
-            <?php endforeach; ?>
-        </div>
-    </section>
+            
+                <button class="next-control"
+                        type="button"
+                        aria-label="Slide siguiente">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="<?php echo esc_attr($directory_uri) . '/assets/images/icons.svg#right'; ?>" />
+                    </svg>
+                </button>
+            </div>
+            <?php /* — Dots */ ?>
+            <div class="dots" role="tablist"
+                aria-label="Navegación de slides">
+                <?php foreach ($images_banners as $index => $slide) : ?>
+                    <button class="dot<?php echo $index === 0 ? ' is-active' : ''; ?>"
+                            type="button"
+                            role="tab"
+                            aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"
+                            aria-label="<?php printf(esc_attr__('Ir al slide %d', 'mi-tema'), $index + 1); ?>"
+                            data-index="<?php echo esc_attr($index); ?>">
+                    </button>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    <?php endif; ?>
     <section class="noticias" aria-labelledby="titulo-noticias">
         <?php
         $noticias = get_field('noticias')
