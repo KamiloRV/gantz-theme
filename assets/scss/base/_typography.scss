@@ -117,6 +117,7 @@ body, .body-1 {
   letter-spacing: 0;
   color:          $body-color;
   text-wrap: pretty;
+  font-style: normal;
 
   @include media-breakpoint-up(md) {  // tablet
     font-size:    1.125rem;           // 18px
@@ -179,7 +180,7 @@ blockquote {
   font-weight:    500;          // Semibold Italic (desktop)
   font-size:      1.125rem;     // mobile: 18px
   line-height:    1.25;
-  letter-spacing: track(-1);
+  letter-spacing: track(2);
 
   @include media-breakpoint-up(md) {  // tablet: Medium Italic
     font-size:    1.25rem;            // 20px

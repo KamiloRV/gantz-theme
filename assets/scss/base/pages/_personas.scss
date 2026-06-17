@@ -101,7 +101,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .hero {
             position: relative;
 
@@ -110,7 +110,11 @@
             } */
 
             &__container {
-                padding-block: 130px;
+                padding-block: 80px;
+
+                @include media-breakpoint-up(xl) {
+                    padding-block: 100px;
+                }
             }
 
             &__container-inner {
@@ -204,7 +208,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .accesos {
             &__container {
                 gap: 24px;
@@ -404,6 +408,12 @@
                     }
                 }
             }
+        }
+    }
+
+    @include media-breakpoint-up(lgg) {
+        .soap {
+            padding-block: 80px 100px;
         }
     }
 
@@ -662,10 +672,16 @@
         }
     }
 
+    @include media-breakpoint-up(lgg) {
+        .giftcards {
+            padding-block: 80px 100px;
+        }
+    }
+
     /* Desktop */
     @include media-breakpoint-up(xl) {
         .giftcards {
-            padding: 80px 100px;
+            padding-block: 80px 100px;
 
             &__container-inner {
                 gap: 48px;
@@ -726,4 +742,255 @@
     }
 }
 
-/* Celebra con sentido */
+/* Tarjetas */
+.page-personas {
+    .tarjetas {
+        padding-block: 56px;
+        /* background: $shade-white; */
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 32px;
+            width: 100%;
+        }
+
+        &__header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 24px;
+            width: 100%;
+            text-align: center;
+        }
+
+        &__titulo {
+            text-align: center;
+            width: 100%;
+        }
+
+        &__imagen {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            img {
+                width: 100%;
+                aspect-ratio: 131/76;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 12px;
+                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        &__disclaimer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            &::before {
+                content: "";
+                display: flex;
+                width: 20px;
+                height: 20px;
+                aspect-ratio: 1/1;
+
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M10 15C10.2833 15 10.5208 14.9042 10.7125 14.7125C10.9042 14.5208 11 14.2833 11 14C11 13.7167 10.9042 13.4792 10.7125 13.2875C10.5208 13.0958 10.2833 13 10 13C9.71667 13 9.47917 13.0958 9.2875 13.2875C9.09583 13.4792 9 13.7167 9 14C9 14.2833 9.09583 14.5208 9.2875 14.7125C9.47917 14.9042 9.71667 15 10 15ZM9 11H11V5H9V11ZM10 20C8.61667 20 7.31667 19.7375 6.1 19.2125C4.88333 18.6875 3.825 17.975 2.925 17.075C2.025 16.175 1.3125 15.1167 0.7875 13.9C0.2625 12.6833 0 11.3833 0 10C0 8.61667 0.2625 7.31667 0.7875 6.1C1.3125 4.88333 2.025 3.825 2.925 2.925C3.825 2.025 4.88333 1.3125 6.1 0.7875C7.31667 0.2625 8.61667 0 10 0C11.3833 0 12.6833 0.2625 13.9 0.7875C15.1167 1.3125 16.175 2.025 17.075 2.925C17.975 3.825 18.6875 4.88333 19.2125 6.1C19.7375 7.31667 20 8.61667 20 10C20 11.3833 19.7375 12.6833 19.2125 13.9C18.6875 15.1167 17.975 16.175 17.075 17.075C16.175 17.975 15.1167 18.6875 13.9 19.2125C12.6833 19.7375 11.3833 20 10 20ZM10 18C12.2333 18 14.125 17.225 15.675 15.675C17.225 14.125 18 12.2333 18 10C18 7.76667 17.225 5.875 15.675 4.325C14.125 2.775 12.2333 2 10 2C7.76667 2 5.875 2.775 4.325 4.325C2.775 5.875 2 7.76667 2 10C2 12.2333 2.775 14.125 4.325 15.675C5.875 17.225 7.76667 18 10 18Z' fill='%232E3E80'/%3E%3C/svg%3E");
+
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+            }
+        }
+
+        &__pasos {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 16px;
+            width: 100%;
+        }
+
+        &__paso {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            padding: 16px;
+            border: 1px solid rgba(46, 62, 128, 0.3);
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+
+            .paso {
+                &__icono {
+                    width: 48px;
+                    height: 48px;
+                }
+
+                &__texto {
+                    ul {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: flex-start;
+                        padding-inline-start: 16px;
+                        margin-top: 16px;
+                        gap: 8px;
+
+                        li {
+                            width: fit-content;
+                            margin: 0;
+
+                            button, a {
+                                display: flex;
+                                align-items: flex-start;
+                                justify-content: flex-start;
+                                background: none;
+                                padding: 0;
+                                border: none;
+                                text-decoration: underline;
+                                color: $accent-cobalt;
+                                width: fit-content;
+                                text-align: start;
+                            }
+                        }
+                    }
+
+                    > p:first-child {
+                        &::before {
+                            content: 'Paso 1: ';
+                            font-weight: 600;
+
+                            &--2 {
+                                content: 'Paso 2: ';
+                            }
+                            
+                            &--3 {
+                                content: 'Paso 3: ';
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &__aviso {
+            text-align: center;
+        }
+    }
+
+    /* Tablet */
+    @include media-breakpoint-up(md) {
+        .tarjetas {
+            &__header {
+                gap: 16px;
+            }
+
+            &__imagen {
+                img {
+                    aspect-ratio: 176/73;
+                }
+            }
+
+            &__pasos {
+                flex-direction: row;
+                gap: 24px;
+            }
+
+            &__paso {
+                align-items: flex-start;
+                border-radius: 0;
+                padding: 0;
+                background: none;
+                border: none;
+                text-align: start;
+
+                .paso {
+                    &__icono {
+                        align-self: center;
+                    }
+
+                    &__texto {
+                        ul {
+                            align-items: flex-start;
+                            text-align: start;
+
+                            li {
+                                text-align: start;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(lgg) {
+        .tarjetas {
+            padding-block: 80px 100px;
+
+            &__header {
+                gap: 24px;
+            }
+
+            &__container {
+                gap: 48px;
+                align-items: center;
+            }
+
+            &__imagen {
+                img {
+                    aspect-ratio: 180/59;
+                }
+            }
+
+            &__pasos {
+                width: 80%;
+                justify-content: space-between;
+            }
+
+            /* &__paso {
+                align-items: flex-start;
+                border-radius: 0;
+                padding: 0;
+                background: none;
+                border: none;
+                text-align: start;
+
+                .paso {
+                    &__icono {
+                        align-self: center;
+                    }
+
+                    &__texto {
+                        ul {
+                            align-items: flex-start;
+                            text-align: start;
+
+                            li {
+                                text-align: start;
+                            }
+                        }
+                    }
+                }
+            } */
+
+            &__aviso {
+                width: 40%;
+            }
+        }
+    }
+}

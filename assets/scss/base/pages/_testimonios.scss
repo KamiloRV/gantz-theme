@@ -53,7 +53,7 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .hero {
             position: relative;
 
@@ -62,7 +62,11 @@
             }
 
             &__container {
-                padding-block: 130px;
+                padding-block: 80px;
+
+                @include media-breakpoint-up(xl) {
+                    padding-block: 130px;
+                }
             }
 
             &__container-inner {
@@ -95,7 +99,7 @@
     }
 }
 
-/* Archivo Testimonios */
+/* Testimonios Destacados */
 .page-testimonios {
     .testimonios-destacados {
         padding-block: 56px;
@@ -233,8 +237,10 @@
     }
 
     /* Desktop */
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(lgg) {
         .testimonios-destacados {
+            padding-block: 80px 100px;
+
             &__container {
                 gap: 48px;
             }
@@ -254,6 +260,194 @@
                 .testimonio {
                     &__video {
                         height: 344px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Testimonios Escritos */
+.page-testimonios {
+    .testimonios-escritos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+
+        &__testimonio {
+            padding-block: 56px;
+            width: 100%;
+
+            &:nth-child(even) {
+                background: $shade-white;
+            }
+
+            .testimonio {
+                &__container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 16px;
+                    width: 100%;
+                }
+
+                &__header {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 16px;
+                    width: 100%;
+                }
+
+                &__historia {
+                    >p {
+                        &:first-child::after {
+                            content: '..';
+                        }
+                        &:nth-child(1n + 2) {
+                            display: none;
+                            visibility: hidden;
+                        }
+                    }
+
+                    >button {
+                        background: none;
+                        border: none;
+                        padding: 0!important;
+                    }
+
+                    &.expanded {
+                        >p {
+                            &:first-child::after {
+                                content: unset;
+                            }
+                            &:nth-child(1n + 2) {
+                                display: block;
+                                visibility: visible;
+                            }
+                        }
+
+                        >button {
+                            display: none;
+                            visibility: hidden;
+                            background: none;
+                            border: none;
+                            padding: 0!important;
+                        }
+                    }
+                }
+
+                &__destacado {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 24px;
+                    width: 100%;
+                    padding: 16px;
+                    background: white;
+                    margin: 0;
+                    margin-top: 16px;
+                    border-radius: 8px;
+                    border: 1px solid rgba(46, 62, 128, 0.30);
+                }
+
+                &__imagen {
+                    width: 100%;
+                    aspect-ratio: 122/71;
+                    border-radius: 4px;
+                    object-fit: cover;
+                    object-position: center;
+                    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
+                }
+
+                &__destacado-contenido {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 16px;
+                    width: 100%;
+                    padding: 16px 0 16px 16px;
+                    border-left: 4px solid $accent-cobalt;
+                }
+
+                &__info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    /* Desktop */
+    @include media-breakpoint-up(lgg) {
+        .testimonios-escritos {
+            &__testimonio {
+                padding-block: 80px 100px;
+
+                .testimonio {
+                    &__container {
+                        gap: 24px;
+                        align-items: center;
+                    }
+
+                    &__header {
+                        gap: 24px;
+                        max-width: 55%;
+                        align-items: center;
+                        text-align: center;
+                    }
+
+                    &__historia {
+                        max-width: 83%;
+
+                        >p {
+                            display: block!important;
+                            visibility: visible!important;
+
+                            &:first-child::after {
+                                content: unset;
+                            }
+                        }
+
+                        >button {
+                            display: none;
+                            visibility: hidden;
+                        }
+                    }
+
+                    &__destacado {
+                        margin-top: 24px;
+                        padding: 24px;
+                        flex-direction: row;
+                        align-items: center;
+                    }
+
+                    &__imagen {
+                        width: auto;
+                        height: 217px;
+                        aspect-ratio: 101/70;
+                    }
+
+                    &__destacado-contenido {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        gap: 16px;
+                        width: 100%;
+                        padding: 16px 0 16px 21px;
+                        border-left: 4px solid $accent-cobalt;
                     }
                 }
             }

@@ -403,16 +403,3 @@ add_filter( 'enter_title_here', function( $default, $post ) {
 	return $default;
 }, 10, 2 );
 
-add_action( 'acf/init', function() {
-	acf_add_options_page( array(
-	'page_title' => 'Ajustes del sitio',
-	'menu_slug' => 'ajustes-del-sitio',
-	'position' => '',
-	'redirect' => false,
-	'menu_icon' => array(
-		'type' => 'dashicons',
-		'value' => 'dashicons-admin-generic',
-	),
-	'icon_url' => 'dashicons-admin-generic',
-) );
-} );

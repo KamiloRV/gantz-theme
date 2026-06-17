@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - find $DEPLOY_PATH -type d -exec chmod 755 {} \;
+    - find $DEPLOY_PATH -type f -exec chmod 644 {} \;

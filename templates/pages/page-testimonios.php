@@ -33,13 +33,13 @@ $logo = get_field('ajustes_logo', 'option')['url'];
         </div>
     </section>
     <!-- Testimonios Destacados -->
-    <section class="testimonios-destacados">
+    <section class="testimonios-destacados" aria-labelledby="titulo-testimonios-destacados">
         <?php 
         $testimonios = get_field('testimonios');
         ?>
         <div class="testimonios-destacados__container container">
             <div class="testimonios-destacados__header">
-                <h2 class="testimonios-destacados__titulo"><?php echo esc_html($testimonios['titulo']) ?></h2>
+                <h2 class="testimonios-destacados__titulo" id="titulo-testimonios-destacados"><?php echo esc_html($testimonios['titulo']) ?></h2>
                 <div class="testimonios-destacados__texto body-2 text-pb">
                     <?php echo wp_kses_post($testimonios['texto']) ?>
                 </div>
@@ -131,8 +131,131 @@ $logo = get_field('ajustes_logo', 'option')['url'];
             ?>
         </div>
     </section>
-    <!-- Testimonios Extendidos -->
-    
+    <!-- Testimonios Escritos -->
+    <section class="testimonios-escritos" aria-labelledby="titulo-testimonios-escritos">
+        <?php
+        $testimonio1 = get_field('testimonios_escritos_testimonio1');
+        $testimonio2 = get_field('testimonios_escritos_testimonio2');
+        ?>
+        <article class="testimonios-escritos__testimonio testimonio" itemscope itemtype="https://schema.org/Review">
+            <div class="testimonio__container container">
+                <?php
+                $edad = null;
+
+                if (!empty($testimonio1['edad'])) {
+                    $fecha_nacimiento = DateTime::createFromFormat(
+                        'Ymd',
+                        $testimonio1['edad']
+                    );
+
+                    if ($fecha_nacimiento) {
+                        $hoy = new DateTime();
+                        $edad = $hoy->diff($fecha_nacimiento)->y;
+                    }
+                }
+                ?>
+                <header class="testimonio__header">
+                    <h2 class="testimonio__titulo" itemprop="headline"><?php echo esc_html($testimonio1['titulo']); ?></h2>
+                    <p class="testimonio__bajada body-1 body-bold text-pb">
+                        <?php echo esc_html($testimonio1['bajada']); ?>
+                    </p>
+                </header>
+
+                <div class="testimonio__historia body-2 text-pb" itemprop="reviewBody">
+                    <?php echo wp_kses_post($testimonio1['historia']); ?>
+                    <p class="body-2-bold">— <?php echo esc_html($testimonio1['nombre']) . ', ' . esc_html($edad); ?></p>
+                    <button class="testimonio__boton hyperlink" href="">Leer testimonio completo</button>
+                </div>
+
+                <figure class="testimonio__destacado">
+                    <?php if ($testimonio1['imagen']) : ?>
+                        <img class="testimonio__imagen" src="<?php echo esc_url($testimonio1['imagen']['url']); ?>" alt="<?php echo esc_attr($testimonio1['nombre']); ?>" itemprop="image">
+                    <?php endif; ?>
+
+                    <figcaption class="testimonio__destacado-contenido">
+                        <blockquote class="testimonio__cita cita text-ac">
+                            <?php echo esc_html($testimonio1['destacado']); ?>
+                        </blockquote>
+
+                        <p class="testimonio__info text-ac" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <strong>
+                                <cite class="body-1 body-bold text-ac" itemprop="name">
+                                    <?php echo esc_html($testimonio1['nombre']); ?>
+                                </cite>
+
+                                <?php if (!empty($edad)) : ?>
+                                    , <?php echo esc_html($edad); ?> años
+                                <?php endif; ?>
+                            </strong>
+
+                            <span>
+                                <?php echo esc_html($testimonio1['ciudad']) . ', ' . esc_html($testimonio1['region']); ?>
+                            </span>
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+        </article>
+        <article class="testimonios-escritos__testimonio testimonio" itemscope itemtype="https://schema.org/Review">
+            <div class="testimonio__container container">
+                <?php
+                $edad = null;
+
+                if (!empty($testimonio2['edad'])) {
+                    $fecha_nacimiento = DateTime::createFromFormat(
+                        'Ymd',
+                        $testimonio2['edad']
+                    );
+
+                    if ($fecha_nacimiento) {
+                        $hoy = new DateTime();
+                        $edad = $hoy->diff($fecha_nacimiento)->y;
+                    }
+                }
+                ?>
+                <header class="testimonio__header">
+                    <h2 class="testimonio__titulo" itemprop="headline"><?php echo esc_html($testimonio2['titulo']); ?></h2>
+                    <p class="testimonio__bajada body-1 body-bold text-pb">
+                        <?php echo esc_html($testimonio2['bajada']); ?>
+                    </p>
+                </header>
+
+                <div class="testimonio__historia body-2 text-pb" itemprop="reviewBody">
+                    <?php echo wp_kses_post($testimonio2['historia']); ?>
+                    <p class="body-2-bold">— <?php echo esc_html($testimonio2['nombre']) . ', ' . esc_html($edad); ?></p>
+                    <button class="testimonio__boton hyperlink" href="">Leer testimonio completo</button>
+                </div>
+
+                <figure class="testimonio__destacado">
+                    <?php if ($testimonio2['imagen']) : ?>
+                        <img class="testimonio__imagen" src="<?php echo esc_url($testimonio2['imagen']['url']); ?>" alt="<?php echo esc_attr($testimonio2['nombre']); ?>" itemprop="image">
+                    <?php endif; ?>
+
+                    <figcaption class="testimonio__destacado-contenido">
+                        <blockquote class="testimonio__cita cita text-ac">
+                            <?php echo esc_html($testimonio2['destacado']); ?>
+                        </blockquote>
+
+                        <p class="testimonio__info text-ac" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <strong>
+                                <cite class="body-1 body-bold text-ac" itemprop="name">
+                                    <?php echo esc_html($testimonio2['nombre']); ?>
+                                </cite>
+
+                                <?php if (!empty($edad)) : ?>
+                                    , <?php echo esc_html($edad); ?> años
+                                <?php endif; ?>
+                            </strong>
+
+                            <span>
+                                <?php echo esc_html($testimonio2['ciudad']) . ', ' . esc_html($testimonio2['region']); ?>
+                            </span>
+                        </p>
+                    </figcaption>
+                </figure>
+            </div>
+        </article>
+    </section>
 </main>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
@@ -141,6 +264,17 @@ $logo = get_field('ajustes_logo', 'option')['url'];
     document.addEventListener('DOMContentLoaded', () => {
         GLightbox({
             selector: '.glightbox'
+        });
+        
+        const story = document.querySelectorAll('.testimonio__historia');
+        const storyBtn = document.querySelectorAll('.testimonio__boton');
+
+        storyBtn.forEach((btn, index) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                story[index].classList.toggle('expanded');
+            });
         });
     });
 </script>
