@@ -7,7 +7,7 @@
         padding-block: 56px;
         gap: 32px;
 
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lgg) {
             padding-block: 70px 100px;
             gap: 48px;
         }
@@ -19,7 +19,7 @@
             justify-content: center;
             gap: 16px;
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(lgg) {
                 gap: 12px;
                 width: 1062px;
             }
@@ -54,7 +54,7 @@
         &__titulo {
             margin: 0;
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(lgg) {
                 font-size: 42px;
             }
         }
@@ -101,7 +101,7 @@
                     aspect-ratio: 16/9;
                 }
 
-                @include media-breakpoint-up(xl) {
+                @include media-breakpoint-up(lgg) {
                     height: 718px;
                     aspect-ratio: 89/50;
                 }
@@ -115,7 +115,7 @@
             justify-content: center;
             gap: 16px;
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(lgg) {
                 width: 1062px;
             }
         }
@@ -206,7 +206,7 @@
             }
 
             /* Desktop */
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(lgg) {
                 gap: 48px;
 
                 .galeria {
@@ -229,7 +229,7 @@
         padding-block: 56px;
         background: $shade_white;
         
-        @include media-breakpoint-up(xl) {
+        @include media-breakpoint-up(lgg) {
             padding-block: 80px 100px;
         }
 
@@ -268,7 +268,7 @@
                 visibility: hidden;
             }
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(lgg) {
                 width: 414px;
             }
 
@@ -294,7 +294,7 @@
 
                     border-radius: 12px;
 
-                    @include media-breakpoint-up(xl) {
+                    @include media-breakpoint-up(lgg) {
                         height: 234px;
                         aspect-ratio: 23/13;
                     }
@@ -330,7 +330,7 @@
                 }
             }
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(lgg) {
                 &:last-of-type {
                     display: flex;
                     visibility: visible;
