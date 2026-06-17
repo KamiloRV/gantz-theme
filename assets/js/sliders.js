@@ -72,13 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // ─── Autoplay ──────────────────────────────────────────
         function startAutoplay() {
-        /*     timer = setInterval(() => {
+            timer = setInterval(() => {
                 if (!isPaused) goTo(current + 1, 'next');
             }, INTERVAL);
         }
 
         function stopAutoplay() {
-            clearInterval(timer); */
+            clearInterval(timer);
         }
 
         // ─── Flechas ───────────────────────────────────────────
