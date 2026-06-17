@@ -10,7 +10,7 @@
         height: 34px;
         background-color: rgba(46, 62, 128, 0.5);
 
-        @include media-breakpoint-down(xl) {
+        @include media-breakpoint-down(xlg) {
             display: none;
         }
 
@@ -104,7 +104,7 @@
             width: 93px;
             height: 38.75px;
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(xlg) {
                 width: 140px;
                 height: 58.33px;
             }
@@ -149,7 +149,7 @@
                 border-radius: 12px;
             }
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(xlg) {
                 font-size: 20px;
                 padding: 14px 24px;
                 height: 48px;
@@ -178,7 +178,7 @@
             align-items: center;
             justify-content: flex-end;
 
-            @include media-breakpoint-up(xl) {
+            @include media-breakpoint-up(xlg) {
                 display: none;
             }
 
@@ -216,7 +216,7 @@
             width: max-content;
             height: max-content;
 
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(xlg) {
                 display: none;
             }
             
@@ -403,7 +403,7 @@
             justify-content: center;
             gap: 18px;
 
-            @include media-breakpoint-down(xl) {
+            @include media-breakpoint-down(xlg) {
                 display: none;
             }
 
@@ -436,7 +436,7 @@
     height: max-content!important;
     background-color: $primary-blue;
 
-    @include media-breakpoint-up(xl) {
+    @include media-breakpoint-up(xlg) {
         display: none;
     }
 

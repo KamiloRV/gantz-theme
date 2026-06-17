@@ -162,6 +162,7 @@ $grid-breakpoints: (
   md:   767px,   // Desde tablets chicas laptops pequeñas
   lg:   799px,  // Desde Tablets grandes laptos pequeñas
   lgg:  1023px,
+  xlg:  1199px,
   xl:  1439px,  // Desde laptops grandes y pantallas grandes
 );
  
@@ -172,6 +173,7 @@ $container-max-widths: (
   md:   704px,
   lg:   90vw,
   lgg:  95vw,
+  xlg:  95vw,
   xl:  1278px,
 );
 
