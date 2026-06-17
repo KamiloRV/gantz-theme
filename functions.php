@@ -26,6 +26,7 @@ require_once get_template_directory() . '/inc/scf/gdc.php';
 require_once get_template_directory() . '/inc/admin/landings.php';
 require_once get_template_directory() . '/inc/admin/columns.php';
 require_once get_template_directory() . '/inc/admin/filters.php';
+require_once get_template_directory() . '/inc/admin/permissions.php';
 
 /**
  * Validaciones

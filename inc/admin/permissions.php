@@ -37,7 +37,8 @@ defined('ABSPATH') || exit;
  */
 function gantz_is_admin_user()
 {
-    return current_user_can('administrator');
+    $user = wp_get_current_user();
+    return in_array('administrator', (array) $user->roles, true);
 }
 
 
@@ -58,6 +59,7 @@ add_action('admin_menu', function () {
     remove_menu_page('tools.php');
     remove_menu_page('options-general.php');
     remove_menu_page('edit-comments.php');
+    remove_menu_page('edit.php');
 
     // Contact Form 7
     remove_menu_page('wpcf7');
@@ -79,13 +81,30 @@ add_action('admin_menu', function () {
  *
  */
 
-add_action('after_setup_theme', function () {
-
+add_action('init', function () {
     if (!gantz_is_admin_user()) {
         show_admin_bar(false);
     }
-
 });
+
+add_action('admin_bar_menu', function ($wp_admin_bar) {
+
+    if (gantz_is_admin_user()) {
+        return;
+    }
+
+    $wp_admin_bar->remove_node('new-post');
+    $wp_admin_bar->remove_node('new-page');
+    $wp_admin_bar->remove_node('comments');
+    $wp_admin_bar->remove_node('search');
+    $wp_admin_bar->remove_node('command-palette');
+
+    $wp_admin_bar->add_node([
+        'id'   => 'new-content',
+        'href' => false,
+    ]);
+
+}, 9999);
 
 
 
