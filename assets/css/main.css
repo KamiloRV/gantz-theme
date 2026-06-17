@@ -25238,6 +25238,7 @@ strong {
   .home .hero .slider .slide .image {
     /* min-height: 487px;
     max-height: 912px; */
+    position: relative;
     height: 60%;
     overflow: hidden;
     aspect-ratio: 71/45;
@@ -25247,6 +25248,26 @@ strong {
     height: 100%;
     object-fit: cover;
     object-position: 0 50%;
+  }
+  .home .hero .slider .slide:not(.datos) .image::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: 2;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0) 45%, rgba(255, 255, 255, 0.3) 70%);
+  }
+  .home .hero .slider .slide.white-bg .image::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: 2;
+    background: linear-gradient(120deg, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.4) 70%);
   }
   .home .hero .slider .slide .content {
     padding-block: 32px 56px;
@@ -25541,6 +25562,7 @@ strong {
   /* transform: translateY(-70%); */
   bottom: 396px;
   padding-inline: 16px;
+  pointer-events: none;
 }
 @media (min-width: 767px) {
   .controls {
@@ -25570,6 +25592,7 @@ strong {
   background: #FBB413;
   border: none;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
 }
 .controls button:hover {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%), var(--primary_yellow, #FFB413);

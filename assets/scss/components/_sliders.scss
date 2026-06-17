@@ -112,6 +112,7 @@
                 .image {
                     /* min-height: 487px;
                     max-height: 912px; */
+                    position: relative;
                     height: 60%;
                     overflow: hidden;
                     aspect-ratio: 71/45;
@@ -121,6 +122,39 @@
                         height: 100%;
                         object-fit: cover;
                         object-position: 0 50%;
+                        
+                    }
+                }
+
+                &:not(.datos) {
+                    .image {
+                        &::before {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            content: '';
+                            z-index: 2;
+
+                            background: linear-gradient(120deg,rgba(255, 255, 255, 0.0) 45%,rgba(255, 255, 255, 0.3) 70%);
+                        }
+                    }
+                }
+
+                &.white-bg {
+                    .image {
+                        &::before {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            content: '';
+                            z-index: 2;
+
+                            background: linear-gradient(120deg,rgba(0, 0, 0, 0.0) 45%,rgba(0, 0, 0, 0.4) 70%);
+                        }
                     }
                 }
 
@@ -477,6 +511,7 @@
     /* transform: translateY(-70%); */
     bottom: calc(380px + 16px);
     padding-inline: 16px;
+    pointer-events: none;
 
     @include media-breakpoint-up(md) {
         transform: translateY(0%);
@@ -503,6 +538,7 @@
         background: $primary_yellow;
         border: none;
         box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
+        pointer-events: auto;
 
         &:hover {
             background: linear-gradient(0deg, rgba(255, 255, 255, 0.30) 0%, rgba(255, 255, 255, 0.30) 100%), var(--primary_yellow, #FFB413);
