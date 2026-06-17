@@ -124,7 +124,7 @@ add_action('admin_head', function () {
 
     if (
         $screen &&
-        $screen->id === 'edit-page'
+        in_array($screen->id, ['edit-page', 'page'], true)
     ) {
         ?>
         <style>
