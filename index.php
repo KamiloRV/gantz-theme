@@ -427,7 +427,7 @@ $social_links = [
                                 <?php endif; ?>
 
                                 <?php if (!empty($md_imagen)) : ?>
-                                    <source media="(max-width: 1439px)"
+                                    <source media="(max-width: 1023px)"
                                             srcset="<?php echo esc_url($md_imagen['url']); ?>">
                                 <?php endif; ?>
 
