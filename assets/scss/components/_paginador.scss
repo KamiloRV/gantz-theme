@@ -13,6 +13,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        text-decoration: none;
 
         &:hover {
             color: $main-white!important;
@@ -27,6 +28,7 @@
 
     &__prev, &__next {
         padding-inline: 6px;
+        text-decoration: none;
 
         &.is-disabled {
             opacity: .5;

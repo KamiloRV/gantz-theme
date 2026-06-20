@@ -60,8 +60,9 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                 $posts_per_page = wp_is_mobile() ? 10 : 16;
 
                 $args = [
-                    'post_type'      => 'galeria-de-videos',
+                    'post_type'      => 'video',
                     'post_status'    => 'publish',
+                    'order'          => 'DESC',
                     'posts_per_page' => $posts_per_page,
                     'paged'          => $paged,
                     's'              => $search,
