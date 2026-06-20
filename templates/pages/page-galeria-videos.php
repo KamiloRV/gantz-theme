@@ -57,7 +57,7 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                 <?php 
                 $paged = max(1, get_query_var('paged'));
 
-                $posts_per_page = wp_is_mobile() ? 1 : 1;
+                $posts_per_page = wp_is_mobile() ? 10 : 15;
 
                 $args = [
                     'post_type'      => 'galeria-de-videos',
