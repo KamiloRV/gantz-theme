@@ -162,7 +162,7 @@ $logo = get_field('ajustes_logo', 'option')['url'];
         /**
          * Query
          */
-        $posts_per_page = wp_is_mobile() ? 10 : 15;
+        $posts_per_page = wp_is_mobile() ? 2 : 2;
 
         $args = [
             'post_type'      => 'noticia',
