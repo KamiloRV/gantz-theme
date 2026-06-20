@@ -62,6 +62,7 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                 $args = [
                     'post_type'      => 'galeria-de-videos',
                     'post_status'    => 'publish',
+                    'order_by'       => 'date',
                     'order'          => 'DESC',
                     'posts_per_page' => $posts_per_page,
                     'paged'          => $paged,
