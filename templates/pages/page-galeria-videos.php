@@ -57,7 +57,7 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                 <?php 
                 $paged = max(1, get_query_var('paged'));
 
-                $posts_per_page = wp_is_mobile() ? 10 : 16;
+                $posts_per_page = wp_is_mobile() ? 1 : 1;
 
                 $args = [
                     'post_type'      => 'galeria-de-videos',
@@ -163,34 +163,7 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                             get_pagenum_link($current - 1)
                         ) . '#archivo-galeria'
                         : '#';
-                    ?>
 
-                    <a
-                        class="gantz-paginador__prev body-2 text-pb <?php echo $current === 1 ? 'is-disabled' : ''; ?>"
-                        href="<?php echo esc_url($prev_url); ?>"
-                    >
-                        ← Anterior
-                    </a>
-
-                    <?php for ($i = 1; $i <= $total; $i++) : ?>
-
-                        <?php
-                        $url = add_query_arg(
-                            $query_args,
-                            get_pagenum_link($i)
-                        ) . '#archivo-galeria';
-                        ?>
-
-                        <a
-                            class="gantz-paginador__number body-1 body-bold text-pi <?php echo $i === $current ? 'is-active' : ''; ?>"
-                            href="<?php echo esc_url($url); ?>"
-                        >
-                            <?php echo $i; ?>
-                        </a>
-
-                    <?php endfor; ?>
-
-                    <?php
                     /**
                      * Next
                      */
@@ -202,11 +175,95 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                         : '#';
                     ?>
 
+                    <!-- Botón Anterior: texto ← Anterior en desktop, « en mobile -->
+                    <a class="gantz-paginador__prev body-2 text-pb <?php echo $current === 1 ? 'is-disabled' : ''; ?>"
+                        href="<?php echo esc_url($prev_url); ?>"
+                        aria-label="Página anterior"
+                    >
+                        <span class="gantz-paginador__arrow-mobile" aria-hidden="true">«</span>
+                        <span class="gantz-paginador__text-desktop">← Anterior</span>
+                    </a>
+
+                    <?php
+                    // VECINOS_MOBILE: cuántas páginas a cada lado del actual se muestran en mobile.
+                    // VECINOS_DESKTOP: cuántas páginas a cada lado del actual se muestran en desktop.
+                    // Con VECINOS_DESKTOP = 2 se logra un máximo de 7 números visibles:
+                    // 1, actual-2, actual-1, actual, actual+1, actual+2, total (cuando hay espacio de sobra).
+                    $VECINOS_MOBILE  = 1;
+                    $VECINOS_DESKTOP = 2;
+                    ?>
+
+                    <?php for ($i = 1; $i <= $total; $i++) : ?>
+
+                        <?php
+                        $url = add_query_arg(
+                            $query_args,
+                            get_pagenum_link($i)
+                        ) . '#archivo-galeria';
+
+                        $mostrar_en_mobile = (
+                            $i === 1
+                            || $i === $total
+                            || abs($i - $current) <= $VECINOS_MOBILE
+                        );
+            
+                        $mostrar_en_desktop = (
+                            $i === 1
+                            || $i === $total
+                            || abs($i - $current) <= $VECINOS_DESKTOP
+                        );
+
+                        // Puntos suspensivos: se calculan por separado para mobile y desktop,
+                        // ya que cada uno oculta un rango distinto de números.
+                        $anterior_visible_mobile = (
+                            $i - 1 === 1
+                            || abs(($i - 1) - $current) <= $VECINOS_MOBILE
+                        );
+                        $mostrar_puntos_mobile = (
+                            $mostrar_en_mobile
+                            && $i > 1
+                            && !$anterior_visible_mobile
+                        );
+            
+                        $anterior_visible_desktop = (
+                            $i - 1 === 1
+                            || abs(($i - 1) - $current) <= $VECINOS_DESKTOP
+                        );
+                        $mostrar_puntos_desktop = (
+                            $mostrar_en_desktop
+                            && $i > 1
+                            && !$anterior_visible_desktop
+                        );
+                        ?>
+                        
+                        <?php if ($mostrar_puntos_mobile) : ?>
+                            <span class="gantz-paginador__dots gantz-paginador__dots--mobile" aria-hidden="true">…</span>
+                        <?php endif; ?>
+            
+                        <?php if ($mostrar_puntos_desktop) : ?>
+                            <span class="gantz-paginador__dots gantz-paginador__dots--desktop" aria-hidden="true">…</span>
+                        <?php endif; ?>
+
+                        <a
+                            class="gantz-paginador__number body-1 body-bold text-pi
+                                <?php echo $i === $current ? 'is-active' : ''; ?>
+                                <?php echo $mostrar_en_mobile ? 'is-visible-mobile' : 'is-hidden-mobile'; ?>
+                                <?php echo $mostrar_en_desktop ? 'is-visible-desktop' : 'is-hidden-desktop'; ?>"
+                            href="<?php echo esc_url($url); ?>"
+                        >
+                            <?php echo $i; ?>
+                        </a>
+
+                    <?php endfor; ?>
+
+                    <!-- Botón Siguiente: texto en desktop, » en mobile -->
                     <a
                         class="gantz-paginador__next body-2 text-pb <?php echo $current === $total ? 'is-disabled' : ''; ?>"
                         href="<?php echo esc_url($next_url); ?>"
+                        aria-label="Página siguiente"
                     >
-                        Siguiente →
+                        <span class="gantz-paginador__text-desktop">Siguiente →</span>
+                        <span class="gantz-paginador__arrow-mobile" aria-hidden="true">»</span>
                     </a>
                 </div>
             <?php endif; ?>
