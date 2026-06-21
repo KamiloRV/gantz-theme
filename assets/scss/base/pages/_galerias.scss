@@ -98,7 +98,7 @@
 
                 .lista {
                     &__item {
-                        width: 340px;
+                        width: calc(50% - 12px);
                     }
                 }
             }
@@ -186,10 +186,10 @@
 
                 .lista {
                     &__item {
-                        width: 32.39%;
+                        width: calc(33% - 8px);
 
                         @include media-breakpoint-up(xl) {
-                            width: 307.5px;
+                            width: calc(25% - 8px);
                         }
 
                         .item {
