@@ -188,10 +188,6 @@
                     &__item {
                         width: calc(33% - 8px);
 
-                        @include media-breakpoint-up(xl) {
-                            width: calc(25% - 12px);
-                        }
-
                         .item {
                             &__card {
                                 gap: 16px;
@@ -228,6 +224,18 @@
                                 font-size: 29px;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .archivo-galeria {
+            &__lista {
+                .lista {
+                    &__item {
+                        width: calc(25% - 12px);
                     }
                 }
             }
