@@ -353,7 +353,9 @@
 
                 .galeria-item {
                     width: 33.3%;
-                    height: 95.49px;
+                    /* height: 95.49px; */
+                    height: auto;
+                    aspect-ratio: 72/55;
                     overflow: hidden;
 
                     img {
@@ -429,8 +431,10 @@
                 flex-wrap: nowrap;
 
                 .galeria-item {
-                    width: 20%;
-                    height: 117.33px;
+                    /* width: 20%; */
+                    /*  height: 117.33px; */
+                    height: auto;
+                    aspect-ratio: 72/55;
 
                     &:nth-child(3) {
                         display: none;
@@ -443,7 +447,7 @@
         @include media-breakpoint-up(lgg) {
             .galeria {
                 .galeria-item {
-                    height: 220px;
+                    /* height: 220px; */
                 }
             }
 
