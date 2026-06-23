@@ -34,3 +34,8 @@ require_once get_template_directory() . '/inc/admin/permissions.php';
 require_once get_template_directory() . '/inc/validation/phone.php';
 require_once get_template_directory() . '/inc/validation/prefooter.php';
 require_once get_template_directory() . '/inc/validation/repeaters.php';
+
+/**
+ * Integrations
+ */
+require_once get_template_directory() . '/inc/integrations/contact-form-7.php';

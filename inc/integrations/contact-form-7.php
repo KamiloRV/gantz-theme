@@ -39,5 +39,4 @@ add_action('wpcf7_before_send_mail', function ($contact_form) {
             'mail' => $mail
         ]);
     }
-
 });

@@ -30,15 +30,33 @@ function gantz_security() {
     remove_action( 'template_redirect', 'rest_output_link_header' );
 
     // Bloquear REST API para usuarios no autenticados
-    add_filter( 'rest_authentication_errors', function( $access ) {
-        if ( ! is_user_logged_in() ) {
-            return new WP_Error(
-                'rest_disabled',
-                __( 'La REST API está desactivada para usuarios no autenticados.', 'gantz' ),
-                [ 'status' => 403 ]
-            );
+    add_filter('rest_authentication_errors', function ($access) {
+
+        if (!empty($access)) {
+            return $access;
         }
-        return $access;
+
+        if (is_user_logged_in()) {
+            return $access;
+        }
+
+        $route = $GLOBALS['wp']->query_vars['rest_route'] ?? '';
+
+        $allowed_routes = [
+            '/contact-form-7/',
+        ];
+
+        foreach ($allowed_routes as $allowed) {
+            if (strpos($route, $allowed) === 0) {
+                return $access;
+            }
+        }
+
+        return new WP_Error(
+            'rest_disabled',
+            __('La REST API está desactivada para usuarios no autenticados.', 'gantz'),
+            ['status' => 403]
+        );
     });
 
     // Deshabilitar edición de archivos desde el panel de WordPress
