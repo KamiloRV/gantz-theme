@@ -260,7 +260,8 @@
 
     &__imagen {
         width: 100%;
-        aspect-ratio: 339/424;
+        /* aspect-ratio: 339/424; */
+        aspect-ratio: 55/49;
         border-radius: 8px;
         box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
         object-fit: cover;
@@ -268,29 +269,7 @@
     }
 
     /* Tablet */
-    @include media-breakpoint-up(md) {
-        padding: 0;
-
-        &__container {
-            flex-direction: row;
-            align-items: center;
-            padding: 0;
-        }
-
-        &__imagen {
-            width: 40%;
-            border-radius: 0;
-        }
-
-        &__contenido {
-            justify-content: center;
-            padding-right: 10%;
-        }
-        
-        .gantz-btn {
-            margin-top: 16px;
-        }
-    }
+    
 
     /* Desktop */
     @include media-breakpoint-up(lgg) {
@@ -299,17 +278,20 @@
         &__container {
             flex-direction: row;
             align-items: center;
+            padding: 0;
             gap: 80px;
         }
 
         &__imagen {
             width: 40%;
-            aspect-ratio: 55/49;
+            border-radius: 0;
+            /* aspect-ratio: 55/49; */
         }
 
         &__contenido {
             justify-content: center;
             padding-right: 17%;
+            padding-block: 32px;
         }
         
         .gantz-btn {

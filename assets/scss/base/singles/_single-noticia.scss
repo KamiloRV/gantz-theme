@@ -21,7 +21,7 @@
 
             @include media-breakpoint-up(lgg) {
                 gap: 12px;
-                width: 1062px;
+                width: 83.10%;
             }
         }
 
@@ -89,21 +89,22 @@
 
             >img {
                 width: 100%;
-                height: 396px;
+                /* height: 396px; */
                 object-fit: cover;
                 object-position: center;
-                aspect-ratio: 110/127;
+                /* aspect-ratio: 110/127; */
+                aspect-ratio: 89 / 50;
 
                 border-radius: 12px;
                 box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.40);
 
                 @include media-breakpoint-up(md) {
-                    aspect-ratio: 16/9;
+                    /* aspect-ratio: 16/9; */
                 }
 
                 @include media-breakpoint-up(lgg) {
-                    height: 718px;
-                    aspect-ratio: 89/50;
+                    /* height: 718px;
+                    aspect-ratio: 89/50; */
                 }
             }
         }
@@ -116,7 +117,7 @@
             gap: 16px;
 
             @include media-breakpoint-up(lgg) {
-                width: 1062px;
+                width: 83.10%;
             }
         }
 
@@ -211,6 +212,8 @@
 
                 .galeria {
                     &__item {
+                        width: calc(33% - 9px);
+
                         &:first-child, &:nth-child(2), &:nth-child(3) {
                             display: block;
                             visibility: visible;
@@ -218,7 +221,7 @@
                     }
 
                     &__imagen {
-                        width: 414px;
+                        width: 100%;
                     }
                 }
             }

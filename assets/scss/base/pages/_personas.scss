@@ -782,7 +782,9 @@
 
             img {
                 width: 100%;
-                aspect-ratio: 131/76;
+                /* aspect-ratio: 131 / 76; */
+                /* aspect-ratio: 180 / 59; */
+                aspect-ratio: 176/73;
                 object-fit: cover;
                 object-position: center;
                 border-radius: 12px;
@@ -900,7 +902,7 @@
 
             &__imagen {
                 img {
-                    aspect-ratio: 176/73;
+                    /* aspect-ratio: 176/73; */
                 }
             }
 
@@ -953,7 +955,7 @@
 
             &__imagen {
                 img {
-                    aspect-ratio: 180/59;
+                    /* aspect-ratio: 176/73; */
                 }
             }
 

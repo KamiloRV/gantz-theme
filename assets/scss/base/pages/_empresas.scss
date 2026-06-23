@@ -182,13 +182,25 @@
             }
 
             &__subtitulo {
-                width: 662px;
+                width: 68.12%;
             }
 
             &__texto {
                 display: flex;
                 justify-content: flex-end;
-                width: 600px;
+                width: 68.12%;
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .involucra-tu-empresa {
+            &__subtitulo {
+                width: calc(50% - 12px);
+            }
+
+            &__texto {
+                width: calc(50% - 12px);
             }
         }
     }
@@ -221,7 +233,9 @@
 
         &__imagen {
             width: 100%;
-            aspect-ratio: 156/151;
+            height: auto;
+            /* aspect-ratio: 156/151; */
+            aspect-ratio: 53/35;
             object-fit: cover;
             object-position: center;
             border-radius: 12px;
@@ -275,11 +289,16 @@
 
             &__header {
                 flex-direction: row;
+                gap: 20px;
             }
 
             &__imagen {
-                width: 336px;
-                aspect-ratio: 84/83;
+                width: 328px;
+                /* aspect-ratio: 84/83; */
+            }
+
+            &__texto {
+                font-size: 14px;
             }
 
             &__descripcion {
@@ -352,6 +371,18 @@
     @include media-breakpoint-up(lgg) {
         .forma {
             padding-block: 80px 100px;
+
+            &__header {
+                gap: 32px;
+            }
+
+            &__texto {
+                font-size: 20px;
+            }
+
+            &__imagen {
+                width: 477px;
+            }
         }
     }
 
@@ -376,7 +407,7 @@
 
             &__imagen {
                 width: 477px;
-                aspect-ratio: 53/35;
+                /* aspect-ratio: 53/35; */
             }
 
             &__marcas {

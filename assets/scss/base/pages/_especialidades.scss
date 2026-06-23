@@ -246,7 +246,8 @@
                             &__imagen {
                                 width: 100%;
                                 height: auto;
-                                aspect-ratio: 62/47;
+                                /* aspect-ratio: 62/47; */
+                                aspect-ratio: 53/35;
                                 object-fit: cover;
                                 object-position: center;
                                 border-radius: 12px;
@@ -297,8 +298,8 @@
 
                             .especialidad {
                                 &__imagen {
-                                    width: 260px;
-                                    aspect-ratio: 65/56;
+                                    width: 300px;
+                                    /* aspect-ratio: 65/56; */
                                 }
 
                                 &__contenido {
@@ -344,14 +345,14 @@
                             padding-block: 64px;
                             flex-direction: row;
                             gap: 64px;
-                            align-items: flex-start;
+                            align-items: center;
                             /* width: 1125px; */
                             padding-inline: 45px 108px;
 
                             .especialidad {
                                 &__imagen {
-                                    width: 477px;
-                                    aspect-ratio: 53/35;
+                                    width: 377px;
+                                    /* aspect-ratio: 53/35; */
                                 }
 
                                 &__contenido {
@@ -366,6 +367,29 @@
                                         width: 48px;
                                         height: 48px;
                                     }
+                                }
+
+                                &__texto {
+                                    /* font-size: 20px; */
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-up(xl) {
+        .especialidades {
+            .tipo-especialidad {
+                &__lista-especialidades {
+                    .lista-especialidades {
+                        &__especialidad {
+                            
+                            .especialidad {
+                                &__imagen {
+                                    width: 477px;
                                 }
 
                                 &__texto {
