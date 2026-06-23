@@ -150,7 +150,7 @@ $contactos = [
                 </nav>
                 <div class="comments">
                     <p class="body-2 m-0"><?php echo get_field('comentarios', 'option') ?: '¿Tienes comentarios, reclamos, felicitaciones o alguna sugerencia?'; ?></p>
-                    <a href="<?php echo get_field('comentarios_link_url', 'option') ?: '#' ?>" class="comments-link">
+                    <a href="<?php echo esc_url($home_url) . '/formulario-de-comentarios/'; ?>" class="comments-link">
                         <?php echo get_field('comentarios_link_text', 'option') ?: 'Formulario de comentarios' ?> →
                     </a>
                 </div>

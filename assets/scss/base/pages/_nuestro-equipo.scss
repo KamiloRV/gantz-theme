@@ -150,6 +150,11 @@
             gap: 12px;
         }
 
+        &__titulo {
+            width: 100%;
+            text-align: center;
+        }
+
         &__descripcion {
             text-align: center;
         }
@@ -194,6 +199,11 @@
             /* gap: 12px; */
             padding-block: 32px;
             border-top: 1px solid rgba(46, 62, 128, 0.3);
+
+            &__titulo {
+                width: 100%;
+                text-align: center;
+            }
 
             >.expertos-subarea--nested {
                 border: none;
