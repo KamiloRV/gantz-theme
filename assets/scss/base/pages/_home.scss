@@ -320,16 +320,25 @@
                         }
 
                         .parrafos {
-                            p {
+                            /* p {
                                 width: 630px;
-                            }
+                            } */
                         }
                     }
                 }
 
-                /* .image {
-                    height: 301px;
-                } */
+                .image {
+                    width: 500px;
+                    flex-shrink: 0;
+                }
+            }
+        }
+
+        @include media-breakpoint-up(xl) {
+            .container{
+                .image {
+                    width: 568px;
+                }
             }
         }
     }
