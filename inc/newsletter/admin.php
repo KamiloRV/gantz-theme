@@ -109,7 +109,12 @@ function gantz_export_newsletter()
     );
 
     header('Content-Type: text/csv; charset=utf-8');
-    header('Content-Disposition: attachment; filename=newsletter.csv');
+
+    $filename = sprintf(
+        'Newsletter-Gantz-%s.csv',
+        date('d-m-Y')
+    );
+    header('Content-Disposition: attachment; filename="' . $filename . '"');
 
     $output = fopen('php://output', 'w');
 
