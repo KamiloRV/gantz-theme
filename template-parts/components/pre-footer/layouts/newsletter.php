@@ -82,7 +82,11 @@
                     }
                 );
 
+                console.log(response);
+
                 const result = await response.json();
+
+                console.log(result);
 
                 if (result.success) {
 
@@ -109,6 +113,9 @@
             }
 
             } catch (error) {
+
+                /* Manejo de errores */
+                console.error(error);
 
                 alert('Error al enviar la suscripción.');
 
