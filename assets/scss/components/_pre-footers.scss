@@ -155,6 +155,21 @@
                     }
                 }
             }
+
+            &--success {
+                input[type="email"] {
+                    display: none;
+                    visibility: hidden;
+                }
+
+                button {
+                    width: 100%!important;
+                    background: $primary_yellow!important;
+                    color: $main_black!important;
+                    opacity: 1!important;
+                    justify-content: center!important;
+                }
+            }
         }
 
         .acciones {
@@ -342,6 +357,4 @@
             }
         }
     }
-
-    
 }

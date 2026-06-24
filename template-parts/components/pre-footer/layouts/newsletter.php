@@ -12,6 +12,8 @@
         </div>
 
         <form class="newsletter-form" action="" method="post">
+            <?php wp_nonce_field('gantz_newsletter', 'newsletter_nonce'); ?>
+            
             <input
                 type="email"
                 id="newsletter-email"
@@ -34,13 +36,86 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+
+        const form = document.querySelector('.newsletter-form');
         const emailInput = document.querySelector('#newsletter-email');
         const submitButton = document.querySelector('#newsletter-submit');
 
-        if (!emailInput || !submitButton) return;
+        if (!form || !emailInput || !submitButton) {
+            return;
+        }
 
         emailInput.addEventListener('input', () => {
             submitButton.disabled = !emailInput.checkValidity();
+        });
+
+        form.addEventListener('submit', async (e) => {
+
+            e.preventDefault();
+
+            submitButton.disabled = true;
+
+            const formData = new FormData();
+
+            formData.append(
+                'action',
+                'gantz_newsletter_subscribe'
+            );
+
+            formData.append(
+                'email',
+                emailInput.value
+            );
+
+            formData.append(
+                'nonce',
+                form.querySelector('[name="newsletter_nonce"]').value
+            );
+
+            try {
+
+                const response = await fetch(
+                    gantzNewsletter.ajax_url,
+                    {
+                        method: 'POST',
+                        body: formData
+                    }
+                );
+
+                const result = await response.json();
+
+                if (result.success) {
+
+                form.classList.add(
+                    'newsletter-form--success'
+                );
+
+                submitButton.innerHTML =
+                    '¡Muchas gracias!';
+
+                emailInput.disabled = true;
+
+                submitButton.disabled = true;
+
+                console.log(
+                    result.data.message
+                );
+
+            } else {
+
+                console.error(
+                    result.data.message
+                );
+            }
+
+            } catch (error) {
+
+                alert('Error al enviar la suscripción.');
+
+            } finally {
+
+                submitButton.disabled = false;
+            }
         });
     });
 </script>

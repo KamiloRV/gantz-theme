@@ -39,3 +39,10 @@ require_once get_template_directory() . '/inc/validation/repeaters.php';
  * Integrations
  */
 require_once get_template_directory() . '/inc/integrations/contact-form-7.php';
+
+/**
+ * Newsletter
+ */
+require_once get_template_directory() . '/inc/newsletter/install.php';
+require_once get_template_directory() . '/inc/newsletter/admin.php';
+require_once get_template_directory() . '/inc/newsletter/ajax.php';
