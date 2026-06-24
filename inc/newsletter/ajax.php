@@ -15,7 +15,7 @@ add_action(
 function gantz_newsletter_subscribe()
 {
     check_ajax_referer(
-        'gantz_newsletter',
+        'gantz-nonce',
         'nonce'
     );
 

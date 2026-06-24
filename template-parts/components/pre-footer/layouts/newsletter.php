@@ -12,8 +12,6 @@
         </div>
 
         <form class="newsletter-form" action="" method="post">
-            <?php wp_nonce_field('gantz_newsletter', 'newsletter_nonce'); ?>
-            
             <input
                 type="email"
                 id="newsletter-email"
@@ -69,13 +67,13 @@
 
             formData.append(
                 'nonce',
-                form.querySelector('[name="newsletter_nonce"]').value
+                gantz.nonce
             );
 
             try {
 
                 const response = await fetch(
-                    gantzNewsletter.ajax_url,
+                    gantz.ajaxUrl,
                     {
                         method: 'POST',
                         body: formData
