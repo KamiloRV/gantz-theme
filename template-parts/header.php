@@ -228,7 +228,7 @@ $social_links = [
                 </ul>
             </div>
         </nav>
-        <a href="#"
+        <!-- <a href="#"
             class="featured-link body-1">
             <div class="container">
                 <span class="featured-text">Agendar hora</span>
@@ -236,7 +236,7 @@ $social_links = [
                     <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#external-link' ); ?>" />
                 </svg>
             </div>
-        </a>
+        </a> -->
         <nav class="navbar-nav">
             <?php
             wp_nav_menu([
