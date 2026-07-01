@@ -2,7 +2,8 @@
 
 <?php 
 // Variables de la noticia
-$category = get_field('categoria') ?? null;
+$terms = get_the_terms(get_the_ID(), 'categoria');
+$category = !empty($terms) && !is_wp_error($terms) ? $terms[0] : null;
 $title = get_the_title() ?? 'Sin titulo';
 $tags = get_field('etiquetas');
 $date = get_the_date('j F \d\e Y');
