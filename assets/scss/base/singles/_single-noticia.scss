@@ -298,6 +298,8 @@
 
                     border-radius: 12px;
 
+                    background: $shade_white;
+
                     @include media-breakpoint-up(lgg) {
                         height: 234px;
                         aspect-ratio: 23/13;
