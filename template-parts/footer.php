@@ -45,7 +45,7 @@ $contactos = [
             ['tipo' => 'email',  'valor' => get_field('contactos_recepcion_email', 'option') ?: 'recepcion@gantz.cl'],
             ['tipo' => 'phone',  'valor' => get_field('contactos_recepcion_phone', 'option') ?: '9 6878 1989'],
             ['tipo' => 'phone',  'valor' => get_field('contactos_recepcion_phone2', 'option') ?: '22 338 64 00'],
-            ['tipo' => 'phone',   'valor' => get_field('contactos_recepcion_phone3', 'option') ?: '(Pendiente)'],
+            ['tipo' => 'phone',   'valor' => get_field('contactos_recepcion_phone3', 'option') ?: '22 338 64 30'],
         ],
     ],
     [
