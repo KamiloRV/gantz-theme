@@ -222,15 +222,8 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                                 Limpiar Filtros
                             </a>
                         </div>
-                        <!-- <h3 class="filtros-categorias__titulo body-1">Filtrar por categorías</h3> -->
                         <?php if ($categorias && !is_wp_error($categorias)) : ?>
                             <ul class="filtros-categorias__list">
-                                <!-- <li class="filtros-categorias__item">
-                                    <a class="filtros-categorias__link chip <?php echo empty($categorias_activas) ? 'active' : ''; ?>" 
-                                        href="<?php echo esc_url(remove_query_arg(['categoria', 'buscar']) . '#archivo-noticias'); ?>">
-                                        Todas
-                                    </a>
-                                </li> -->
                                 <?php foreach ($categorias as $cat) : ?>
                                     <?php
                                     $slug = $cat->slug;
@@ -261,8 +254,10 @@ $logo = get_field('ajustes_logo', 'option')['url'];
 
                                     // URL final
                                     $url = add_query_arg(
-                                        'categoria',
-                                        implode(',', $nuevas_categorias),
+                                        [
+                                            'categoria' => implode(',', $nuevas_categorias),
+                                            'paged'     => 1,
+                                        ],
                                         get_post_type_archive_link('noticia')
                                     ) . '#archivo-noticias';
 
