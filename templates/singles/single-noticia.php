@@ -5,7 +5,7 @@
 $terms = get_the_terms(get_the_ID(), 'categoria');
 $category = !empty($terms) && !is_wp_error($terms) ? $terms[0] : null;
 $title = get_the_title() ?? 'Sin titulo';
-$tags = get_field('etiquetas');
+$tags = get_the_terms(get_the_ID(), 'etiqueta');
 $date = get_the_date('j F \d\e Y');
 $datetime = get_the_date('Y-m-d');
 $image = get_field('imagen');
@@ -51,7 +51,7 @@ $galleryID = get_field('galeria');
                 </h1>
 
                 <ul class="noticia__etiquetas">
-                    <?php if( $tags ): ?>
+                    <?php if (!empty($tags) && !is_wp_error($tags)) : ?>
                         <?php foreach ($tags as $tag) : ?>
                             <li class="etiqueta nota"><?php echo $tag->name; ?></li>
                         <?php endforeach; ?>
