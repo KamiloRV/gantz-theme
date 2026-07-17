@@ -60,3 +60,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }(jQuery));
 });
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    ['rut-paciente', 'rut-cuidador'].forEach(function(id) {
+
+        const input = document.getElementById(id);
+
+        if (!input) return;
+
+        input.addEventListener('input', function () {
+
+            let valor = this.value.replace(/[^0-9kK]/g, '').toUpperCase();
+
+            if (valor.length < 2) {
+                this.value = valor;
+                return;
+            }
+
+            const dv = valor.slice(-1);
+            let cuerpo = valor.slice(0, -1);
+
+            cuerpo = cuerpo.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+            this.value = cuerpo + "-" + dv;
+
+        });
+
+    });
+
+});
