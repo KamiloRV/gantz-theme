@@ -94,6 +94,53 @@
             </div>
         </div>
     </section>
+    <!-- Cronograma rehabilitación del tratamiento -->
+    <section class="cronograma-rehabilitacion" aria-labelledby="titulo-cronograma-rehabilitacion">
+        <div class="cronograma-rehabilitacion__container container">
+            <div class="cronograma-rehabilitacion__container-inner container-inner">
+                <div class="cronograma-rehabilitacion__container-inner">
+                    <div class="cronograma-rehabilitacion__header">
+                        <h2 class="cronograma-rehabilitacion__titulo text-center mb-5">
+                            Cronograma de rehabilitación<br> y seguimiento en fisura labiopalatina
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="cronograma-rehabilitacion__caja mb-4 border bg-white">
+                                <h3 class="cronograma-rehabilitacion__subtitulo">Especialidades <span class="d-block h4 mt-2 fw-semibold">15</span></h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cronograma-rehabilitacion__caja mb-4 border bg-white">
+                                <h3 class="cronograma-rehabilitacion__subtitulo">Total de visitas <span class="d-block h4 mt-2 fw-semibold">120</span></h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cronograma-rehabilitacion__caja mb-4 border bg-white">
+                                <h3 class="cronograma-rehabilitacion__subtitulo">Inicio del tratamiento <span class="d-block h4 mt-2 fw-semibold">Mes 1</span></h3>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="cronograma-rehabilitacion__caja mb-4 border bg-white">
+                                <h3 class="cronograma-rehabilitacion__subtitulo">Seguimiento hasta <span class="d-block h4 mt-2 fw-semibold">18 años</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <img src="https://gantz.cl/wp-content/themes/gantz/assets/images/cronograma-rehabilitacion.png" class="d-none d-md-block w-100 mb-4">
+                    <p class="cronograma-rehabilitacion__nota text-center">Este cronograma es una guía orientativa. El tratamiento específico debe ser personalizado según las necesidades de cada paciente.</p>
+                    <a class="gantz-btn secondary-btn blue d-flex d-md-none text-center my-4" href="https://gantz.cl/wp-content/uploads/2026/07/infografia-cronograma.pdf" target="_blank" rel="noopener noreferrer">
+
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="https://gantz.cl/wp-content/themes/gantz/assets/images/icons.svg#download"></use>
+                        </svg>
+        
+                        Descargar documento
+                    </a>  
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Guía para padres -->
     <section class="guia" aria-labelledby="titulo-guia">
         <?php 
