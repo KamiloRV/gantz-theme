@@ -442,13 +442,33 @@
 
 }
 
-
-
+/* Tratamiento */
+.cronograma-rehabilitacion {
+    padding-block: 80px 100px;
+}
+.cronograma-rehabilitacion__subtitulo {
+    font-size: 16px;
+    font-weight: normal;
+}
+.cronograma-rehabilitacion__caja {
+    border: 1px solid #2E3E804D;
+    padding: 20px;
+    border-radius: 8px;
+}
+.cronograma-rehabilitacion__br {
+    border-color: #2E3E80;
+}
+.cronograma-rehabilitacion__nota {
+    font-size: 16px;
+    font-weight: normal;
+    color: #2E3E80;
+}
 
 /* Guia */
 .page-tratamiento {
     .guia {
         padding-block: 56px;
+        background: $shade-white;
 
         &__container-inner {
             /* display: flex;
