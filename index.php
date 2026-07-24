@@ -45,6 +45,7 @@ $social_links = [
             <?php foreach ($hero_slides as $index => $slide) :
 
                 $is_first  = $index === 0;
+                $visible   = $slide['colapsar']['visible'] ?? false;
                 $tipo      = $slide['tipo'];
                 $imagen    = $slide['imagen'];
                 $titulo    = $slide['titulo']       ?? '';
@@ -66,7 +67,7 @@ $social_links = [
 
                 $datos = $slide['dato'] ?? '';
 
-                if ($tipo === 'cta') : ?>
+                if ($tipo === 'cta' && $visible === 'on') : ?>
                     <div class="slide<?php echo $is_first ? ' is-active' : ''; ?> <?php echo ($bg_color === 'white-bg') ? esc_attr($bg_color) : ''; ?>" aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>" role="group" aria-roledescription="slide" aria-label="Slide <?php echo $index + 1; ?> de <?php echo count($hero_slides); ?>">
                         <div class="image">
                             <?php if( !empty( $imagen ) ): ?>
@@ -102,7 +103,7 @@ $social_links = [
                             </div>
                         </div>
                     </div>
-                <?php elseif ($tipo === 'datos'): ?>
+                <?php elseif ($tipo === 'datos' && $visible === 'on'): ?>
                     <div class="slide<?php echo $is_first ? ' is-active' : ''; ?> datos" aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>" role="group" aria-roledescription="slide" aria-label="Slide <?php echo $index + 1; ?> de <?php echo count($hero_slides); ?>">
                         <div class="image">
                             <?php if( !empty( $imagen ) ): ?>
