@@ -45,7 +45,9 @@ $logo = get_field('ajustes_logo', 'option')['url'];
 
                         $year = get_field('year');
                         $final_year = $year === 'post_date' ? get_the_date('Y') : $year;
-                        $url = get_field('file_url') ?: '#';
+
+                        $file = get_field('file');
+                        $url = $file['pdf'] ? $file['pdf']['url'] : '#';
                         $url_dir = get_field('file_type');
 
                         $title = $year >= 2016 ? 'FECU Social ' . $year : 'Memoria ' . $year;
