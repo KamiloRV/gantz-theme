@@ -158,15 +158,27 @@ $social_links = [
         <?php /* — Dots */ ?>
         <div class="dots" role="tablist"
             aria-label="Navegación de slides">
-            <?php foreach ($hero_slides as $index => $slide) : ?>
-                <button class="dot<?php echo $index === 0 ? ' is-active' : ''; ?>"
+            <?php 
+            $dot_index = 0;
+
+            foreach ($hero_slides as $slide) :
+
+                $visible = $slide['colapsar']['visible'] ?? false;
+
+                if ($visible !== 'on') {
+                    continue;
+                }
+            ?>
+                <button class="dot<?php echo $dot_index  === 0 ? ' is-active' : ''; ?>"
                         type="button"
                         role="tab"
                         aria-selected="<?php echo $index === 0 ? 'true' : 'false'; ?>"
                         aria-label="<?php printf(esc_attr__('Ir al slide %d', 'mi-tema'), $index + 1); ?>"
                         data-index="<?php echo esc_attr($index); ?>">
                 </button>
-            <?php endforeach; ?>
+            <?php 
+                $dot_index++;
+            endforeach; ?>
         </div>
     </section>
     <section class="quienes-somos" aria-labelledby="titulo-quienes-somos">
