@@ -71,7 +71,7 @@ $social_links = [
                     <div class="slide<?php echo $is_first ? ' is-active' : ''; ?> <?php echo ($bg_color === 'white-bg') ? esc_attr($bg_color) : ''; ?>" aria-hidden="<?php echo $is_first ? 'false' : 'true'; ?>" role="group" aria-roledescription="slide" aria-label="Slide <?php echo $index + 1; ?> de <?php echo count($hero_slides); ?>">
                         <div class="image">
                             <?php if( !empty( $imagen ) ): ?>
-                                <img src="<?php echo esc_url($imagen['url']); ?>" alt="<?php echo esc_attr($imagen['alt']); ?>" <?php echo $is_first ? 'loading="eager"' : 'loading="lazy"'; ?>>
+                                <img src="<?php echo esc_url($imagen['url']); ?>" alt="<?php echo esc_attr($imagen['alt']); ?>" <?php echo $is_first ? 'loading="eager" fetchpriority="high" decoding="async"' : 'loading="lazy" decoding="async"'; ?>>
                             <?php endif; ?>
                         </div>
                         <div class="container content <?php echo ($bg_color === 'white-bg') ? esc_attr($bg_color) : ''; ?>">
