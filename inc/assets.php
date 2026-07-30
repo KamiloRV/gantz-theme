@@ -31,13 +31,13 @@ function gantz_enqueue_assets() {
     );
 
     // jQuery (incluido en WordPress)
-    wp_enqueue_script( 'jquery' );
+    /* wp_enqueue_script( 'jquery' ); */
 
     // Bootstrap JS
     wp_enqueue_script(
         'bootstrap',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js',
-        [ 'jquery' ],
+        [],
         '5.3.8',
         true
     );
@@ -46,7 +46,7 @@ function gantz_enqueue_assets() {
     wp_enqueue_script(
         'gantz-main',
         get_template_directory_uri() . '/assets/js/main.js',
-        [ 'jquery', 'bootstrap' ],
+        [ 'bootstrap' ],
         $ver,
         true
     );
@@ -56,7 +56,7 @@ function gantz_enqueue_assets() {
         wp_enqueue_script(
             'sliders',
             get_template_directory_uri() . '/assets/js/sliders.js',
-            [ 'jquery', 'bootstrap' ],
+            [ 'bootstrap' ],
             $ver,
             true
         );
