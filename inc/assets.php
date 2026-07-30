@@ -6,12 +6,12 @@ function gantz_enqueue_assets() {
 
     $ver = wp_get_theme()->get( 'Version' ); // versión del tema para cache-busting
 
-    // Google Fonts
+    // Fuentes locales (antes: Google Fonts remoto)
     wp_enqueue_style(
-        'google-fonts',
-        'https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;1,500&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap',
+        'gantz-fonts',
+        get_template_directory_uri() . '/assets/css/fonts.css',
         [],
-        null
+        $ver
     );
 
     // Bootstrap CSS
@@ -22,11 +22,11 @@ function gantz_enqueue_assets() {
         '5.3.7'
     ); */
 
-    // CSS principal del tema (depende de bootstrap)
+    // CSS principal del tema (depende de bootstrap y de las fuentes)
     wp_enqueue_style(
         'gantz-main',
         get_template_directory_uri() . '/assets/css/main.css',
-        [],
+        [ 'gantz-fonts' ],
         $ver
     );
 
