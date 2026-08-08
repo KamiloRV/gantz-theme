@@ -59,9 +59,12 @@ function gantz_cf7_newsletter_subscribe($contact_form)
 
     /**
      * Guardar en la base de newsletter.
+     * La selección del radio "Sí, me quiero suscribir"
+     * es en sí misma el consentimiento explícito.
      */
     gantz_add_subscriber(
         $email,
-        'contacto'
+        'contacto',
+        true
     );
 }

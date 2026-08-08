@@ -49,6 +49,13 @@ require_once get_template_directory() . '/inc/newsletter/ajax.php';
 require_once get_template_directory() . '/inc/newsletter/cf7.php';
 
 /**
+ * Consentimiento de formularios
+ */
+require_once get_template_directory() . '/inc/consentimientos/install.php';
+require_once get_template_directory() . '/inc/consentimientos/cf7.php';
+require_once get_template_directory() . '/inc/consentimientos/admin.php';
+
+/**
  * Validación de RUT Chileno para Contact Form 7
  */
 

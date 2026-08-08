@@ -80,6 +80,10 @@
             width: 100%;
             text-transform: uppercase;
         }
+
+        &--checkbox {
+            gap: 8px;
+        }
     }
 
     .gantz-form-field {
@@ -369,6 +373,11 @@
                     content: 'adada';
                 }
             }
+        }
+
+        &--checkbox {
+            height: fit-content!important;
+            margin-top: 10px;
         }
     }
 

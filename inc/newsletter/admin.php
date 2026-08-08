@@ -35,8 +35,8 @@ function gantz_newsletter_page()
             Suscriptores Newsletter
         </h1>
 
-        <a
-            href="<?php echo admin_url('admin-post.php?action=gantz_export_newsletter'); ?>"
+        
+            <a href="<?php echo admin_url('admin-post.php?action=gantz_export_newsletter'); ?>"
             class="page-title-action"
         >
             Exportar CSV
@@ -50,6 +50,7 @@ function gantz_newsletter_page()
                 <tr>
                     <th>Email</th>
                     <th>Origen</th>
+                    <th>Consentido</th>
                     <th>Fecha</th>
                 </tr>
             </thead>
@@ -66,6 +67,10 @@ function gantz_newsletter_page()
 
                         <td>
                             <?php echo esc_html($subscriber->source); ?>
+                        </td>
+
+                        <td>
+                            <?php echo $subscriber->consentido ? 'Sí' : 'No'; ?>
                         </td>
 
                         <td>
@@ -102,7 +107,7 @@ function gantz_export_newsletter()
     $table = $wpdb->prefix . 'newsletter_subscribers';
 
     $rows = $wpdb->get_results(
-        "SELECT email, source, created_at
+        "SELECT email, source, consentido, created_at
          FROM {$table}
          ORDER BY created_at DESC",
         ARRAY_A
@@ -120,10 +125,11 @@ function gantz_export_newsletter()
 
     fputcsv(
         $output,
-        ['Email', 'Origen', 'Fecha']
+        ['Email', 'Origen', 'Consentido', 'Fecha']
     );
 
     foreach ($rows as $row) {
+        $row['consentido'] = $row['consentido'] ? 'Sí' : 'No';
         fputcsv($output, $row);
     }
 
@@ -136,7 +142,8 @@ function gantz_export_newsletter()
 /* Guardar correos */
 function gantz_add_subscriber(
     $email,
-    $source = 'newsletter'
+    $source = 'newsletter',
+    $consentido = false
 )
 {
     global $wpdb;
@@ -149,24 +156,45 @@ function gantz_add_subscriber(
         return false;
     }
 
-    $exists = $wpdb->get_var(
+    if (!$consentido) {
+        return false;
+    }
+
+    $existing = $wpdb->get_row(
         $wpdb->prepare(
-            "SELECT id
+            "SELECT id, consentido
              FROM {$table}
              WHERE email = %s",
             $email
         )
     );
 
-    if ($exists) {
-        return false;
+    if ($existing) {
+
+        /* Ya estaba consentido: no hay nada que actualizar */
+        if ((int) $existing->consentido === 1) {
+            return false;
+        }
+
+        /* Estaba en la lista antigua sin consentimiento: se actualiza */
+        return $wpdb->update(
+            $table,
+            [
+                'consentido' => 1,
+                'source'     => $source,
+                'created_at' => current_time('mysql'),
+            ],
+            ['id' => $existing->id]
+        );
     }
 
+    /* Suscriptor nuevo */
     return $wpdb->insert(
         $table,
         [
-            'email'  => $email,
-            'source' => $source,
+            'email'      => $email,
+            'source'     => $source,
+            'consentido' => 1,
         ]
     );
 }

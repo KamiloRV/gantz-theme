@@ -30,9 +30,19 @@ function gantz_newsletter_subscribe()
         ]);
     }
 
+    $consentido = isset($_POST['newsletter_consent']) && $_POST['newsletter_consent'] === '1';
+
+    if (!$consentido) {
+
+        wp_send_json_error([
+            'message' => 'Debes aceptar el tratamiento de datos para suscribirte.'
+        ]);
+    }
+
     $inserted = gantz_add_subscriber(
         $email,
-        'newsletter'
+        'newsletter',
+        $consentido
     );
 
     if (!$inserted) {

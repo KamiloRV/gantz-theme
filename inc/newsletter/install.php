@@ -17,6 +17,7 @@ function gantz_newsletter_create_table()
         id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
         email VARCHAR(255) NOT NULL,
         source VARCHAR(100) DEFAULT 'newsletter',
+        consentido TINYINT(1) NOT NULL DEFAULT 0,
         created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
         PRIMARY KEY (id),
         UNIQUE KEY email (email)
@@ -35,7 +36,7 @@ function gantz_newsletter_create_table()
  */
 function gantz_newsletter_install()
 {
-    $version = '0.0';
+    $version = '0.2';
 
     if (
         get_option('gantz_newsletter_version')

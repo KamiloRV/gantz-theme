@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }(jQuery));
 });
 
-
+/* Formateo RUT */
 document.addEventListener('DOMContentLoaded', function () {
 
     ['rut-paciente', 'rut-cuidador'].forEach(function(id) {
@@ -90,4 +90,42 @@ document.addEventListener('DOMContentLoaded', function () {
 
     });
 
+});
+
+/* Formateo Numero de telefono */
+document.addEventListener('DOMContentLoaded', () => {
+
+    const telInputs = document.querySelectorAll('input[type="tel"]');
+
+    telInputs.forEach((input) => {
+
+        input.addEventListener('input', () => {
+
+            // Guarda posición del cursor antes de reformatear
+            const cursorPos = input.selectionStart;
+            const originalLength = input.value.length;
+
+            // Solo dígitos, máximo 9 (formato chileno sin +56)
+            let digits = input.value.replace(/\D/g, '').slice(0, 9);
+
+            let formatted = '';
+
+            if (digits.length > 0) {
+                formatted = digits.slice(0, 1);
+            }
+            if (digits.length > 1) {
+                formatted += ' ' + digits.slice(1, 5);
+            }
+            if (digits.length > 5) {
+                formatted += ' ' + digits.slice(5, 9);
+            }
+
+            input.value = formatted;
+
+            // Reajusta cursor considerando los espacios agregados
+            const newLength = input.value.length;
+            const diff = newLength - originalLength;
+            input.setSelectionRange(cursorPos + diff, cursorPos + diff);
+        });
+    });
 });
