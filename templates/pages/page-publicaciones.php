@@ -75,7 +75,16 @@ $logo = get_field('ajustes_logo', 'option')['url'];
                         $volume = get_field('volumen');
                         $year   = get_field('year');
                         $final_year = $year === 'post_date' ? get_the_date('Y') : $year;
-                        $link   = get_field('link') ?: '#'; 
+                        
+                        $archiveorlink = get_field('archivolink');
+
+                        $type = $archiveorlink['tipo'] ?? '';
+                        $link = $archiveorlink['link'] ?? '#';
+                        $file = $archiveorlink['file'] ?? null;
+
+                        if ($type === 'file' && $file) {
+                            $link = $file;
+                        }
 
                         $publicacion = [];
 
