@@ -154,11 +154,11 @@ $social_links = [
                         </svg>
                         <?php echo esc_html($cta_text) ; ?>
                     </a>
-                    <!-- <button class="search-button">
+                    <button class="search-button" type="button" aria-label="Abrir búsqueda" aria-expanded="false" aria-controls="search-modal">
                         <svg aria-hidden="true" focusable="false">
-                            <use href="<?php echo esc_url( $directory_uri . '/assets/images/icons.svg#search' ); ?>" />
+                            <use href="<?php echo esc_url($directory_uri . '/assets/images/icons.svg#search'); ?>" />
                         </svg>
-                    </button> -->
+                    </button>
                 </div>
             </div>
         </div>
@@ -249,5 +249,38 @@ $social_links = [
             ]);
             ?>
         </nav>
+    </div>
+</div>
+
+<!-- Search Modal -->
+<div id="search-modal" class="search-modal" aria-hidden="true">
+    <div class="search-modal__overlay"></div>
+
+    <div class="search-modal__content" role="dialog" aria-modal="true" aria-labelledby="search-modal-title">
+
+        <button type="button" class="search-modal__close" aria-label="Cerrar búsqueda">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="icon icon-tabler icons-tabler-outline icon-tabler-x" viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z"/><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+
+        <!-- <h2 id="search-modal-title">
+            ¿Qué estás buscando?
+        </h2> -->
+
+        <form class="search-modal__form" role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
+
+            <label class="screen-reader-text" for="search-modal-input">
+                ¿Buscas algo en particular?
+            </label>
+
+            <input type="search" id="search-modal-input" name="s" placeholder="¿Buscas algo en particular?" autocomplete="off" required>
+
+            <button type="submit" aria-label="Buscar">
+                <svg aria-hidden="true" focusable="false">
+                    <use href="<?php echo esc_url($directory_uri . '/assets/images/icons.svg#search'); ?>" />
+                </svg>
+            </button>
+
+        </form>
+
     </div>
 </div>

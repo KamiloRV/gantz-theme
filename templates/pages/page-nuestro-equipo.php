@@ -129,6 +129,7 @@
                     class="experto-card"
                     itemscope
                     itemtype="https://schema.org/Person"
+                    id="experto-<?php the_ID(); ?>"
                 >
 
                     <?php if ($imagen) : ?>

@@ -369,7 +369,7 @@ elseif (is_search()) {
 
     $items[] = [
         'label'   => sprintf(
-            __('Resultados para: "%s"', 'mi-tema'),
+            __('Resultados de búsqueda', 'mi-tema'),
             get_search_query()
         ),
         'current' => true,

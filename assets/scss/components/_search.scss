@@ -1,0 +1,199 @@
+html.search-modal-open {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+}
+
+body.search-modal-open {
+    overflow: hidden;
+
+    .search-modal {
+        display: block;
+    }
+}
+
+/* Modal */
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 100%;
+    height: 100vh;
+
+    .search-modal__overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $main-black;
+        opacity: .7;
+        z-index: 1;
+    }
+
+    .search-modal__content {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .search-modal__close {
+        background: none;
+        border: none;
+        outline: none;
+        background: $main-black;
+        color: $main-white;
+        border-radius: 8px;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 12px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+/* Input */
+.search-modal__form, .search-page__form {
+    display: inline-flex;
+    width: 100%;
+    height: 48px;
+    background: $main-white;
+    border: 1px solid rgba(46, 62, 128, 0.3);
+    border-radius: 12px;
+    padding: 0 16px;
+
+    input {
+        background: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 12px;
+        color: $main-black;
+    }
+
+    button {
+        background: none;
+        border: none;
+        outline: none;
+
+        svg {
+            width: 16px;
+            height: 16px;
+            color: $primary-blue;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        height: 70px;
+
+        input {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        button {
+            svg {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}
+
+body.search {
+    .search-page {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        padding-block: 32px 56px;
+
+
+        .search-page__header {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: flex-start;
+
+            .search-page__title {
+                display: inline-flex;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 12px;
+                /* font-size: 29px;
+                font-weight: 700; */
+
+                span.result {
+                    display: none;
+                }
+                
+                svg {
+                    width: 24px;
+                    height: 24px;
+                    flex-shrink: 0;
+                }
+            }
+
+            .search-page__count {
+                color: $primary-blue;
+            }
+        }
+
+        .search-result {
+            text-decoration: none;
+            
+            article {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                padding-block: 32px;
+                border-top: 1px solid rgba(46, 62, 128, 0.3);
+            }
+
+            &:last-child {
+                article {
+                    border-bottom: 1px solid rgba(46, 62, 128, 0.3);
+                }
+            }
+
+            &__content {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        @include media-breakpoint-up(lg) {
+            gap: 48px;
+            padding-block: 48px 100px;
+
+            .search-page__header {
+                gap: 48px;
+
+                .search-page__title {
+                    gap: 16px;
+
+                    span.result {
+                        display: inline;
+                    }
+
+                    svg {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+            }
+        }
+    }
+}

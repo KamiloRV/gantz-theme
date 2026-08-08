@@ -129,3 +129,80 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/* Modal Search */
+document.addEventListener('DOMContentLoaded', () => {
+
+    const searchButton = document.querySelector('.search-button');
+    const searchModal = document.querySelector('#search-modal');
+    const searchClose = searchModal?.querySelector('.search-modal__close');
+    const searchInput = searchModal?.querySelector('input[type="search"]');
+
+    if (!searchButton || !searchModal) return;
+
+
+    // Abrir modal
+    const openSearchModal = () => {
+
+        searchModal.setAttribute('aria-hidden', 'false');
+        searchButton.setAttribute('aria-expanded', 'true');
+
+        document.documentElement.classList.add('search-modal-open');
+        document.body.classList.add('search-modal-open');
+
+        // Llevar el foco al input
+        if (searchInput) {
+            setTimeout(() => {
+                searchInput.focus();
+            }, 100);
+        }
+    };
+
+
+    // Cerrar modal
+    const closeSearchModal = () => {
+
+        searchModal.setAttribute('aria-hidden', 'true');
+        searchButton.setAttribute('aria-expanded', 'false');
+
+        document.documentElement.classList.remove('search-modal-open');
+        document.body.classList.remove('search-modal-open');
+
+        // Devolver el foco a la lupa
+        searchButton.focus();
+    };
+
+
+    // Botón de búsqueda del header
+    searchButton.addEventListener('click', openSearchModal);
+
+
+    // Botón cerrar
+    if (searchClose) {
+        searchClose.addEventListener('click', closeSearchModal);
+    }
+
+
+    // Cerrar haciendo clic fuera del contenido
+    searchModal.addEventListener('click', (event) => {
+
+        if (event.target === searchModal) {
+            closeSearchModal();
+        }
+
+    });
+
+
+    // Cerrar con ESC
+    document.addEventListener('keydown', (event) => {
+
+        if (
+            event.key === 'Escape' &&
+            searchModal.getAttribute('aria-hidden') === 'false'
+        ) {
+            closeSearchModal();
+        }
+
+    });
+
+});
