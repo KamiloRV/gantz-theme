@@ -31,13 +31,13 @@
                 </button>
             </div>
 
-            <!-- <label class="newsletter-form__consent" for="newsletter-consent">
+            <label class="newsletter-form__consent" for="newsletter-consent">
                 <input type="checkbox" id="newsletter-consent" name="newsletter_consent" required>
                 <span class="nota text-mw">
                     Acepto recibir correos de Fundación Gantz y que mi email sea almacenado para este fin, según la
                     <a href="<?php echo esc_url(home_url('/')); echo 'politica-de-privacidad'; ?>" target="_blank" class="nota text-py">Política de Privacidad</a>.
                 </span>
-            </label> -->
+            </label>
         </form>
     </div>
 </section>
