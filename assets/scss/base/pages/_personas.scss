@@ -874,14 +874,26 @@
                         &::before {
                             content: 'Paso 1: ';
                             font-weight: 600;
+                        } 
+                    }
+                }
+            }
 
-                            &--2 {
-                                content: 'Paso 2: ';
-                            }
-                            
-                            &--3 {
-                                content: 'Paso 3: ';
-                            }
+            &.paso--2 {
+                .paso__texto {
+                    > p:first-child {
+                        &::before {
+                            content: 'Paso 2: ';
+                        }
+                    }
+                }
+            }
+
+            &.paso--3 {
+                .paso__texto {
+                    > p:first-child {
+                        &::before {
+                            content: 'Paso 3: ';
                         }
                     }
                 }
