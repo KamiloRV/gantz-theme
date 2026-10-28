@@ -188,8 +188,37 @@
                 ]
             ]
         ]);
+    } 
+
+    /**
+    * Verifica si un área tiene expertos publicados,
+    * incluyendo los de sus subáreas.
+    */
+    function gantz_area_has_experts($term_id) {
+
+        $query = new WP_Query([
+            'post_type'      => 'experto',
+            'posts_per_page' => 1,
+            'post_status'    => 'publish',
+            'fields'         => 'ids',
+            'tax_query'      => [
+                [
+                    'taxonomy'         => 'area',
+                    'field'            => 'term_id',
+                    'terms'            => [$term_id],
+                    'include_children' => true,
+                ],
+            ],
+        ]);
+
+        $has_experts = $query->have_posts();
+
+        wp_reset_postdata();
+
+        return $has_experts;
     }
     ?>
+
 
     <?php
     $areas = get_terms([
@@ -212,6 +241,13 @@
     <?php if ($areas && !is_wp_error($areas)) : ?>
 
         <?php foreach ($areas as $area) : ?>
+
+            <?php
+            // No mostrar el área si no tiene expertos.
+            if (!gantz_area_has_experts($area->term_id)) {
+                continue;
+            }
+            ?>
 
             <section
                 class="expertos"
@@ -320,6 +356,10 @@
                                 continue;
                             }
 
+                            if (!gantz_area_has_experts($subarea->term_id)) {
+                                continue;
+                            }
+
                             $descripcion_subarea =
                                 gantz_get_area_description(
                                     $subarea->term_id,
@@ -405,6 +445,12 @@
                                 <?php if ($sub_subareas && !is_wp_error($sub_subareas)) : ?>
 
                                     <?php foreach ($sub_subareas as $sub_subarea) : ?>
+
+                                        <?php
+                                        if (!gantz_area_has_experts($sub_subarea->term_id)) {
+                                            continue;
+                                        }
+                                        ?>
 
                                         <?php
                                         $descripcion_sub_subarea =
